@@ -1,5 +1,5 @@
 created: 20170228070807064
-modified: 20170503055003913
+modified: 20180906105403453
 tags: [[ICLR 2017]] [[ICLR Paper Reviews]] Talks Meta-Learning
 title: Optimization as a Model for Few-Shot Learning
 type: text/vnd.tiddlywiki
@@ -13,14 +13,14 @@ Use LSTM to guide the classifier. SGD resembles the update for the cell state in
 $$
 c_t = f_t\odot c_{t-1} + i_t\odot \tilde c_t
 $$
-we set cell state be the model parameters $c_{t-1} = \theta_{t-1}$, input gate asa learning rate, $i_t=\alpha_t$, and candidate cell state be the negative gradient $\tilde c_t = -\nabla_{\theta_{t-1}}\mathcal L_t$.
+we set cell state be the model parameters $$c_{t-1} = \theta_{t-1}$$, input gate asa learning rate, $$i_t=\alpha_t$$, and candidate cell state be the negative gradient $$\tilde c_t = -\nabla_{\theta_{t-1}}\mathcal L_t$$.
 
 * Meta-training: train learner
 * Meta-testing: train meta-learner and best initialization
 
 # Use LSTM to model parameter dynamics during training
-#* LSTM parameters are shares across $M$'s parameters. Learning an update rule applied to each parameter independently, but each parameter has its own history.
-#* Learn $c_0$, like learning $M$'s initialization
+#* LSTM parameters are shares across $$M$$'s parameters. Learning an update rule applied to each parameter independently, but each parameter has its own history.
+#* Learn $$c_0$$, like learning $$M$$'s initialization
 # Inputs to meta-learning LSTM are the loss and gradient of learner
 #* preprocess by Andrychowicz et al (2016) to ensure loss and gradient are at the same scale
 # Train LSTM according to test sets
@@ -36,6 +36,6 @@ Parameter sharing across all coordinates of the learner gradient, but each has i
 
 ! Remarks
 
-There are works [[handling catastrophic forgetting|Overcoming catastrophic forgetting in NNs]]. Should think about it.
+There are works [[handling catastrophic forgetting|Overcoming Catastrophic Forgetting]]. Should think about it.
 
 Resembles a sequential Gradient synthesizer.

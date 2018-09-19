@@ -1,0 +1,48 @@
+created: 20180906085320314
+modified: 20180919080931254
+tags: [[Neural Architecture Search]]
+title: NAS Weight Sharing
+type: text/vnd.tiddlywiki
+
+We wish to concurrently estimate the parameters $$\theta$$ of a model and an architecture $$\alpha$$ by minimizing $$f(\theta, \alpha)$$. But $$f$$ is not differentiable w.r.t. $$\alpha$$. NAS uses ES to estimate the gradient of $$\alpha$$. ENAS' estimation of $$\theta$$ is biased.
+
+DARTS approximates $$f$$ with a relaxation $$g$$, similar to an average model. It starts from a complete graph and learn to prune the edges.
+$$
+\min_{\theta, \alpha}g(\theta, \alpha)
+$$
+The estimation of $$\alpha$$ is biased. The final configuration is never sparse.
+
+! Recast weight sharing as hierarchical bayes
+To actually learn a discrete structure, we apply ES instead of relaxation. We sample a configuration $$\mathbf w\sim p_\alpha(w)$$. The network parameters are shared across all configurations. The upperbound is
+$$
+f(\theta, \alpha)\le\mathbb E_{w\sim p(w|\alpha)}f(\theta, w) = J(\theta, \alpha, f)
+$$
+$$J$$ is differentiable w.r.t. $$\theta$$ and $$\nabla_\alpha J$$ is
+$$
+\frac{\partial}{\partial\alpha}\mathbb E_{w\sim p(w|\alpha)}f(\theta, w) = \mathbb E_{w\sim p(w|\alpha)}\frac{\partial}{\partial\alpha}f(\theta, w) + \mathbb E_{w\sim p(w|\alpha)}f(\theta, w)\frac{\partial}{\partial\alpha}\log p(w|\alpha)
+$$
+
+!! Gumbel trick
+The first attempt is use Gumbel trick. We approximate $$f$$ with $$g$$ similar to DARTS, but instead of directly estimate $$g(\theta, \alpha)$$, we sample $$w$$ from a Gumbel softmax $$w\sim \text{Gumbel}(\alpha)$$ which is differentiable w.r.t. $$\alpha$$ and the second term will be constant since in Gumbel we sample from uniform. We start with a high temperature and gradually anneal to a discrete configuration.
+
+This slightly overfits the model.
+
+|!connection |!param |!train |!val |!ft train |!ft val |
+|softmax |''3.94M'' |82.90 |66.36 |''97.29'' |80.55 |
+|Gumbel |5.06M |''89.72'' |''67.73'' |93.41 |''82.15'' |
+|Gumbel2 |4.86M | | |94.49 |81.15 |
+
+!! Graphical model
+Gumbel sampling is an empirical Bayes procedure that employs a point estimate for the mid-level, architecture-specific parameters in a hierarchical Bayesian model.
+
+The use of point estimate may lead to an inaccurate point approximation of the integral.
+
+This problem can be formulated as a probabilistic inference in a hierarchical model. 
+
+We approximate the distribution over hidden variables $$\theta$$ and $$\alpha$$ with some approximate distribution $$q(\theta, \alpha)$$. Gumbel can be seen as modelling the distribution as a product of independent marginals $$q(\theta, \alpha)=q(\theta)q(\alpha)$$.
+
+
+! Teacher forcing
+
+When forward pass use the current best
+When backward, update others to approximate the current highest.

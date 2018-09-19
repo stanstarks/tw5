@@ -1,5 +1,5 @@
 created: 20180604045116667
-modified: 20180726045900938
+modified: 20180809072157862
 tags: [[Semantic Segmentation]] [[Neural Architecture Search]]
 title: Neural Architecture Search Tasks
 type: text/vnd.tiddlywiki
@@ -17,6 +17,7 @@ type: text/vnd.tiddlywiki
 ** [[SwitchNorm|https://github.com/switchablenorms/Switchable-Normalization]]
 ** ReLUs
 ** Augmentation
+* ShuffleNet V2
 
 !! Decoder
 * Context Aggregation
@@ -30,10 +31,24 @@ type: text/vnd.tiddlywiki
 ** [[Competition Unpooling|https://arxiv.org/abs/1807.07803]]
 ** [[Bottleneck Attention Module|http://arxiv.org/abs/1807.06514]]
 ** [[Guided Upsampling|https://arxiv.org/abs/1807.07466]]
+* Aggretation level
+
+!! Methodology
+* Start from scratch
+* Take pretrained backbone
+** search decoder
+** aggregate
+* Hyperparameter search
+** num_epochs
+** learning rate
 
 ! Lightweight modules
 * Reward
 ** Computation: FLOPS, mult-add
+** Energy consumption
+*** [[MONAS|http://arxiv.org/abs/1806.10332]]: network initialized every iteration, using nvprof to compute energy. The multi-objective is controlled by weighting with threshold.
+*** MnasNet
+** Design multi-objective reward
 ** #params
 * Quantization
 ** Quantization function
@@ -45,6 +60,9 @@ type: text/vnd.tiddlywiki
 
 ! Meta Learning Algorithm
 * Differentiable (DARTS)
+** quantization
+** pooling
 * Reinforcement learning (ENAS)
+** [[PPO]]
 * [[Bayesian Optimization|https://arxiv.org/abs/1807.07362]]
 * Evolutionary Strategy ([[Guided ES|https://github.com/brain-research/guided-evolutionary-strategies]])

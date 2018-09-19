@@ -1,0 +1,9 @@
+created: 20180809064228270
+modified: 20180809064343153
+tags: [[Optimization Algorithms]]
+title: Search Based Methods
+type: text/vnd.tiddlywiki
+
+* Random Search
+* Tree of Parzen estimators
+* Sequential model-based algorithm configuration

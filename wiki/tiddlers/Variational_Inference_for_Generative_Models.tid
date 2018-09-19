@@ -1,5 +1,5 @@
 created: 20170306062407543
-modified: 20171220084723403
+modified: 20180919081137746
 tags: Blog [[Variational Generative Models]]
 title: Variational Inference for Generative Models
 type: text/vnd.tiddlywiki
@@ -13,17 +13,17 @@ Hopefully this would be the goto blog for variational inference if you are inter
 
 ! Variational Inference
 !! Introduction
-We care about the posterior of hidden variable $z$ given observation $x$:
+We care about the posterior of hidden variable $$z$$ given observation $$x$$:
 $$
 p(z|x) = \frac{p(z, x)}{p(x)}
 $$
-This is always intractable because the denominator $p(x)$ is super hard to compute. Let use the notations from [[The Variational Rényi Lower Bound|http://www.inference.vc/variational-renyi-lower-bound/]] for the ease of reading, the evaluation of
+This is always intractable because the denominator $$p(x)$$ is super hard to compute. Let use the notations from [[The Variational Rényi Lower Bound|http://www.inference.vc/variational-renyi-lower-bound/]] for the ease of reading, the evaluation of
 
-* $p(z)$ is very easy 🐣,
-* $p(x|z)$ is easy 🐹,
-* $p(x,z)$ is easy 🐨,
-* $p(x)$ is super-hard 🦂,
-* $p(z|x)$ is mega-hard 🐉
+* $$p(z)$$ is very easy 🐣,
+* $$p(x|z)$$ is easy 🐹,
+* $$p(x,z)$$ is easy 🐨,
+* $$p(x)$$ is super-hard 🦂,
+* $$p(z|x)$$ is mega-hard 🐉
 
 The 2 major approximation methods are
 

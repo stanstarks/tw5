@@ -1,5 +1,5 @@
 created: 20171016080434657
-modified: 20171205102743160
+modified: 20180907060310442
 tags: Meta-Learning
 title: One-shot Learning
 type: text/vnd.tiddlywiki
@@ -10,5 +10,7 @@ type: text/vnd.tiddlywiki
 ** [[Attentive Recurrent Comparators]]
 * DeepMind NIPS 2016: [[Matching Networks for One Shot Learning|https://arxiv.org/abs/1606.04080]]
 ** This model uses recent advances in attention and memory to achieve state-of-the-art performance classifying ImageNet images using only a single example from a class. However, we do not know what assumptions the network is making to classify these images.
+* [[Prototypical Networks for Few-shot Learning|http://papers.nips.cc/paper/6996-prototypical-networks-for-few-shot-learning]]
+** A simple clustering algorithm using [[Regular Bregman Divergences]]
 
 ! [[External memory for one-shot generalization]]

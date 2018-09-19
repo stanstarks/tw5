@@ -1,32 +1,42 @@
 created: 20180524073534350
-modified: 20180708071734009
+modified: 20180906085310164
 tags: Meta-Learning
 title: Neural Architecture Search
 type: text/vnd.tiddlywiki
+
+[[list|https://www.ml4aad.org/automl/literature-on-neural-architecture-search/]]
 
 ! Taxonomy
 * Reinforcement Learning
 ** NAS
 ** ENAS
 ** [[EAS and PathLevel|https://github.com/han-cai/PathLevel-EAS]]
+** [[Learning Transferable Architectures for Scalable Image Recognition|PPO for NAS]]
+** [[Progressive Neural Architecture Search|PPO for NAS]]
+*** sequential model-based optimization, increasing complexity progressively
 ** [[RENA|https://arxiv.org/abs/1806.07912]]
+** [[MnasNet|https://arxiv.org/abs/1807.11626]]: mobile
+** [[Transfer Automatic Machine Learning|https://arxiv.org/abs/1803.02780]]
+*** TRPO and REINFORCE better than PPO and UREX
 * Gradient Based
 ** [[DARTS]]
 ** [[Auto-Meta|https://arxiv.org/abs/1806.06927]]: Architecture for few-shot learning. The network is narrow and deep.
 * Hyperparameter Optimization
 ** [[Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization|https://arxiv.org/abs/1603.06560]]
-** [[Combining Hyperband and Bayesian Optimization]]
-** [[Learning Curve Prediction with Bayesian Neural Networks|https://openreview.net/forum?id=S11KBYclx]]
-*** limitaion of current hyperparameter optimization techniques:
-*** Bayesian NN with SGHMC generates parameters of the learnign curve
-** [[Accelerating Neural Architecture Search using Performance Prediction|https://arxiv.org/abs/1705.10823]]
 ** [[Hyperparameter Optimization: A Spectral Approach|https://arxiv.org/abs/1706.00764]]
+** [[Speeding up the Hyperparameter Optimization of Deep Convolutional Neural Networks (Hinz et al. 2018)|https://www.worldscientific.com/doi/abs/10.1142/S1469026818500086]]
+*** Both GA and TPE significantly outperform random search
+* Bayesian Optimization
+** [[Progressive Neural Architecture Search|https://arxiv.org/abs/1712.00559]]
 ** [[Neural Architecture Search with Bayesian Optimisation and Optimal Transport|https://arxiv.org/abs/1802.07191]]
+** [[Constructing Deep Neural Networks by Bayesian Network Structure Learning]]
+** [[Combining Hyperband and Bayesian Optimization]]
+** [[Learning Curve Prediction with Bayesian Neural Networks]]
+** [[Accelerating Neural Architecture Search using Performance Prediction|https://arxiv.org/abs/1705.10823]]
+** [[Efficient Neural Architecture Search with Network Morphism]]
 * Model based
 ** [[SMASH: One-Shot Model Architecture Search through HyperNetworks]]
 ** [[Simple and efficient architecture search for Convolutional Neural Networks|https://arxiv.org/abs/1711.04528]]
-** [[Progressive Neural Architecture Search|https://arxiv.org/abs/1712.00559]]
-*** sequential model-based optimization, increasing complexity progressively
 ** [[PPP-Net: Platform-aware Progressive Search for Pareto-optimal Neural Architectures|https://openreview.net/forum?id=B1NT3TAIM]]
 *** Efficiency is considered
 * Evolutionary
@@ -34,7 +44,13 @@ type: text/vnd.tiddlywiki
 ** [[Regularized Evolution for Image Classifier Architecture Search|https://arxiv.org/abs/1802.01548]]
 *** natural variant of the standard //tournament selection strategy//
 *** Instead of removing the worst performing one, remove the oldest one.
+** [[Lamarckian Evolution of Convolutional Neural Networks|https://arxiv.org/abs/1806.08099]]
+*** Weight inheritance
+*** How OpenAI Five inheritance weights?
+*** Simple search space, optimization is not sample efficient.
 
 ! Problems
 * How to define computation
 * How to evaluate different methods
+* [[NAS Acceleration]]
+* [[NAS Weight Sharing]]

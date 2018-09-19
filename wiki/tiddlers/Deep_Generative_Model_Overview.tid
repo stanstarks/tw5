@@ -1,5 +1,5 @@
 created: 20161107062348968
-modified: 20161107062355396
+modified: 20180916101916174
 tags: [[Deep Generative Models]]
 title: Deep Generative Model Overview
 type: text/vnd.tiddlywiki
@@ -34,11 +34,11 @@ Prior can be encoded in a parametric generatvie model with density estimation. [
 Until a few years ago the most popular way is to use undirected graphical models. And the flagship under the context of neural network is ''Deep Boltzmann machines'', where we define an energy function over the visible units and several hidden layers. We define an unnormalized probability distribution by taking $e$ to the negative energy fucntion, which has no constraint on it. And we normalize this positive functions to obtain a probability distribution function:
 
 $$
-\begin{align}
+\begin{aligned}
 p(h, x) &= \frac 1 Z \tilde p(h, x)\\
 \tilde p(h, x) &= \exp(-E(h, x))\\
 Z&=\sum_{h, x}\tilde p(h, x)
-\end{align}
+\end{aligned}
 $$
 
 Unfortunately, computing that normalizing constant is NP-complete and our ability to approximate it is limited. In particular, if we train a Boltzmann machine well enough to represent the sharp distribution of widely separated modes, then our ability to approximate it decays. Our best approximation to the partition function is based on drawing samples from the model using ''MCMC''. And this Monte Carlo method works well as long as it is able to move between different modes. As the modes become sharper and better separated, we have a more difficult time transitioning between them. There are a lot of strategies to increase the temperature of the distribution temperarily in order to force the Markov chain to mix. But this problem is not solved to our satisfaction.

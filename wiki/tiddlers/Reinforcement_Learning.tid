@@ -1,5 +1,5 @@
 created: 20161008091826135
-modified: 20180706065724368
+modified: 20180905071306588
 tags: [[Deep Learning Applications]]
 title: Reinforcement Learning
 type: text/vnd.tiddlywiki
@@ -10,13 +10,14 @@ type: text/vnd.tiddlywiki
 * [[Simple Reinforcement Learning with Tensorflow|https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0]]
 * [[Deep RL Bootcamp 2017 Berkeley|http://nuit-blanche.blogspot.hk/2017/10/slides-and-videos-deep-rl-bootcamp-26.html]]
 * [[An Outsider's Tour of Reinforcement Learning|http://www.argmin.net/2018/03/26/outsider-rl]]
+* [[ICML17 Deep RL Tutorial|https://sites.google.com/view/icml17deeprl]]
 
 ! Basic
 !! Theorems
 
 <<<
 ''Theorem'' [Value iteration converges]<br>
-At convergence, we have found the optimal value function $V^*$ for the discounted infinite horizon problem, which satisfies the Bellman equations
+At convergence, we have found the optimal value function $V^*$ for the discounted infinite horizon problem, which satisfies the [[Bellman equation]]
 $$
 \forall S\in S:\qquad V^*(s) = \max_a\sum_{s'}P(s'|s, a)[R(s, a, s')+\gamma V^*(s')]
 $$

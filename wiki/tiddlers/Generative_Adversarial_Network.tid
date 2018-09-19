@@ -1,5 +1,5 @@
 created: 20161021080332245
-modified: 20180125101805188
+modified: 20180916102029723
 tags: [[Deep Generative Models]]
 title: Generative Adversarial Network
 type: text/vnd.tiddlywiki
@@ -51,7 +51,8 @@ The loss $\mathcal L(\theta^*, \phi) = 2\mathrm{JS}(p^*\|q_\phi)-\log(4)$.
 * [[Unsupervised representation learning with deep convolutional generative adversarial networks]]
 ** Laplacian Pyramid of GANs is further suggested to generate high quality image in a coarse-to-fine manner.
 * [[DCGAN|Unsupervised representation learning with deep convolutional generative adversarial networks]]: a stable family of architecture in training.
-* [[SeqGAN|http://arxiv.org/abs/1609.05473]]
+* Sequential
+** [[SeqGAN]]
 * [[Stacked GAN|https://arxiv.org/abs/1612.04357]]
 * [[Super-Resolution GAN|https://arxiv.org/abs/1609.04802]]
 * [[InfoGAN]]

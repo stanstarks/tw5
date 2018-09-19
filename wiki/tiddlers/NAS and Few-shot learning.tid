@@ -1,0 +1,13 @@
+created: 20180906104803318
+modified: 20180907060349952
+tags: [[NAS Acceleration]]
+title: NAS and Few-shot learning
+type: text/vnd.tiddlywiki
+
+NAS Controller cannot adapt quickly with few samples. The controller should be able to look into history.
+
+* PPO rollouts
+* [[Neural HSMM]] learns with state change
+* [[Matching Networks]] uses attention and memory
+* LSTM itself as a meta-learner: [[Optimization as a Model for Few-Shot Learning]]
+

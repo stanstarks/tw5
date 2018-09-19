@@ -1,0 +1,9 @@
+created: 20180906043450829
+modified: 20180906043934318
+tags: [[Sequential Models]]
+title: Neural HSMM
+type: text/vnd.tiddlywiki
+
+[[link|http://arxiv.org/abs/1808.10122]]
+
+The idea is model a transition distribution within the recurrent cell. 

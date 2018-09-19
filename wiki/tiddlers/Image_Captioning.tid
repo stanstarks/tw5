@@ -1,5 +1,5 @@
 created: 20161012081206780
-modified: 20180402110732780
+modified: 20180906101949070
 tags: [[Deep Learning Applications]]
 title: Image Captioning
 type: text/vnd.tiddlywiki
@@ -10,6 +10,10 @@ type: text/vnd.tiddlywiki
 ! Bibs
 
 * [[Self-Guiding Multimodal LSTM - when we do not have a perfect training dataset for image captioning|https://arxiv.org/abs/1709.05038]]
+
+! Dataset
+* COCO
+* [[Conceptual Captions|https://ai.googleblog.com/2018/09/conceptual-captions-new-dataset-and.html]]
 
 ! Decoding
 

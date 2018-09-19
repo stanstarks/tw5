@@ -1,5 +1,5 @@
 created: 20161103092937981
-modified: 20180225135827624
+modified: 20180730111040362
 tags: [[ConvNet Layers]]
 title: Normalization Layer
 type: text/vnd.tiddlywiki
@@ -27,6 +27,8 @@ $$
 * Batch renormalization: correction for the discrepancy between minibatch and full-batch moments
 ** $\hat x_i\rightarrow \frac{x_i-\mu_B}{\sigma_B}\cdot\frac{\sigma_B}{\sigma}+\frac{\mu_B-\mu}{\sigma}$
 ** improves on small/biased minibatches
+* Switchable Normalization
+* [[Instance Batch Normalization|https://github.com/xingangpan/ibn-net]]
 
 ! Remarks
 Training normalization is a biased estimator of inference normalization. If the minibatch is biased, barch norm fails.

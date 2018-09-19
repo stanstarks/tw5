@@ -1,0 +1,10 @@
+created: 20180905105909369
+modified: 20180905105942924
+tags: [[NAS Acceleration]] [[Neural Architecture Search]]
+title: Learning Curve Prediction with Bayesian Neural Networks
+type: text/vnd.tiddlywiki
+
+[[Link|https://openreview.net/forum?id=S11KBYclx]]
+
+* limitaion of current hyperparameter optimization techniques:
+* Bayesian NN with SGHMC generates parameters of the learnign curve

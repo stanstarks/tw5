@@ -1,0 +1,8 @@
+created: 20180807010648564
+modified: 20180817002558167
+tags: PPO
+title: PPO for NAS
+type: text/vnd.tiddlywiki
+
+* [[Learning Transferable Architectures for Scalable Image Recognition|https://arxiv.org/abs/1707.07012]]
+* [[Faster Discovery of Neural Architectures by Searching for Paths in a Large Model|https://openreview.net/forum?id=ByQZjx-0-]]

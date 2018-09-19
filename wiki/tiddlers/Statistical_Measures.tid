@@ -1,5 +1,5 @@
 created: 20170427153639938
-modified: 20171220082548684
+modified: 20180907053511603
 tags: [[Probabilistic Models]]
 title: Statistical Measures
 type: text/vnd.tiddlywiki
@@ -90,3 +90,6 @@ is equivalent to minimizing the KL-divergence $KL(P_r\|P_\theta)$.
 
 ! Bibs
 * [[Parallel Multiscale Autoregresssive Density Estimation]]
+
+! Other distances
+* [[Regular Bregman Divergences]]

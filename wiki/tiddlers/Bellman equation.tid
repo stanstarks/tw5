@@ -1,0 +1,8 @@
+created: 20180810005117357
+modified: 20180810010343097
+tags: [[Reinforcement Learning]]
+title: Bellman equation
+type: text/vnd.tiddlywiki
+
+Bellman equation equates the value of the current state to the immediate reward plus the value of the next state. It assumes there is no uncertainty in the quantities (or alternatively, that the agent is risk-neutral with respect to uncertainty).
+

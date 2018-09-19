@@ -1,0 +1,16 @@
+created: 20180809050944752
+modified: 20180809061752178
+tags: [[Neural Architecture Search]]
+title: Constructing Deep Neural Networks by Bayesian Network Structure Learning
+type: text/vnd.tiddlywiki
+
+* [[link|https://arxiv.org/abs/1806.09141]]
+* [[Learning stochastic inverse|https://papers.nips.cc/paper/4966-learning-stochastic-inverses.pdf]]
+* [[Recursive Autonomy Identification for constructing a CPDAG|http://www.jmlr.org/papers/volume10/yehezkel09a/yehezkel09a.pdf]]
+
+Learn a generative structure $$G_{inv}$$ and then reverse the flow by constructing a stochastic inverse $$G$$. Constructing $$G$$ by recursively introduce a new latent layer, $$H^{(n)}$$, after testing $$n$$-th order conditional independence in $$X$$. But why is independence important?
+
+! Questions
+
+* How to do independence check during training?
+* Are activations actually independent?

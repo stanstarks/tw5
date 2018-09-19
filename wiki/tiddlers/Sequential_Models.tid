@@ -1,5 +1,5 @@
 created: 20161012083717362
-modified: 20171220100955104
+modified: 20180906043434854
 tags: [[Recurrent Neural Networks]]
 title: Sequential Models
 type: text/vnd.tiddlywiki
@@ -12,6 +12,7 @@ type: text/vnd.tiddlywiki
 * Arrays
 * Stacks
 * [[Stochastic Recurrent Network]]
+* [[Neural HSMM]]
 
 * Restrictions on recurrent weight matrix
 ** uRNN

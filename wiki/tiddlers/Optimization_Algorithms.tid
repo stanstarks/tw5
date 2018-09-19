@@ -1,5 +1,5 @@
 created: 20150627124407152
-modified: 20180102091129608
+modified: 20180809064223352
 tags: [[Deep Learning Basics]] Optimization
 title: Optimization Algorithms
 type: text/vnd.tiddlywiki
@@ -11,6 +11,10 @@ According to chapter 1 of [[Neural Networks: Tricks of the Trade]]
 * normalize the variances of the input variables
 * decorrelate the input variables
 * use a separate learning rate for each weight
+
+! Algorithms
+* [[Second Order Methods]]
+* [[Search Based Methods]]
 
 ! First Order Methods
 !! Videos
@@ -37,5 +41,3 @@ According to chapter 1 of [[Neural Networks: Tricks of the Trade]]
 As is tested out by [[Karpathy|http://cs.stanford.edu/people/karpathy/convnetjs/demo/trainers.html]], Adagrad/Adadelta are "safer" because they don't depend so strongly on setting of learning rates (with Adadelta being slightly better), but well-tuned SGD+Momentum almost always converges faster and at better final values.
 
 Adagrad was more stable (and less prone to crappy hyper-parameter choices) than Adam or constant or Barzilai-Borwein
-
-! [[Second Order Methods]]

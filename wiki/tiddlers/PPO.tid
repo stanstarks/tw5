@@ -1,0 +1,13 @@
+created: 20180806044932330
+modified: 20180807010638203
+tags: [[Policy Gradient]]
+title: PPO
+type: text/vnd.tiddlywiki
+
+! Code examples
+* [[https://github.com/ikostrikov/pytorch-a2c-ppo-acktr/blob/master/algo/ppo.py]]
+* [[https://github.com/openai/baselines/blob/master/baselines/ppo2/ppo2.py]]
+
+! Applications
+
+* [[PPO for NAS]]

@@ -1,5 +1,5 @@
 created: 20180105063950186
-modified: 20180603104435984
+modified: 20180917070129567
 tags: [[Software Research]]
 title: Program Induction
 type: text/vnd.tiddlywiki
@@ -39,3 +39,6 @@ Probabilistic Programming
 
 * [[aProbLog|https://pdfs.semanticscholar.org/e865/6f24a63b4b824d147655f669ae54738b3a81.pdf]]
 * DeepProbLog
+
+Reinforcement Learning
+* [[NIPS18 Programmatically Interpretable Reinforcement Learning|https://arxiv.org/abs/1804.02477]]

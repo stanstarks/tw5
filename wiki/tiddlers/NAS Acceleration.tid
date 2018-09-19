@@ -1,0 +1,13 @@
+created: 20180905085605713
+modified: 20180916101839814
+tags: [[Neural Architecture Search]]
+title: NAS Acceleration
+type: text/vnd.tiddlywiki
+
+* Improved Proxy
+** [[Learning Curve Prediction with Bayesian Neural Networks]]
+* Better Gradient Estimator
+** Policy Gradient
+** PPO
+* Better Controller
+** [[NAS and Few-shot learning]]

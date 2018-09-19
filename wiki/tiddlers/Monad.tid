@@ -1,0 +1,11 @@
+created: 20180906033135078
+modified: 20180906042612080
+tags: [[Functional Programming]]
+title: Monad
+type: text/vnd.tiddlywiki
+
+* [[What is a Monad?-Computerphile|https://www.youtube.com/watch?v=t1e8gqXLbsU]]
+** The Maybe Monad
+*** define data Expr for safediv
+*** To make if more compact, a monad takes a function as input
+*** Haskell can further compact it with do notation.

@@ -1,0 +1,23 @@
+created: 20180907053315494
+modified: 20180907055406820
+tags: [[Statistical Measures]]
+title: Regular Bregman Divergences
+type: text/vnd.tiddlywiki
+
+! Reference
+* [[Clustering with Bregman Divergences|http://www.jmlr.org/papers/v6/banerjee05b.html]]
+
+! Introduction
+
+A regular Bregman divergence $$d_{\phi}$$ is defined as:
+$$
+d_\phi(z, z') = \phi(z) - \phi(z') - (z-z')^T\nabla\phi(z')
+$$
+where $$\phi$$ is a differentiable, strictly convex function of the Legendre type.
+
+For Bregman divergences, the cluster representative achieving minimal distance to its assigned points is the cluster mean.
+
+Any regular exponential family distribution $$p_\psi(z|\theta)$$ with parameters $$\theta$$ and cumulant function $$\psi$$ can be written in terms of a uniquely determined regular Bregman divergence
+$$
+p_\psi(z|\theta) = \exp\{z^T\theta-\psi(\theta)-g_\psi(z)\} = \exp\{-d_\phi(z, \mu(\theta)) - g_\phi(z)\}
+$$

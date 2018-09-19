@@ -1,23 +1,23 @@
 created: 20180207060513469
-modified: 20180423070052177
+modified: 20180906084836219
 tags: [[Inference Methods]]
 title: Variational Optimization
 type: text/vnd.tiddlywiki
 
 ! The Problem
-In reinforcement learning, we choose the parameters $\theta$ of a policy distribution $\pi(a|s,\theta)$ to maximize the expected reward $\mathbb E_{\tau\sim\pi}[R]$ over state-action trajectories $\tau$. And in fitting latent-variable models, we wish to maximize the marginal probability $p(x|\theta) = \mathbb E_{p(b|\theta)}[p(x|z)]$. The general problem is
+In reinforcement learning, we choose the parameters $$\theta$$ of a policy distribution $$\pi(a|s,\theta)$$ to maximize the expected reward $$\mathbb E_{\tau\sim\pi}[R]$$ over state-action trajectories $$\tau$$. And in fitting latent-variable models, we wish to maximize the marginal probability $$p(x|\theta) = \mathbb E_{p(b|\theta)}[p(x|z)]$$. The general problem is
 $$
 \mathcal L(\theta) = \mathbb E_{p(b|\theta)}[f(b)]
 $$
-We want to build unbiased, stochastic gradient estimators $\hat g$ such that $\mathbb E[\hat g] = \frac{\partial}{\partial\theta}\mathcal L(\theta)$.
+We want to build unbiased, stochastic gradient estimators $$\hat g$$ such that $$\mathbb E[\hat g] = \frac{\partial}{\partial\theta}\mathcal L(\theta)$$.
 
 ! Introduction
-An ideal loss may be intractable to optimize because of some non-differentiable function. Variational optimization turns this into a differentiable one. This generally works by introducing a probability distribution $p_\psi(\theta)$ over parameters $\theta$. The average loss under $p_\psi$ may be differentiable w.r.t. $\psi$. To find the optimal $\psi$, one can generally use a [[REINFORCE]] gradient estimator, which results in [[Evolution Stragegies]].
+An ideal loss may be intractable to optimize because of some non-differentiable function. Variational optimization turns this into a differentiable one. This generally works by introducing a probability distribution $$p_\psi(\theta)$$ over parameters $$\theta$$. The average loss under $$p_\psi$$ may be differentiable w.r.t. $$\psi$$. To find the optimal $$\psi$$, one can generally use a [[REINFORCE]] gradient estimator, which results in [[Evolution Stragegies]].
 
-But ES generally has very high variance, so we apply the reparametrization trick to $p_\psi$ to construct a lower-variance gradient estimator. This, however, only works for continuous variables. To deal with the discreteness, we turn to a concrete relaxation, which approximates the discrete random variable by a continuous approximation.
+But ES generally has very high variance, so we apply the reparametrization trick to $$p_\psi$$ to construct a lower-variance gradient estimator. This, however, only works for continuous variables. To deal with the discreteness, we turn to a concrete relaxation, which approximates the discrete random variable by a continuous approximation.
 
 ! Applications
-* [[Learning Sparse Neural Networks through $L_0$ Regularization|https://arxiv.org/abs/1712.01312]] 
+* [[Learning Sparse Neural Networks through $$L_0$$ Regularization|https://arxiv.org/abs/1712.01312]] 
 
 ! Gradient Estimators
 
@@ -25,3 +25,4 @@ But ES generally has very high variance, so we apply the reparametrization trick
 * [[REINFORCE]]
 * [[Evolution Stragegies]]
 * [[RELAX]]
+* [[Improving Straight Through Estimator]]
