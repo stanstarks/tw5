@@ -1,5 +1,5 @@
 created: 20160825062557484
-modified: 20180620093525115
+modified: 20180927102954091
 tags: Blog [[Deep Learning Theory]]
 title: On Optimization in Deep Learning
 type: text/vnd.tiddlywiki
@@ -92,5 +92,11 @@ Even though deep learning energy landscapes appear to be roughly convex, or as t
 large-batch methods tend to converge to sharp minimizers of the training and testing functions -- and that sharp minima lead to poorer generalization. In contrast, small-batch methods consistently converge to flat minimizers, and our experiments support a commonly held view that this is due to the inherent noise in the gradient estimation.
 <<< [[On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima]]
 
+* [[An Alternative View: When Does SGD Escape Local Minima?|https://arxiv.org/abs/1802.06175]]
+
 ! Should 2-nd order methods ever work?
 Basiclly no. Because the Hessian vector product require very low variance estimation, which leads to batch size larger than 1000. But [[some rare cases|https://www.reddit.com/r/MachineLearning/comments/599wbr/project_i_accidentally_wrote_a_quasinewton_lbfgs/]] happen when 2nd order methods with small batch size works.
+
+! Gradient Starvation
+* [[On the Learning Dynamics of Deep Neural Networks|https://arxiv.org/abs/1809.06848]]
+** Some features will dominate the gradient and sheding other equally important features.

@@ -1,5 +1,5 @@
 created: 20170908054527972
-modified: 20171121081202855
+modified: 20181004113201696
 tags: NLP
 title: Semantic Parsing
 type: text/vnd.tiddlywiki
@@ -18,3 +18,6 @@ type: text/vnd.tiddlywiki
 * [[SQLNet|https://arxiv.org/abs/1711.04436]]
 ** better performance since direcly filling the clause.
 ** [[code|https://github.com/xxj96/SQLNet]]
+
+! Semantic Role Labeling
+* [[Syntactic Scaffolds for Semantic Structures]]

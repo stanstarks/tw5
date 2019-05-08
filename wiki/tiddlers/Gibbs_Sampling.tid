@@ -1,10 +1,10 @@
 created: 20161208114704592
-modified: 20170908085748730
+modified: 20181210065820582
 tags: [[Monte Carlo Methods]]
 title: Gibbs Sampling
 type: text/vnd.tiddlywiki
 
-Gibbs sampling is one of the most popular MCMC techniques.
+Letting $$\theta = (\theta_1, \dots, \theta_p)'$$, we draw subsets of $$\theta$$ from their exact conditional poster distributions fixing the others.
 
 It takes an unnormalized distribution which can be specified by a factor graph, along with a list of variables values that can be arbitrarily initialized. Gibbs sampling iteratively selects a variable and then samples the chosen variable from its conditional distribution.
 

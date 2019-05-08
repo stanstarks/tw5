@@ -1,5 +1,5 @@
 created: 20161215074243368
-modified: 20170720053157613
+modified: 20181220050638479
 tags: [[Stochastic Gradient MCMC]]
 title: Stochastic Gradient Langevin Dynamics
 type: text/vnd.tiddlywiki
@@ -21,12 +21,12 @@ This algorithm samples from a Bayesian posterior by adding artificial noise to t
 SG Fisher scoring speeds up mixing times in SGLD by preconditioning a gradient with the inverse sampling noise covariance.
 
 ! Computation
-The SGLD technique generates a set of samples $\{\hat\omega_t\}$ from the model's posterior over the random variable $\omega$ by adding stochastic gradient steps to @@color:#859900;the previously generated samples@@:
+The SGLD technique generates a set of samples $$\{\hat\omega_t\}$$ from the model's posterior over the random variable $$\omega$$ by adding stochastic gradient steps to @@color:#859900;the previously generated samples@@:
 
 $$
 \delta\omega = \frac\epsilon2(\nabla\log p(\omega)+\frac NM\sum_{i\in S}\nabla\log p(y_i|x_i,\omega))+\eta
 $$
-where $\eta\sim\mathcal N(0, \epsilon)$ and $S$ is a randomly sampled set of $M$ indices from $\{1, \dots, N\}$. $\epsilon$ is decreased in magnitude following the Robbins-Monro equations. @@color:#859900;The approximate posterior structure need not be specified.@@
+where $$\eta\sim\mathcal N(0, \epsilon)$$ and $$S$$ is a randomly sampled set of $$M$$ indices from $$\{1, \dots, N\}$$. $$\epsilon$$ is decreased in magnitude following the Robbins-Monro equations. @@color:#859900;The approximate posterior structure need not be specified.@@
 
 ! Remarks
 SGLD often collapses to a single mode.

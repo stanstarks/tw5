@@ -1,5 +1,5 @@
 created: 20161009094500297
-modified: 20180221081254626
+modified: 20181004112434444
 tags: [[Deep Learning Engineering]]
 title: Deep Model Compression
 type: text/vnd.tiddlywiki
@@ -17,6 +17,7 @@ type: text/vnd.tiddlywiki
 * [[BitNet: Bit-Regularized Deep Neural Networks|https://arxiv.org/abs/1708.04788]]
 * [[Deep Binary Reconstruction for Cross-modal Hashing|https://arxiv.org/abs/1708.05127]]: for retrieval
 
-!! Pruning
-* [[The Incredible Shrinking Neural Network: New Perspectives on Learning Representations Through The Lens of Pruning|http://openreview.net/pdf?id=BkV4VS9ll]]
-** A rather theoretical study of pruning. 2-nd order Taylor without retraining.
+!! Quantization
+* [[No Multiplication? No Floating Point? No Problem! Training Networks for Efficient Inference]]
+
+[[Pruning]]

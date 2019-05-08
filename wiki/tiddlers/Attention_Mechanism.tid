@@ -1,5 +1,5 @@
 created: 20170602025305444
-modified: 20180102103612295
+modified: 20181208070502915
 tags: [[Neural Machine Translation]] [[Conditional Language Modelling]] [[Sequential Models]]
 title: Attention Mechanism
 type: text/vnd.tiddlywiki
@@ -35,13 +35,13 @@ Other attentions
 
 We need a weight for every column: this is an $|\mathbf f|$-length vector $\mathbf a_t$. 
 
-* Deterministic soft attention by weighted average: A simplified version of [[Bahdanau et al.|Neural Machine Translation by Jointly Learning to Align and Translate]]'s solution is with previous hidden states $\mathbf s_{t-1}$, compute the ''expected input embedding'' $\mathbf r_t = V\mathbf s_{t-1}$, then we take product with the source matrix to get the ''attention energy'', $\mathbf u_t = F^T\mathbf r_t$ and exponentiate and normalize to 1: $\mathbf a_t=\text{softmax}(\mathbf u_t)$. Finally the ''input source vector'' $\mathbf c_t=F\mathbf a_t$.
-* Stochastic hard attention (Xu et al., 2015) by sampling a column: $\mathcal L=-\log p(\mathbf w|\mathbf x) = -\log\sum_{\mathbf s}p(\mathbf s|\mathbf x)p(\mathbf w|\mathbf x, \mathbf s)\le-\sum p(\mathbf s|\mathbf x)\log p(\mathbf w|\mathbf x, \mathbf s)$. With Jensen's inequality, we can minimize a upper bound. This can be sampled with MC:
-** $-\sum_sp(s|x)\log p(w|x, s)\approx-\frac 1 N\sum_{i=1}^Np(s^i|x)\log p(w|x, s)$
+* Deterministic soft attention by weighted average: A simplified version of [[Bahdanau et al.|Neural Machine Translation by Jointly Learning to Align and Translate]]'s solution is with previous hidden states $$\mathbf s_{t-1}$$, compute the ''expected input embedding'' $$\mathbf r_t = V\mathbf s_{t-1}$$, then we take product with the source matrix to get the ''attention energy'', $$\mathbf u_t = F^T\mathbf r_t$$ and exponentiate and normalize to 1: $$\mathbf a_t=\text{softmax}(\mathbf u_t)$$. Finally the ''input source vector'' $$\mathbf c_t=F\mathbf a_t$$.
+* Stochastic hard attention (Xu et al., 2015) by sampling a column: $$\mathcal L=-\log p(\mathbf w|\mathbf x) = -\log\sum_{\mathbf s}p(\mathbf s|\mathbf x)p(\mathbf w|\mathbf x, \mathbf s)\le-\sum p(\mathbf s|\mathbf x)\log p(\mathbf w|\mathbf x, \mathbf s)$$. With Jensen's inequality, we can minimize a upper bound. This can be sampled with MC:
+** $$-\sum_sp(s|x)\log p(w|x, s)\approx-\frac 1 N\sum_{i=1}^Np(s^i|x)\log p(w|x, s)$$
 ** Sample $N$ sequences of attention decisions from the model
 ** The gradient is the probability of the gradient of the probability of this sequence scaled by the log probability of generating the target words using that sequence of attention decisions
 ** This is equivalent to using the [[REINFORCE]] algorithm (Williams, 1992) using the log probability of the observed words as a "reward function".
-* Location based attention [[Bahdanau et al., 2014|Neural Machine Translation by Jointly Learning to Align and Translate]] 2k+ references. The inner product in attention energy part is replaced by a MLP: $\mathbf u_t = \mathbf v^T\tanh(WF+\mathbf r_t)$.
+* Location based attention [[Bahdanau et al., 2014|Neural Machine Translation by Jointly Learning to Align and Translate]] 2k+ references. The inner product in attention energy part is replaced by a MLP: $$\mathbf u_t = \mathbf v^T\tanh(WF+\mathbf r_t)$$.
 
 The method described above is called "early binding", means the attention is computed from previous state. An alternative is we comput hidden states without attention but only apply it at the decoding stage. "late binding" is too late but good for computation. At training time, gradient of attention is independent with the hidden states. Thus easier to parallel.
 

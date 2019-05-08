@@ -1,5 +1,5 @@
 created: 20180603105252347
-modified: 20180613065409402
+modified: 20181220045559895
 tags: [[Deep Learning]]
 title: Probabilistic Deep Learning
 type: text/vnd.tiddlywiki
@@ -13,3 +13,10 @@ For details, see [[Lightweight Probabilistic Deep Networks]]
 
 ! Applications
 * [[Probabilistic Meta-Learning]]
+
+! Uncertainty
+* Data uncertainty: ensemble methods
+* Model uncertainty: Bayesian network
+
+! Models
+* [[Improving Variational Inference with Normalizing Flows]]

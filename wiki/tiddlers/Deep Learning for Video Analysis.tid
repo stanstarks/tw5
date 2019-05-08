@@ -1,0 +1,25 @@
+created: 20190201003616784
+modified: 20190201012017269
+tags: [[CNN for Video]]
+title: Deep Learning for Video Analysis
+type: text/vnd.tiddlywiki
+
+Two ways dealing with time
+
+* video object segm
+* video super resolution
+
+! Video Object Segm without Temporal Information
+* One-Shot Video Object Segmentation
+** Supervised video segm: has the gt of first frame.
+** Optical flow methods are bad handling heavy occlusions
+** Finetune from the segmentation network (DAVIS) given first mask (Train longer on the first frame) 
+
+* Multiple object tracking
+** Tracking by detection: infer temperal coherence with a graphical model
+** End2end: online tracking with bbox regressor (still no temperal information)
+** cons: no notion of identity (Re-ID); large motions (Motion model)
+
+! Video Super Resolution
+* Recurrent generation with GAN (Spatial Discriminator)
+* TecoGAN (Temporal Discriminator)

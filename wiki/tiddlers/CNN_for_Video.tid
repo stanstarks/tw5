@@ -1,5 +1,5 @@
 created: 20170805135057969
-modified: 20180116065826689
+modified: 20190201003609323
 tags: [[Deep Learning Applications]]
 title: CNN for Video
 type: text/vnd.tiddlywiki
@@ -9,3 +9,6 @@ type: text/vnd.tiddlywiki
 * [[CNN for Video Classification]]
 * [[Video Object Segmentation]]
 * [[Anomaly Detection in Video]]
+
+! Talk
+* [[Deep Learning for Video Analysis]]

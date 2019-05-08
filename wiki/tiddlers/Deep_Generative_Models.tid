@@ -1,5 +1,5 @@
 created: 20161019092508242
-modified: 20171130064018372
+modified: 20190225061728272
 tags: [[Deep Learning Applications]]
 title: Deep Generative Models
 type: text/vnd.tiddlywiki
@@ -12,15 +12,17 @@ type: text/vnd.tiddlywiki
 * Denoising Autoencoder
 ** [[Plug & Play Generative Networks: Conditional Iterative Generation of Images in Latent Space|https://arxiv.org/abs/1612.00005]]
 * [[Variational Autoencoder]]
+** an unrestricted architecture to explicitly specify the conditional likelihood $$p(x|z)$$, but can only efficiently provide a lower bound on the marginal likelihood $$p(x)$$.
 * [[Generative Adversarial Network]]
+** lacking a closed-form likelihood, an auxiliary discriminator model must be trained to estimate various divergences in order to provide the training signal.
 * [[Input Convex Neural Network]]
-* [[Variational Generative Models]]
+* [[Reversible Generative Models]]
+** Use reversible function to perform change of variable.
 * [[TCL|Time-Contrastive Learning]]
 * [[Attentive Generative Models]]
 * [[DISCO Net]]
 * [[Convolutional Gaussian Processes|https://arxiv.org/abs/1709.01894]]
-
-!! [[Autoregressive Models]]
+* [[Autoregressive Models]]
 
 [[GANs vs VAEs]]
 

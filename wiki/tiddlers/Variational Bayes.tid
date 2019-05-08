@@ -1,0 +1,28 @@
+created: 20181210062306662
+modified: 20181210063159168
+tags: [[Inference Methods]]
+title: Variational Bayes
+type: text/vnd.tiddlywiki
+
+! Basics
+* [[Variational Inference]]
+
+! Tutorials
+* [[ICML 2018 Tamara Broderick|http://www.tamarabroderick.com/tutorial_2018_icml.html]]
+
+! Variations
+* [[Variational Generative Models]]
+
+! Computation
+* Computing the expected log likelihood $$\mathbb E_{z\sim q(z)}[\log p(x|z, \theta)]$$
+** MC estimator
+** Adversarial Variational Bayes
+* [[Reparametrization Trick]]
+
+! Theory
+* [[Variational Inference Diagnostics]]
+
+! Discussions
+* In general have no clue how accurate the approximation is. Often posterior uncertainty badly under-estimated
+** Fix-ups
+** [[On statistical optimality of variational Bayes|https://arxiv.org/abs/1712.08983]]

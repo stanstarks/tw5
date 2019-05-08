@@ -1,6 +1,6 @@
 created: 20150114062559893
-modified: 20180702065009448
-tags: [[Pattern Recognition and Machine Learning]] [[Inference Methods]]
+modified: 20181210062401792
+tags: [[Variational Bayes]] [[Pattern Recognition and Machine Learning]]
 title: Variational Inference
 type: text/vnd.tiddlywiki
 
@@ -67,18 +67,3 @@ $$\mathbb E_🐉\log🐨$$ is the ''expected complete log-likelihood'', which is
 
 ! Coordinate ascent mean-field variational inference
 CAVI fixes other variational factors and compute the optimal $$q_j(z_j)$$ by its ''complete conditional''. This can be seen as a ''message passing'' algorithm, and is closely related to Gibbs sampling.
-
-! Variations
-
-* [[Variational Generative Models]]
-
-! Computation
-
-* Computing the expected log likelihood $$\mathbb E_{z\sim q(z)}[\log p(x|z, \theta)]$$
-** MC estimator
-** Adversarial Variational Bayes
-* [[Reparametrization Trick]]
-
-! Theory
-
-* [[Variational Inference Diagnostics]]

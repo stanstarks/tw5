@@ -1,8 +1,11 @@
 created: 20170823075606996
-modified: 20180605080454688
+modified: 20190305085000908
 tags: [[Reinforcement Learning]]
 title: Q-Learning
 type: text/vnd.tiddlywiki
+
+* $$Q^\pi(\mathbf s_t, \mathbf a_t) = \sum_{t'=t}^TE_{\pi_\theta}[r(\mathbf s_{t'}, \mathbf a_{t'})|\mathbf s_t, \mathbf a_t]$$: total reward from taking $$\mathbf a_t$$ in $$\mathbf s_t$$.
+* $$\arg\max_{\mathbf a_t}Q^\pi(\mathbf s_t, \mathbf a_t)$$: best action from $$\mathbf s_t$$, if we then follow $$\pi$$
 
 We want to omit policy gradient and choose best action directly. But run into problems like need to know $$p(s'|s, a)$$ and need to represent $$V(s)$$. So we approximate $$E[V(s')]$$ with $$\max_{a'}Q_\phi(s_i', a_i')$$. By this we skip simulation of actions.
 

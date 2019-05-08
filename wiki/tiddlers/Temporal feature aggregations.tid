@@ -1,0 +1,23 @@
+created: 20190211042539018
+modified: 20190219100316832
+tags: [[Video Object Segmentation]]
+title: Temporal feature aggregations
+type: text/vnd.tiddlywiki
+
+! Operations
+
+* Sum
+* Cat
+* Attention
+** Spatial
+** Channel
+* predict conv
+* Spatial transformation
+* $$\text{FiML}(x) = \gamma(z)\odot x + \beta(z)$$
+* Deformable convolution
+* Box convolution
+
+! Framework
+
+* Mask Propagation
+** ECCV18 [[Video Object Segmentation with Joint Re-identification and Attention-Aware Mask Propagation|https://arxiv.org/abs/1803.04242]]

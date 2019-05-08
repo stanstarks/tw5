@@ -1,5 +1,5 @@
 created: 20180330024313595
-modified: 20180330024530687
+modified: 20190411074035225
 tags: [[ConvNet Layers]]
 title: Metric Learning
 type: text/vnd.tiddlywiki
@@ -11,3 +11,5 @@ type: text/vnd.tiddlywiki
 ** FaceNet: A unified embedding for face recognition and clustering
 * N-pair loss
 ** Improved deep metric learning with multi-class n-pair loss objective
+
+Discriminative loss

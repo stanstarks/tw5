@@ -1,12 +1,24 @@
 created: 20161215074539633
-modified: 20170908085712515
+modified: 20181211033925758
 tags: [[Inference Methods]]
 title: Monte Carlo Methods
 type: text/vnd.tiddlywiki
 
+! Introduction
+Comparing to variational Bayes, MCMC is accurate and now quite scalable. It summaries the posterior of any functional $$f(\theta)$$:
+$$
+\pi_n(\theta|Y^{(n)}) = \frac{\pi(\theta)L(Y^{(n)}|\theta)}{\int(\pi(\theta)L(Y^{(n)}|\theta)d\theta)} = \frac{\pi(\theta)L(Y^{(n)}|\theta)}{L(Y^{(n)})}
+$$
+MCMC constructs Markov chain with stationary distribution $$\pi_n(\theta|Y^{(n)})$$. Most are types of Metropolis-Hastings.
+
+# $$\theta^*\sim g(\theta^{(t-1)}$$ sample a proposal
+# Accept proposal by letting $$\theta^{(t)}=\theta^*$$ with probability $$a(\theta^*|\theta^{(t-1)})$$
+
+Design of efficient MH algorithms involves choosing good proposal $$g$$.
+
 * [[Gibbs Sampling]]
-* [[Hamilton Monte Carlo]]
-* [[Langevin MCMC|https://arxiv.org/abs/1707.03663]]
+* Random Walk: $$a(q'|q) = \min\left(1, \frac{\pi(q')}{\pi(q)}\right)$$. The guess-and-check strategy of Random Walk Metropolis is doomed to fail in high-dimensional spaces where there are an exponential number of directions in which to guess but only a singular number of directions that stay within the typical set and pass the check.
+* [[Hamilton Monte Carlo]]/[[Langevin MCMC|https://arxiv.org/abs/1707.03663]]: Exploit gradient information to generate samples far from $$\theta^{(t-1)}$$ having high posterior density
 * [[Stochastic Gradient Descent as Approximate Bayesian Inference]]
 * [[Stochastic Gradient MCMC]]
 * Adaptive MCMC
@@ -15,7 +27,10 @@ type: text/vnd.tiddlywiki
 
 To identify the regions of parameter space that dominate expectations we need to consider the behavior of both the density and the volume.
 
-Random Walk Metropolis: $a(q'|q) = \min\left(1, \frac{\pi(q')}{\pi(q)}\right)$. The guess-and-check strategy of Random Walk Metropolis is doomed to fail in high-dimensional spaces where there are an exponential number of directions in which to guess but only a singular number of directions that stay within the typical set and pass the check.
+! Problems
+* Draws are auto-correlated; as level of correlation increases, information provided by each sample decreases.
+* "Slowly mixing" Markov chains have highly autocorrelated draws
+* A well designed MCMC wiht a good proposal should show rapid convergence and mixing
 
 ! Controlling variance
 

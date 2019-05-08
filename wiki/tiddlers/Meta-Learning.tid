@@ -1,5 +1,5 @@
 created: 20170503023704453
-modified: 20180524073613836
+modified: 20181217101432783
 tags: Vision [[Recurrent Neural Networks]] [[Reinforcement Learning]]
 title: Meta-Learning
 type: text/vnd.tiddlywiki
@@ -13,15 +13,15 @@ Deep learning hard to generalize given few examples because there is no optimiza
 
 The goal of metal-learner is to acquire knowledge of different tasks. Consider a training algorithm
 
-* input: training set $D_{train} = \{(X_t, Y_t)\}^T_{t=1}$
-* output: parameters $\theta$ of model $M$
-* obejctive: good performance on test set $D_{test} = (X, Y)$
+* input: training set $$D_{train} = \{(X_t, Y_t)\}^T_{t=1}$$
+* output: parameters $$\theta$$ of model $$M$$
+* obejctive: good performance on test set $$D_{test} = (X, Y)$$
 
 Desire a meta-learning algorithm
 
-* input: meta-training set $\mathcal D_{meta-train} = \{(D_{train}^{n}, D_{test}^n)\}_{n=1}^N$, where $D_{train}^{n}$ is a set of training set. Slow learning can be done by i.e. [[REINFORCE]].
-* output: parameters $\Theta$ representing a training algorithm
-* objective: good performance on meta-test set $\mathcal D_{meta-test} = \{(D_{train}^{n'}, D_{test}^{n'})\}_{n'=1}^{N'}$
+* input: meta-training set $$\mathcal D_{meta-train} = \{(D_{train}^{n}, D_{test}^n)\}_{n=1}^N$$, where $$D_{train}^{n}$$ is a set of training set. Slow learning can be done by i.e. [[REINFORCE]].
+* output: parameters $$\Theta$$ representing a training algorithm
+* objective: good performance on meta-test set $$\mathcal D_{meta-test} = \{(D_{train}^{n'}, D_{test}^{n'})\}_{n'=1}^{N'}$$
 
 ! Theories
 * [[RNN-Based Meta-Learning Methods]]

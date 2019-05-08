@@ -1,0 +1,10 @@
+created: 20180927103029410
+modified: 20180927103038434
+tags: [[Deep Model Compression]]
+title: Pruning
+type: text/vnd.tiddlywiki
+
+* [[The Incredible Shrinking Neural Network: New Perspectives on Learning Representations Through The Lens of Pruning|http://openreview.net/pdf?id=BkV4VS9ll]]
+** A rather theoretical study of pruning. 2-nd order Taylor without retraining.
+* [[Meta Pruning]]
+* [[Channel Pruning]]

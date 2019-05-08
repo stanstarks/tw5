@@ -1,0 +1,23 @@
+created: 20181211053848298
+modified: 20181211054403169
+tags: [[Monte Carlo Methods]] [[Scalable Bayesian Inference]]
+title: Approximate MCMC
+type: text/vnd.tiddlywiki
+
+* [[paper|http://arxiv.org/abs/1508.03387]]
+
+! Applications
+* approximations usign subsets
+* mixture model
+
+! Comments
+* [[blog|https://xianblog.wordpress.com/tag/approximate-mcmc/]]
+
+A major constraint in the paper is Doeblin’s condition, which implies uniform geometric ergodicity. Not only it is a constraint on the Markov kernel but it is also one for the Markov operator in that it may prove impossible to… prove. The second constraint is that the approximate Markov kernel is close enough to the original, which sounds reasonable. Even though one can always worry that the total variation norm is too weak a norm to mean much. For instance, I presume with some confidence that this does not prevent the approximate Markov kernel from not being ergodic, e.g., not irreducible, not absolutely continuous wrt the target, null recurrent or transient. Actually, the assumption is stronger in that there exists a collection of approximations for all small enough values ε of the total variation distance. (Small enough meaning ε is much smaller than the complement α to 1 of the one step distance between the Markov kernel and the target. With poor kernels, the approximation must thus be very good.) This is less realistic than assuming the availability of one single approximation associated with an existing but undetermined distance ε. (For instance, the three examples of Section 3 in the paper show the existence of approximations achieving a certain distance ε, without providing a constructive determination of such approximations.) Under those assumptions, the average of the sequence of Markov moves according to the approximate kernel converges to the target in total variation (and in expectation for bounded functions). With sharp bounds on those distances. I am still a bit worried at the absence of conditions for the approximation to be ergodic.
+
+
+<<<
+“...for relatively short path lengths, there should exist a range of values for which aMCMC offers better performance in the compminimax sense.”
+<<<
+
+The paper also includes computational cost into the picture. Introducing the notion of compminimax error, which is the smallest (total variation) distance among all approximations at a given computational budget. Quite an interesting, innovative, and relevant notion that may however end up being too formal for practical use. And that does not include the time required to construct and calibrate the approximations.

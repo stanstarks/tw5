@@ -1,6 +1,7 @@
 created: 20171116090705837
-modified: 20171116103502569
-tags: [[Variational Generative Models]] [[Deep Generative Models]]
+list: 
+modified: 20190225061529103
+tags: [[Reversible Generative Models]] [[Deep Generative Models]]
 title: Stochastic Recurrent Network
 type: text/vnd.tiddlywiki
 

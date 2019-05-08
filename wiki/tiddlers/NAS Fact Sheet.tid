@@ -1,0 +1,24 @@
+created: 20190506062131727
+modified: 20190508112548275
+tags: [[Neural Architecture Search]]
+title: NAS Fact Sheet
+type: text/vnd.tiddlywiki
+
+|Model  |Task |Performance |Cost (GPU-day)|#Params |FLOPS |Space |Strategy |h
+|[[NAS with RL|https://arxiv.org/pdf/1611.01578.pdf]] |CIFAR10 |3.65 |24000 |37.4M | |Multi-branch |REINFORCE with RNN controller |
+|[[NASNet-A 6@4032|https://arxiv.org/pdf/1707.07012.pdf]] |ImageNet |82.7 |2000 |88.9M |32.8G |Normal+reduction cell |PPO with RNN controller |
+|[[NASNet-A 4@1056|https://arxiv.org/pdf/1707.07012.pdf]] |ImageNet |74.0 |2000 |5.3M |564M |Normal+reduction cell |PPO with RNN controller |
+|[[AmoebaNet-A|https://arxiv.org/pdf/1802.01548.pdf]] |ImageNet |75.7 |3150 |6.4M |570M |Normal+reduction cell |evolution |
+|[[PNAS|https://arxiv.org/pdf/1806.09055.pdf]] |ImageNet |74.2 |~225 |5.1M |588M |Cell |SMBO |
+|[[One-Shot|http://proceedings.mlr.press/v80/bender18a/bender18a.pdf]] |ImageNet |75.2 |- |11.9M |- |Cell |Random Search |
+|[[DARTS|https://arxiv.org/pdf/1806.09055.pdf]] |ImageNet |73.3 |1 |4.7M |574M |Normal+reduction cell |Supernet |
+|[[SNAS|https://arxiv.org/pdf/1812.09926.pdf]] |ImageNet |72.7 |1.5 |4.3M |522M |Normal+reduction cell |Supernet with Concrete |
+|[[MNASNet|https://arxiv.org/pdf/1812.00332.pdf]] |ImageNet |74.0 |3800 |- |6.1ms on V100 |Cell |PPO with RNN controller |
+|[[FBNet|https://arxiv.org/pdf/1812.03443.pdf]] |ImageNet |74.9 |20 |5.5M |375M 28.1ms on S8 CPU |Cell |Supernet with Concrete |
+|[[ProxylessNAS|https://arxiv.org/pdf/1812.00332.pdf]] |ImageNet |75.1 |15 |- |5.1ms on V100 |Sequential |Single path with STE/REINFORCE |
+|[[ASAP|https://arxiv.org/pdf/1904.04123.pdf]] |ImageNet |73.3 |0.2 |- |- |Normal+reduction cell |Supernet with pruning |
+|[[Uniform|https://arxiv.org/pdf/1904.00420.pdf]] |ImageNet |74.7 |12 |- |328M |Sequential |Single path with evolution |
+|[[DetNAS|https://128.84.21.199/pdf/1903.10979.pdf]] |COCO det|mAP: 40.0 vs 39.2 shufflenetv2|44 | |1.3G |Sequential |Single path with evolution |
+|[[NAS-FPN|https://arxiv.org/pdf/1904.07392.pdf]] |COCO det|mAP: 48.3 vs 43.4 FPN |333TPU (?) |166.6M |2.63T |Multi-branch |PPO with RNN controller |
+|[[DPC|https://arxiv.org/pdf/1809.04184.pdf]] |Cityscapes segm|mIoU: 82.7 vs 82.1 dlv3+|2590 |0.81M (decoder) |6.84G (decoder) |Multi-branch |Random search with Vizier |
+|[[Auto-DeepLab|https://arxiv.org/pdf/1901.02985.pdf]] |Cityscapes segm|mIoU: 82.0|1 |44.4M |695G |Cell |One-Shot |

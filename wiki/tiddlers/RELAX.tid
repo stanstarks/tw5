@@ -1,8 +1,39 @@
 created: 20180423065601757
-modified: 20180426015750242
+modified: 20190508093014099
 tags: [[Variational Optimization]]
 title: RELAX
 type: text/vnd.tiddlywiki
 
+! Some derivations
+
+[[http://www.tuananhle.co.uk/notes/rebar-relax.html]]
+
+! Gradient estimation
+!! DARTS
+$$
+\nabla_\alpha E_{p_\alpha(h)}[f(h)]\approx \nabla_\alpha f(\sigma(\alpha))
+$$
+
+!! Tempreture dependent sigmoid
+$$
+\nabla_\alpha E_{p_\alpha(h)}[f(h)]\approx \nabla_\alpha f(\sigma(\alpha/t))
+$$
+
+!! Gumbel softmax
+$$
+\nabla_\alpha E_{p_\alpha(h)}[f(h)]\approx E_{p(u)}[\nabla_\alpha f(\sigma(z/t))]
+$$
+
+$$
+z := \log\frac{\alpha}{1-\alpha} + \log\frac{u}{1-u}
+$$
+
+$$
+u\sim\text{Uniform}(0, 1)
+$$
+
+!! Rebar
+
+
 ! Using RELAX for RL
-We want to estimate the gradient of an expectation of a black-box function: $\frac{\partial}{\partial\theta}\mathbb E_{p(\tau|\theta)}[R(\tau)]$. The //de facto// standard approach is the advantage actor-critic estimator (A2C).
+We want to estimate the gradient of an expectation of a black-box function: $$\frac{\partial}{\partial\theta}\mathbb E_{p(\tau|\theta)}[R(\tau)]$$. The //de facto// standard approach is the advantage actor-critic estimator (A2C).

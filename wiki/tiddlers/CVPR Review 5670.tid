@@ -1,0 +1,19 @@
+created: 20181219113259204
+modified: 20181220030412759
+tags: 
+title: CVPR Review 5670
+type: text/vnd.tiddlywiki
+
+Rating: Borderline
+
+Summary: This paper proposes a new attribution method called relative attributing propagation (RAP), based on Layerwise Relevance Propagation (LRP). The authors argue that the positive and negative attributions in LRP are redundant because there is mismatch between the contribution and relavance. To differentiate positive and negative contributions, relavance is divided and propagated in two flows. The authors also proposed to handle the bias and batchnorm with a heuristic correction term.
+
+Strength: Comparing to methods that only propagate through the target unit of interest, RAP can better identify the pixels which don't have strong inhibitory effect on it, commonly background. I think the idea is intuitive and the result is supportive. The application to medical diagnosis shows clear advantage comparing to other LRP methods.
+
+Weakness: 
+* Many arguments are not clearly explained or supported by references. For example, in L319, alpha-beta LRP is critized to cause offset of relavance. However, this offset effect is not quantified and it is not clear if it is because of the choice of alpha, beta parameters or the problem for alpha-beta LRP in general. Most importantly, the motivation and method of bias/batchnorm relavance ajustment in section 4.2.3 is not clear to me.
+* There lacks experiments proving the effectiveness of bias/batchnorm ajustments.
+* Math equations and notations are not very accurate, difficult to understand.
+* Some experiment details are missing. For example, how is the test set selected in the quantative assessment part, how many classes are there and what is the perforance exactly.
+
+Overall Opinion: Borderline. Good result comparing to related methods but the delivery and writing on important technical parts is confusing and difficult to understand.

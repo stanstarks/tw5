@@ -1,0 +1,73 @@
+created: 20161102063110959
+modified: 20190225063915741
+tags: [[Deep Generative Models]]
+title: Reversible Generative Models
+type: text/vnd.tiddlywiki
+
+! Bib
+* [[Variational Autoencoder]]
+
+!! Reversible Generative Models
+
+They model a multivariate distribution $$p_X(x)$$ as an explicit invertible non-linear transformation $$x = f(z)$$ of a simple tractable distribution $$p_Z(z)$$.
+$$
+\log p_X(x) = \log p_Z(z) - \log|\frac{dx}{dz}|
+$$
+Aim at formulating the flow for which the Jacobian-determinant $$|\frac{dx}{dz}|$$ is relatively easy to compute. 
+
+!!! Normalizing flows
+By restricting the functional form of $$f$$, various determinant identities can be exploited. These models cannot be trained directly on data and be able to sample because they do not have a tractable analytic inverse $$f^{-1}$$, but have been shown to be useful in representing the approximate posterior for variational inference.
+
+* [[Variational Inference with Normalizing Flows|https://arxiv.org/abs/1505.05770]]
+* [[Improving Variational Inference with Normalizing Flows]] [Rezende and Mohamed, 2016]
+
+!!! Autoregressive transformations
+By usign an autoregressive model and specifying an ordering in the dimensions, the Jacobian of $$f$$ is enforced to be lower triangular. These models excel at density estimation for tabular datasets, but requires $$D$$ sequential evaluations of $$f$$ to invert, which is prohibitive when $$D$$ is large.
+
+* Improving Variational Inference with Inverse Autoregressive Flow [Kingma et al., NIPS 2016]: [[paper|https://arxiv.org/abs/1606.04934]], [[tf implementation|https://github.com/openai/iaf]]
+** Inverse Autoregressive Flow: $$z_k = \frac{z_{k-1}-1-\mu_k(z_{<k, x})}{\sigma_k(z_{<k}, x)}$$
+** Fast to sample, slow to calculate density
+* [[Improving Variational Auto-Encoders using Householder Flow|http://arxiv.org/abs/1611.09630]] [Tomczak and Welling, 2017]
+* [[Masked Autoregressive Flow|Parallel Multiscale Autoregresssive Density Estimation]]
+
+!!! Partitioned transformations
+Partitioning the dimensions and using an affine transform makes the detereminant cheap to compute, and the inverse $$f^{-1}$$ computable with the same cost as $$f$$. This method allows the use of convolutional architectures, excelling at density estimation for image data.
+
+* NICE [Dinh et al., 2015]
+* [[Real NVP|http://arxiv.org/abs/1605.08803]] [Dinh et al. 2016]:$$y_{1:d} = z_{k-1, 1:d}, y_{d+1:D}=t(z_{k-1, 1:d})+z_{d+1:D}\odot\exp(s(z_{k-1, 1:d}))$$
+** Fast in both density calculation and sample, limited capacity
+* [[Glow]]
+
+!!! Not sure
+
+* Hamiltonian variational inference [Salimans et al., 2015]
+* Stochastic Backpropagation and Approximate Inference in Deep Generative Models
+* Markov Chain Monte Carlo and Variational Inference: Bridging the Gap
+* Copula variational inference
+* The Variational Gaussian Process
+* Importance Weighted Autoencoders (IWAE) [Burda et al., 2016]
+* Hierarchical Variational Models
+* Auxiliary Deep Generative Models [Maaløe et al., 2016]
+* Variational inference for Monte Carlo objectives
+
+* [[Adversarial Variational Bayes]] (AVB) [Mescheder et al., 2017]
+** Hierarchical Implicit Models [Tran et al., 2017]
+** Variational Inference Using Implicit Distributions [Huszar, 2017]
+** Adversarial Message Passing for Graphical Models [Karaletsos, 2016]
+
+
+These models are easy to sample from, and can be trained by maximum likelihood using the change of variables formula. However, this requires placing awkward restrictions on their architectures, such as partitioning dimensions or using rank one weight matrices, in order to avoid an $$\mathcal O(D^3)$$ cost determinant computation.
+
+!! ODE
+Alternatively, the Jacobian trace can be used if the transformation is specified by an ordinary differential equation.
+
+* Neural Ordinary Differentiable Equations
+* [[FFJORD]]
+
+! Theory
+
+* [[Variational Inference for Generative Models]]
+
+! Applications
+
+* [[End-to-end Optimized Image Compression]]

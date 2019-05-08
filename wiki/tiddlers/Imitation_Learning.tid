@@ -1,5 +1,5 @@
 created: 20170712082332363
-modified: 20180517061828299
+modified: 20181106063526423
 tags: [[Reinforcement Learning]] [[Deep Generative Models]]
 title: Imitation Learning
 type: text/vnd.tiddlywiki
@@ -26,3 +26,4 @@ DeepMind use GAN and VAE to learn human actions: [[Robust Imitation of Diverse B
 * One-Shot Imitation Learning
 * Learning a One-Shot Imitator with MAML
 * [[Expert Iteration]]
+* [[Iterated Amplification]]

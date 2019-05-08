@@ -1,0 +1,37 @@
+created: 20190225051252179
+list: 
+modified: 20190225093334428
+tags: [[Reversible Generative Models]]
+title: FFJORD
+type: text/vnd.tiddlywiki
+
+! Continuous Normalizing Flow
+Given an ODE defined by the parametric function $$f(z(t), t;\theta)$$, we solve the intitial value problem $$z(t_0) = z_0, \partial z(t)/\partial t= f(z(t), t;\theta)$$ to obtain $z(t_1)$ which constitutes our observable data. The change in log-density follows:
+$$
+\frac{\partial\log p(z(t))}{\partial t} = -\text{Tr}\left(\frac{\partial f}{\partial z(t)}\right)
+$$
+
+The total change in log-density can be computed by integrating across time:
+$$
+\log p(z(t_1)) = \log p(z(t_0)) - \int_{t_0}^{t_1}\text{Tr}\left(\frac{\partial f}{\partial z(t)}\right)dt.
+$$
+
+Given a datapoint x, we can compute both the point $$z_0$$ which generates $$x$$, as well as $$\log p(x)$$ under the model by solving the initial value problem. 
+
+''Adjoint method'': For any scalar loss function which operates on the solution to an initial value problem:
+$$
+L(z(t_1)) = L\left(\int_{t_0}^{t_1}f(z(t),t;\theta)dt\right)
+$$
+Then its derivative takes the form of another initial value problem:
+$$
+\frac{dL}{d\theta} = -\int_{t_1}^{t_0}\left(\frac{\partial L}{\partial z(t)}\right)^T\frac{\partial f(z(t),t;\theta)}{\partial \theta}dt
+$$
+
+! Density Estimation with Unrestricted Architecture
+Estimate of the log-density with $$\mathcal O(D)$$ cost with 
+
+* vector-Jacobian products $$v^T\frac{\partial f}{\partial z}$$ can be computed for approximately the same cost as evaluating $$f$$ using ''reverse-mode automatic differentiation''.
+* ''Hutchinson's trace estimator'': unbiased estimate of the trace of a matrix by taking a double product of that matrix with a noise vector
+$$
+\text{Tr}(A) = E_{p(\epsilon)}[\epsilon^TA\epsilon]
+$$

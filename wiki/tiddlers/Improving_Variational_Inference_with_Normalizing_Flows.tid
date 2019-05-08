@@ -1,17 +1,11 @@
 created: 20161103082456074
-modified: 20171130051654184
-tags: [[Variational Generative Models]] Papers
+list: 
+modified: 20190225061529119
+tags: [[Reversible Generative Models]] Papers
 title: Improving Variational Inference with Normalizing Flows
 type: text/vnd.tiddlywiki
 
 Normalizing flows are a series of invertible transformations to latent variables with a simple posterior. 
-
-! General Normalizing Flows
-They model a multivariate distribution $p_X(x)$ as an explicit invertible non-linear transformation $f$ of a simple tractable distribution $p_Z(z)$.
-$$
-\log p_X(x) = \log p_Z(z) - \log|\frac{dx}{dz}|
-$$
-Aim at formulating the flow for which the Jacobian-determinant $|\frac{dx}{dz}|$ is relatively easy to compute. Example is [[Variational Inference with Normalizing Flows|https://arxiv.org/abs/1505.05770]]
 
 ! Volume-Preserving Flows
 Design series of transformations s.t. the Jacobian-determinant equals 1 while still it allows to obtain flexible posterior distributions.

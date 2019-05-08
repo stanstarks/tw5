@@ -1,5 +1,5 @@
 created: 20161122065117181
-modified: 20171105114715615
+modified: 20181205011906834
 tags: Vision [[Attention Mechanism]]
 title: Visual Attention
 type: text/vnd.tiddlywiki
@@ -22,7 +22,7 @@ For unsupervised tasks
 * [[DRAW: A Recurrent Neural Network For Image Generation|https://arxiv.org/abs/1502.04623]]
 ** [[Magenta review|https://github.com/tensorflow/magenta/blob/master/magenta/reviews/draw.md]]: the foveation attention model is differentiable and so can be trained end to end with backpropagation. Instead of simply cropping a patch from the input image, DRAW extracts the pixels in the patch by Gaussian interpolation.
 
-!! Attention types
+! Attention types
 * Reading attentions are widely used in discriminative tasks, usually transforms an image into a representation in a canonical coordinate space, with the parameters controlling the attention learned by gradient descent.
 * Writing (generative) attentions decide which part to generate
 * Randomized
@@ -39,4 +39,8 @@ Rather than selecting a patch of an image (taking glimpses) as other methods do,
 $$
 \operatorname{ST}(x, \lambda) = [\kappa_h(\lambda)\otimes\kappa_w(\lambda)]\ast x,
 $$
-where $\kappa_h$ and $\kappa_w$ are $1$-dimensional kernels, $\otimes$ indicates the tensor outer-product of the two kernels and $\ast$ indicates a convolution. When used for reading attention, spatial transformers allow the model to observe the input image @@color:#859900;in a canonical form, providing the desired invariance@@. When used for writing attention, it allows the generative model to independently handle position, scale and rotation of parts of the generated image, as well as their content. 
+where $\kappa_h$ and $\kappa_w$ are $1$-dimensional kernels, $\otimes$ indicates the tensor outer-product of the two kernels and $\ast$ indicates a convolution. When used for reading attention, spatial transformers allow the model to observe the input image @@color:#859900;in a canonical form, providing the desired invariance@@. When used for writing attention, it allows the generative model to independently handle position, scale and rotation of parts of the generated image, as well as their content.
+
+!! Other implementations
+* [[Attention Pooling]]
+* [[Feature-wise Transformation]]

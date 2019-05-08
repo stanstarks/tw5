@@ -1,5 +1,5 @@
 created: 20171117032408704
-modified: 20171117034415528
+modified: 20190411075501363
 tags: [[Inference Methods]] [[Variational Inference]]
 title: Reparametrization Trick
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ In variational inference, we often encouter gradients of the form:
 $$
 \frac{\partial}{\partial\theta_i}\mathbb E_{x\sim q_\theta}[f(x, q_\theta(x))],
 $$
-where the pdf of the variable appears in the integrand. If we can find a function $h:(\mathcal E, \Theta)\mapsto \mathcal X$ which is differentiable w.r.t. its second argument, and probability distribution $p_\epsilon$ over $\mathcal E$ which is easy to sample from, such that the following holds:
+where the pdf of the variable appears in the integrand. If we can find a function $$h:(\mathcal E, \Theta)\mapsto \mathcal X$$ which is differentiable w.r.t. its second argument, and probability distribution $$p_\epsilon$$ over $$\mathcal E$$ which is easy to sample from, such that the following holds:
 $$
 x = h(\epsilon, \theta), \epsilon\sim p_\epsilon \Longleftrightarrow x\sim q_\theta
 $$

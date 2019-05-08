@@ -1,5 +1,5 @@
 created: 20180702062817175
-modified: 20180702063654231
+modified: 20181228070009404
 tags: [[Inference Methods]]
 title: Importance sampling
 type: text/vnd.tiddlywiki
@@ -8,3 +8,6 @@ IS is a technique which enables us to estimate expectations under a distribution
 
 In the event that the proposal distribution is a poor fit to the target distribution, these weights can have a very high variance. Pareto smoothing is a way to control this variance. It builds on the idea of simply truncating the importance ratios by instead fitting a Pareto distribution to them.
 
+$$
+E_{p(x)}[f(x)] = \int p(x)f(x)dx = \int q(x)\frac{p(x)}{q(x)}f(x)dx=E_{1(x)}[\frac{p(x)}{q(x)}f(x)]
+$$

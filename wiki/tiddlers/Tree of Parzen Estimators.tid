@@ -1,0 +1,8 @@
+created: 20181211103404258
+modified: 20181211103854544
+tags: [[Bayesian Optimization]]
+title: Tree of Parzen Estimators
+type: text/vnd.tiddlywiki
+
+* Non-parametric KDEs for p($$\lambda$$ is good) and p($$\lambda$$ is bad) rather than $$p(y|\lambda)$$
+

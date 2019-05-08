@@ -1,0 +1,36 @@
+created: 20181210055217434
+modified: 20181211053841209
+tags: [[NeurIPS 2018]]
+title: Scalable Bayesian Inference
+type: text/vnd.tiddlywiki
+
+* Most of the focus has been on optimization methods
+* Point estimate is probably not enough
+
+Focus:
+
+* Accurate uncertainty quantification
+* Robustness of inferences
+
+Classical posterior approximation:
+
+$$
+\pi_n(\theta|Y^{(n)}) = \frac{\pi(\theta)L(Y^{(n)}|\theta)}{\int(\pi(\theta)L(Y^{(n)}|\theta)d\theta)}
+$$
+
+* the integral of the marginal probability is intractable
+* conjugate models have simple form
+* Large sample Gaussian approximation can be more useful than variational Bayes sometimes (Bayesian central limit theorem (BVM))
+* Or use laplace approximation to $$\int(\pi(\theta)L(Y^{(n)}|\theta)d\theta)$$
+* Or [[variational Bayes|Variational Inference]]
+
+! Big n problem
+* Embarrassingly parallel (EP) MCMC: subsets of data & combine
+** [[Wasserstein barycenter of subset posterior (WASP)|https://arxiv.org/abs/1508.05880]]
+** [[Simple & fast posterior interval estimation (PIE)|https://arxiv.org/abs/1605.04029]]
+*** WASP has explicit relationship with subset posteriors in 1-d.
+*** Quantiles of WASP are simple averages of quantiles of subset posteriors.
+*** So run MCMC, average quantiles. (reminiscent of bag of little boostraps)
+* [[Approximate MCMC]]: Approximate expensive to evaluate transition kernels
+* C-Bayes: Condition on observed data being in small neighborhood of data drawn from assumed model [ROBUST]
+* Hybrid algorithms: run MCMC for a subset of the parameters & use a fast estimate for the others.

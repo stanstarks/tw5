@@ -1,0 +1,11 @@
+created: 20181106063411015
+modified: 20181106063455089
+tags: [[Sequential Models]]
+title: Transformer
+type: text/vnd.tiddlywiki
+
+! Language modeling
+* [[Transformer XL]]
+
+! Reinforcement learning
+* [[Iterated Amplification]]

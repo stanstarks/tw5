@@ -1,0 +1,9 @@
+created: 20181106063507669
+modified: 20181106064622221
+tags: Transformer [[Imitation Learning]]
+title: Iterated Amplification
+type: text/vnd.tiddlywiki
+
+OpenAI [[paper|https://arxiv.org/abs/1810.08575]]
+
+Using Transformer as controller.

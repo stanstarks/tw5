@@ -1,0 +1,13 @@
+created: 20181228065119450
+modified: 20181228070114248
+tags: [[Policy Gradient]]
+title: Policy Gradient Off-Policy
+type: text/vnd.tiddlywiki
+
+Policy gradient is on-policy because the expectation is drawn from current policy. Once the network is modified, new samples have to be drawn. Training is very inefficient.
+
+! Importance sampling
+We sample from $$\bar\pi(\tau)$$ instead with [[Importance sampling]]. We don't have to know the dynamics.
+$$
+\frac{\pi(\tau)}{\bar\pi(\tau)} = \frac{\prod\pi(a_t|s_t)}{\prod\bar\pi(a_t|s_t)}
+$$

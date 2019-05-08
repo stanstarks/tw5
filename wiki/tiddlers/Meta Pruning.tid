@@ -1,0 +1,21 @@
+created: 20180921052638593
+modified: 20180927103810712
+tags: Pruning
+title: Meta Pruning
+type: text/vnd.tiddlywiki
+
+* [[AMC: AutoML for Model Compression and Acceleration on Mobile Devices|https://arxiv.org/abs/1802.03494]]
+** uses RL to decide layerwise sparsity ratio
+** can be found in one GPU-hour
+** [[Channel Pruning]] is used
+
+! Methods
+!! Bayesian Optimization
+
+!! Knowledge Distillation
+
+* [[Model compression via distillation and quantization|https://arxiv.org/abs/1802.05668]]
+
+! Models
+* Binary
+* Architecture Search

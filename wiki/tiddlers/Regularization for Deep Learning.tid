@@ -1,5 +1,5 @@
 created: 20171104090715974
-modified: 20180216050328421
+modified: 20181106052719636
 tags: [[Deep Learning Tricks]]
 title: Regularization for Deep Learning
 type: text/vnd.tiddlywiki
@@ -13,3 +13,4 @@ Stochasticity of the transformation parameters $\theta$
 ** Swapout
 ** DropPath
 ** Stochastic depth
+** DropBlock: [[pytorch|https://github.com/Randl/DropBlock-pytorch]]

@@ -1,8 +1,38 @@
 created: 20170703093110210
-modified: 20170823075144024
+modified: 20190305081910589
 tags: [[Reinforcement Learning]]
 title: Actor-Critic Method
 type: text/vnd.tiddlywiki
+
+! Improving the policy estimation
+
+$$
+\nabla_\theta J(\theta)\approx \frac{1}{N}\sum_{i=1}^N\sum_{t=1}^T\nabla_\theta\log\pi_\theta(\mathbf a_t|\mathbf s_t)(Q(\mathbf s_{i, t}, \mathbf a_{i, t})-V(\mathbf s_{i, t}))
+$$
+$$
+\nabla_\theta J(\theta)\approx \frac{1}{N}\sum_{i=1}^N\sum_{t=1}^T\nabla_\theta\log\pi_\theta(\mathbf a_t|\mathbf s_t)(Q(\mathbf s_t, \mathbf a_t)-V(\mathbf s_t))
+$$
+$$
+V(\mathbf s_t) = E_{\mathbf a_t\sim\pi_\theta(\mathbf a_t|\mathbf s_t)}[Q(\mathbf s_t, \mathbf a_t)]
+$$
+
+* $$Q^\pi(\mathbf s_t, \mathbf a_t)$$: total reward from taking $$\mathbf a_t$$ in $$\mathbf s_t$$
+* $$V^\pi(\mathbf s_t)$$: total reward from taking $$\mathbf s_t$$
+* $$A^\pi(\mathbf s_t, \mathbf a_t) = Q^\pi(\mathbf s_t, \mathbf a_t) - V^\pi(\mathbf s_t)$$: how much better $$\mathbf a_t$$ is
+
+Only fit $$V^\pi(\mathbf s_t)$$:
+
+* $$Q^\pi(\mathbf s_t, \mathbf a_t)\approx r(\mathbf s_t, \mathbf a_t) + V^\pi(\mathbf s_{t+1})$$
+* $$A^\pi(\mathbf s_t, \mathbf a_t)\approx r(\mathbf s_t, \mathbf a_t) + V^\pi(\mathbf s_{t+1}) - V^\pi(\mathbf s_t)$$
+
+Fit V to what?
+
+$$y_{i,t} \approx \sum_{t'=t}^{T}r(\mathbf s_t, \mathbf a_t)$$
+
+
+$$y_{i,t} \approx r(\mathbf s_t, \mathbf a_t) + \hat V_\phi^\pi(\mathbf s_{t+1})$$
+
+! Actor-Critic update
 
 This is derived from Policy Gradient Theorem. We want to optimize a expected discounted reward
 $$
@@ -16,11 +46,11 @@ It has 2 networks (or one net with two heads):
 
 The update iteration is:
 
-# take action $a\sim\pi_\theta(a|s)$, get $(s, a, s', r)$
-# update $\hat V_\phi^\pi$ using target $r+\gamma\hat V_\phi^\pi(s')$
-# evaluate $\hat A^\pi(s, a)=r(s, a)+\gamma V_\phi^\pi(s')-\hat V_\phi^\pi(s)$
-# $\nabla_\theta J(\theta)\approx\nabla_\theta\log\pi_\theta(a|s)\hat A^\pi(s, a)$
-# $\theta\leftarrow\theta+\alpha\nabla_\theta J(\theta)$
+# take action $$a\sim\pi_\theta(a|s)$$, get $$(s, a, s', r)$$
+# update $$\hat V_\phi^\pi$$ using target $$r+\gamma\hat V_\phi^\pi(s')$$
+# evaluate $$\hat A^\pi(s, a)=r(s, a)+\gamma V_\phi^\pi(s')-\hat V_\phi^\pi(s)$$
+# $$\nabla_\theta J(\theta)\approx\nabla_\theta\log\pi_\theta(a|s)\hat A^\pi(s, a)$$
+# $$\theta\leftarrow\theta+\alpha\nabla_\theta J(\theta)$$
 
 Value and policy update work best with a batch. We can design better estimators of advantage: [[Generalized advantage estimation|https://arxiv.org/abs/1506.02438]]
 

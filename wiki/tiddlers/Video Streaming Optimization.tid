@@ -1,0 +1,22 @@
+created: 20180924060806217
+modified: 20180924071057041
+tags: [[RL Applications]] AutoML
+title: Video Streaming Optimization
+type: text/vnd.tiddlywiki
+
+! Intro
+* [[Video Streaming Optimization Trends|https://sonnati.wordpress.com/2017/03/20/video-streaming-optimization-trends/]]
+* [[Artificial Intelligence in video encoding optimization|https://sonnati.wordpress.com/2017/10/09/artificial-intelligence-in-video-encoding-optimization/]]
+* [[Netflix Blog|https://medium.com/netflix-techblog/using-machine-learning-to-improve-streaming-quality-at-netflix-9651263ef09f]]
+
+! Bibs
+* [[A Survey on Quality of Experience of HTTP Adaptive Streaming|https://ieeexplore.ieee.org/document/6913491/]]
+
+! Definition
+* HAS: HTTP Adaptive Streaming
+** Resolution ABR: Adaptive Bitrate Streaming
+** Frame Rate
+** Quantization
+
+! Methods
+* [[Neural Adaptive Video Streaming with Pensieve|http://web.mit.edu/pensieve/]]

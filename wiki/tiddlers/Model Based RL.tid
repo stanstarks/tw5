@@ -1,0 +1,7 @@
+created: 20190119023137650
+modified: 20190119023821572
+tags: [[Reinforcement Learning]]
+title: Model Based RL
+type: text/vnd.tiddlywiki
+
+If we know the transition dynamics $$p(s_{t+1}|a_t, s_t)$$:

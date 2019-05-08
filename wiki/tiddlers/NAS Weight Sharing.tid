@@ -1,5 +1,5 @@
 created: 20180906085320314
-modified: 20180919080931254
+modified: 20181207064908620
 tags: [[Neural Architecture Search]]
 title: NAS Weight Sharing
 type: text/vnd.tiddlywiki
@@ -41,6 +41,8 @@ This problem can be formulated as a probabilistic inference in a hierarchical mo
 
 We approximate the distribution over hidden variables $$\theta$$ and $$\alpha$$ with some approximate distribution $$q(\theta, \alpha)$$. Gumbel can be seen as modelling the distribution as a product of independent marginals $$q(\theta, \alpha)=q(\theta)q(\alpha)$$.
 
+!! Solving with approximate inference
+* [[Debiasing Approximate Inference]]
 
 ! Teacher forcing
 

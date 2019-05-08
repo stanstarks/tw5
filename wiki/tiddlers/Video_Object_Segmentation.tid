@@ -1,5 +1,5 @@
 created: 20170805135208050
-modified: 20170805135438361
+modified: 20190225051217073
 tags: [[CNN for Video]]
 title: Video Object Segmentation
 type: text/vnd.tiddlywiki
@@ -7,3 +7,151 @@ type: text/vnd.tiddlywiki
 ! Dataset
 * [[DAVIS Challenge 2017|http://davischallenge.org/code.html]]
 ** [[Video Object Segmentation with Re-identification|https://arxiv.org/abs/1708.00197]]: winner entry
+
+! Networks
+
+[[Temporal feature aggregations]]
+
+! Bibs
+to read:
+
+* Cheng et al. SegFlow: Joint learning for video object segmentation and optical flow
+* Tsai et al. Video segmentation via object flow
+* Kundu et al. Feature Space Optimisation for semantic video segmentation
+* Voigtlaender and Leibe. Online dapation of cnns for video object segmentation
+* predicting kernels: Niklaus~\etal Video Frame interpolation via adaptive convolution
+** Vondrick and Torralba Generating the future with adversarial transformers
+** generating videos with scene dynamics
+* Streeter: approximation algorithms for cascading prediction models
+
+!! Semantic
+
+* Dynamic Video Segmentation Network, Xu~\etal~CVPR,18
+** Assign different images regions to two different networks: the first one is deeper and slower, while the second one is shallow and relies on the optical flow.
+** CityScapes (70.4 - 19.8FPS, 63.2 - 30FPS)
+* Low-Latency Video Semantic Segmentation Li~\etal~CVPR,18
+** The authors propose to predict a set of local convolutional kernels based on the current frame that is applied on the decoder output from the previous frame.
+** key frame prediction
+** CityScapes (76.84, 720x960 - 171ms per frame), CamVid (94.6 mAcc, 82.9 gAcc)
+* Semantic Video Segmentation by Gated Recurrent Flow Propagation Nilsson and Sminchisescu~CVPR,18
+** The authors propose to use temporal propagation between the frames for semantic video segmentation: in particular, they rely on the optical flow and only propagate the labels from the previous frame at pixels where the optical flow estimate is confident.
+** CityScapes (PSP-MSC, 80.6 512x512 training / 0.7s per frame for full size testing), CamVid (Dilation8, 66.1)
+* Deep Spatio-Temporal Random Fields for Efficient Video Segmentation Chandra~\etal~CVPR,18
+** CamVid (wout CityScapes - 67.0\%, with - 75.2\%s), DAVIS-val (86.5\%), DAVIS Person (86.98)
+** adapt deep gaussian random field to handle temporal information by predicting besides unary and spatial pairwise terms, also temporal pairwise terms, efficiently propagating features between frames
+
+%%%%%%%%
+The best of both worlds: Combining CNNs and Geometric Constraints for Hierarchical Motion Segmentation
+Pia Bideau~\etal CVPR,18
+
+main benchmarks: Freiburg-Berkeley Motion, Complex Background, Camouflaged Animals; supp. DAVIS - does not achieve best results (\textcolor{red}{check out numbers})
+
+the authors decompose motion segmentation into first predicting rigid motions (motions that can be described by translating rigid 3D regions) using optical flow and then combining them with object proposals (from SharpMask) to predict object instance segmentations. pixel displacement from one frame to the next is a function of depth and motion
+
+%%%%%%%%
+
+Blazingly Fast Video Object Segmentation with Pixel-Wise Metric Learning
+Chen~\etal~CVPR,18
+
+DAVIS-2016 (77.5, 275ms per frame 480p resolution)
+
+The authors assign per-pixel labels based on the similarity of their embeddings to the reference ones. It also allows to incorporate users' feedback on-line.
+
+%%%%%%%%
+Fast and Accurate Online Video Object Segmentation via tracking parts
+Cheng~\etal~CVPR,18
+
+DAVIS-2016 (82.4 - 1.8s, 77.9 - 0.60s), DAVIS-2017 (54.6)
+
+Divide images into parts of interest, track and segment them along the video frames
+
+%%%%%%%
+
+SDC-Net: Video Prediction Using spatially-displaced convolution
+Reda~\etal~ECCV,18
+
+To predict next frame, predict pixel-kernels and offsets. Use previous flow estimates
+
+%%%%%%%
+
+Deep Kalman Filtering Network for Video Compression Artifact Reduction
+Lu~\etal~ECCV,18
+
+the authors propose to improve the quality of video frames by combining deep neural networks with Kalman filter: in particular, previous estimate is improved by adding a measurement from the residual of the prediction.
+
+%%%%%%%%%%%%%%%
+
+Video Object Segmentation by Learning Location-Sensitive Embeddings
+Ci~\etal~ECCV,18
+
+DAVIS (bounding box as input, 81.0, +CRF 82.9), SegTrack-v2 (69.7)
+
+The authors suggest to learn location-sensitive embeddings and use those in combination with a foreground segmentation network, to perform per-frame segmentation.
+
+
+%%%%%%%%%%%%%%%
+Reinforcement Cutting-Agent Learning for Video Object Segmentation
+Han~\etal~CVPR,18
+
+DAVIS-2016 (84.1), YouTube-Objects (78.1)
+
+The authors formulate video object segmentation as the MDP problem and train two RL-agents - one finding the right bounding box with the second one finding the right segmentation mask.
+
+%%%%%%%%%%%%%%%%
+Motion-guided cascaded refinement network for video object segmentation
+Hu~\etal~CVPR,18
+
+DAVIS-2016 (84.4, 0.73 sec/frame - online training), YouTube-Objects (76.6)
+
+The authors first acquire a coarse segmentation mask using the active contour method on the optical flow, and then use it to refine the final prediction with the help of a larger network.
+
+%%%%%%%%%%%%%%%%%%%
+
+Retrospective Encoders for Video Summarisation
+Zhang~\etal~ECCV,18
+
+The problem of video summarisation is solved here by proposing to embed the video summary close to the embedding of the original video, which is done via Seq2seq.
+
+%%%%%%%%%%%%%%%%%%%%
+
+K for the price of 1: Parameter efficient multi-task and transfer learning
+From Google
+ICLR,19
+
+Instead of fine-tuning only the last layer, the authors suggest to train a separate model patch - this path can contain BN and depthwise layers.
+
+%%%%%%%%%%%%%%%%%%%%%
+
+Mobile Video Object Detection with Temporally-Aware Feature Maps
+Liu and Zhu, CVPR18
+
+The authors insert LSTM blocks inside MobileNet-SSD: to reduce the number of parameters inside LSTM, they propose to reduce the number of input channels to LSTM.
+
+%%%%%%%%%%%%%%%%%%%%
+
+Learning to forecast and refine residual motion for Image-to-Video Generation
+Zhao~\etal~ECCV,18
+
+The authors propose to disentangle motion differences into a residual motion map and a context map, and combine this with the static image in order to generate future frames.
+
+%%%%%%%%%%%%%%%%%%%%
+
+Folded Recurrent Neural Networks for Future Video Prediction
+Oliu~\etal~ECCV,18
+
+The authors propose to stack GRUs in an encoder-decoder fashion to pass information spatially for the task of generating future frames.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+PhaseNet for Video Frame Interpolation
+Meyer~\etal~CVPR,18
+
+The authors learn phase of the intermediate frame based on its adjacent frames.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+Video Summarisation Using Fully Convolutional Sequence Networks,
+Rochan~\etal~ECCV,18
+
+The authors pinpoint the connection between video summarisation and semantic segmentation, as the result of which they are able to leverage existing segmentation models in an efficient and effective way.
+

@@ -1,6 +1,7 @@
 created: 20171205102142475
-modified: 20171205102806827
-tags: [[External memory for one-shot generalization]] [[Variational Generative Models]] [[Memory Networks]]
+list: 
+modified: 20190225061529072
+tags: [[External memory for one-shot generalization]] [[Reversible Generative Models]] [[Memory Networks]]
 title: Variational Memory Addressing in Generative Models
 type: text/vnd.tiddlywiki
 

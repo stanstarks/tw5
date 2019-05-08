@@ -1,0 +1,17 @@
+created: 20181030100105190
+modified: 20181106063337644
+tags: Transformer [[Language Modelling]]
+title: Transformer XL
+type: text/vnd.tiddlywiki
+
+This work is built upon Google's [[Character-Level Language Modeling with Deeper Self-Attention|https://arxiv.org/abs/1808.04444]]
+
+* causal attention mask: limit history knowledge
+* auxiliary loss: to train deep transformer
+* multiple positions: not necessary by incorporating cached segment with XL
+* learned positional embedding: 
+
+! Think of
+Implement copynet with transformer
+
+!

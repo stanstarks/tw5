@@ -1,0 +1,13 @@
+created: 20190208040714915
+modified: 20190208042913170
+tags: [[Bayesian Optimization]]
+title: Efficient High Dimensional Bayesian Optimization with Additivity and Quadrature Fourier Features
+type: text/vnd.tiddlywiki
+
+Provably no-regret polynormial time (in the number of evaluations of the aquisition function) for solving high dimensional BO
+
+! Generalized additive GPs
+$$
+g(x) = \sum g^{(j)}(x^{(j)})
+$$
+where each $$x^{(j)}$$ belongs to a low-dimensional subspace. In generalized additive GPs, the kernels are additive.

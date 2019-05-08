@@ -1,0 +1,28 @@
+created: 20181228064233289
+modified: 20190305064753375
+tags: [[Policy Gradient]]
+title: Policy Gradient Reducing Variance
+type: text/vnd.tiddlywiki
+
+* The gradient is effected by the choice of reward function. Even if by just adding a constant.
+* It is hard to choose learning rate and convergence is slow due to high variance.
+* Natural gradient and slow convergence
+
+We should introduce causality because policy at time $$t'$$ cannot effect reward at time $$t$$ when $$t<t'$$.
+
+$$
+\nabla_\theta J(\theta)\approx \frac{1}{N}\sum_{i=1}^N\sum_{t=1}^T\nabla_\theta\log\pi_\theta(a_t|s_t)\left(\sum_{t'=t}^Tr(s_{i,t'}, a_{i,t'})\right)
+$$
+$$\sum_{t'=t}^Tr(s_{i,t'}, a_{i,t'})$$ is the reward to go often notated with $$\hat Q_{i,t}$$.
+
+$$
+\nabla_\theta J(\theta)\approx \frac{1}{N}\nabla_\theta\log\pi_\theta(\tau)[r(\tau)-b]
+$$
+
+And we apply ''baselines''. Substracting any constants, leave the policy gradient unbiased. (expectation won't change but the variance will). Average reward baseline $$b=\frac1N\sum_{i=1}^N r(\tau)$$ is not the best, but works pretty well.
+
+$$\text{Var} = E[x^2]-E[x]^2$$, only the first part is related to $$b$$: $$\frac{d\text{Var}}{db} = \frac{d}{db}E[g(\tau)^2(r(\tau)-b)^2]$$. One stationary point is $$b = E[g(\tau)^2r(\tau)]/E(g(\tau)^2)$$, the expected reward weighted by the gradient magnitude.
+
+$$
+\nabla_\theta J(\theta)\approx \frac{1}{N}\sum_{i=1}^N\sum_{t=1}^T\nabla_\theta\log\pi_\theta(a_t|s_t)(Q(s_{i, t}, a_{i, t})-b)
+$$

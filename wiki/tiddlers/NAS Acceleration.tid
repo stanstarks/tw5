@@ -1,5 +1,5 @@
 created: 20180905085605713
-modified: 20180916101839814
+modified: 20181104041352402
 tags: [[Neural Architecture Search]]
 title: NAS Acceleration
 type: text/vnd.tiddlywiki
@@ -11,3 +11,4 @@ type: text/vnd.tiddlywiki
 ** PPO
 * Better Controller
 ** [[NAS and Few-shot learning]]
+** [[NAO]]

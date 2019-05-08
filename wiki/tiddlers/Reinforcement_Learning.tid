@@ -1,5 +1,5 @@
 created: 20161008091826135
-modified: 20180905071306588
+modified: 20190119023127787
 tags: [[Deep Learning Applications]]
 title: Reinforcement Learning
 type: text/vnd.tiddlywiki
@@ -46,7 +46,7 @@ We sample states $\epsilon$-greedily.
 * value based, has a value function where policy can be inferred.
 * policy based, work in decision space, more direct. Policy Graident.
 * [[Actor-Critic Method]]: stores policy and value
-* model free/based
+* [[Model Based RL]]
 
 !! Anatomy of a RL algorithm
 Iterate these 3 steps：
@@ -100,3 +100,5 @@ Environments
 * [[DeepMind Lab|https://github.com/deepmind/lab]]
 * [[Facebook ELF|https://github.com/facebookresearch/ELF]]
 * [[TextWorld|https://www.microsoft.com/en-us/research/project/textworld/]]
+
+[[RL Applications]]

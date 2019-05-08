@@ -1,6 +1,7 @@
 created: 20161009032729712
-modified: 20170918071807922
-tags: [[Deep Generative Models]] [[Variational Generative Models]] [[Latent Variable Models]]
+list: 
+modified: 20190225061529103
+tags: [[Deep Generative Models]] [[Reversible Generative Models]] [[Latent Variable Models]]
 title: Variational Autoencoder
 type: text/vnd.tiddlywiki
 

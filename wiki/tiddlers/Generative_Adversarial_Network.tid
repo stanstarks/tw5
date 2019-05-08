@@ -1,5 +1,5 @@
 created: 20161021080332245
-modified: 20180916102029723
+modified: 20181003105915687
 tags: [[Deep Generative Models]]
 title: Generative Adversarial Network
 type: text/vnd.tiddlywiki
@@ -64,6 +64,7 @@ The loss $\mathcal L(\theta^*, \phi) = 2\mathrm{JS}(p^*\|q_\phi)-\log(4)$.
 ** Good results
 * [[SN-GAN]] learns ImageNet
 * [[StarGAN]]
+* [[BigGAN|https://arxiv.org/abs/1809.11096]]
 
 !! Theory
 

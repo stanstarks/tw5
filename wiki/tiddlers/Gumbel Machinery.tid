@@ -1,10 +1,12 @@
 created: 20171204104028529
-modified: 20180207061956084
+modified: 20190412020717054
 tags: [[Variational Optimization]]
 title: Gumbel Machinery
 type: text/vnd.tiddlywiki
 
 * [[blog|https://cmaddis.github.io/gumbel-machinery]]
+
+$$h$$ is a discrete variable controlled by $$p(z)$$ and hard threshold function $$h = H(z)$$. Gumbel softmax relaxed the hard theshold with tempreture dependent sigmoid function $$\sigma_t(\cdot)$$. Now $$p(h) \approx p(\sigma_t(z))$$ is differentiable. As the temperature goes to zero, bias goes down but variance goes to infinity, which can leads to the wrong solution.
 
 $$
 p(K, g_1, \ldots, g_n) = \frac{\alpha_K}{Z}f_{\log Z}(g_K)\prod_{i \neq K} \frac{f_{\log \alpha_i}(g_i) [g_K \geq g_i]}{F_{\log \alpha_i}(g_K)}

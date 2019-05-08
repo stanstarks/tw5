@@ -1,0 +1,46 @@
+created: 20181211103243218
+modified: 20190208043317608
+tags: [[NAS Search Strategies]]
+title: Bayesian Optimization
+type: text/vnd.tiddlywiki
+
+* Fit a probabilistic model to the function evaluations $$\langle\lambda, f(\lambda)\rangle$$
+* Trade off exploration vs exploitation
+
+Our goal is to find the maximizer: $$x^* = \text{argmax}_{x\in\mathcal X} f(x)$$, by minimizing the difference between the maximum and current best value, namely simple regret and bayes simple regret
+$$
+SR(n) = f(x^*) - \max f(x_j), BSR = \mathbb E[SR(n)]
+$$
+
+! Models
+
+!! GP
+Problems for GP approach:
+
+* Complex hyperparameter space
+** high-dimentional, low effective dimensionality
+** mixed continuous/discrete hyperparameters
+** conditional hyperparameters
+* Noise: sometimes heteroscedastic, large, non-Gaussian
+* Robustness
+* Model overhead
+
+High dim GPs:
+
+* [[Efficient High Dimensional Bayesian Optimization with Additivity and Quadrature Fourier Features]]
+
+Random forest can be used as SMAC. Uncertanty is not accurate
+
+[[Tree of Parzen Estimators]]
+
+! Deep Aquisition Network
+* Should handle complex structures
+* Should be able to yield uncertainty, for exploration. (Can fall back to frequentist uncertainty estimate)
+
+Neural networks
+
+* Bayesian linear regression using the features in the output layer [Snoek et al, ICML 2015]
+* Fully Bayesian neural networks, trained with SGHMC [Springenberg et al, NIPS 2016]
+
+!! Ideas
+TPE like predictions for neural network?

@@ -1,0 +1,10 @@
+created: 20180921054741226
+modified: 20180927104721005
+tags: [[Meta Pruning]]
+title: Channel Pruning
+type: text/vnd.tiddlywiki
+
+* [[Channel Pruning|https://arxiv.org/abs/1707.06168]]
+* [[ICCV17 Network Slimming|http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.pdf]]
+** Take the gamma in BN as the scaling factor
+** Requires finetuning

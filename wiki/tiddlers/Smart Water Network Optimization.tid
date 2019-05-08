@@ -1,0 +1,19 @@
+created: 20181212015157709
+modified: 20181217102048030
+tags: 
+title: Smart Water Network Optimization
+type: text/vnd.tiddlywiki
+
+! Algorithm
+!! Advanced ES methods
+* Hierarchical evolution
+* Regularized evolution (tournament selection/remove oldest ones)
+* [[CMA-ES|https://arxiv.org/abs/1604.00772]]
+
+!! Aquisition function estimation
+* TPE
+* Neural network
+
+!! Questions
+* How many parameters in the actuall network, if <1k, could try TPE
+* How long to evaluate one configuration, if long, can multi-fidelity speedup?

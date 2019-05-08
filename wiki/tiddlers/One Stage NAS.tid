@@ -1,0 +1,46 @@
+created: 20190314053759163
+modified: 20190412081257312
+tags: [[NAS Search Strategies]]
+title: One Stage NAS
+type: text/vnd.tiddlywiki
+
+* [[Auto-DeepLab|https://arxiv.org/abs/1901.02985]] achieves pretty high performance on Cityscapes
+** softmax relaxation is used
+* Partial Order Pruning: for Best Speed/Accuracy Trade-off in Neural Architecture Search
+** model trained each time, search space shrinking
+
+Weights training is more stable by starting arch training late
+
+! Problem Definition
+We want to simultaneously optimize the weights $$w$$ and architecture $$a$$. We do so by minimizing the expectation:
+$$
+\mathbb E_{p_\theta(a)}[\mathcal L(a, w)]
+$$
+
+! Searching Space
+!! Supernet structure
+$$
+^sH^l = \text{Cell}(\beta^l_{\frac{s}{2}\rightarrow s}{}^{\frac{s}{2}}H^{l-1} + \beta^l_{s\rightarrow s}{}^sH^{l-1} +\beta^l_{2s\rightarrow s}{}^{2s}H^{l-1}, ^sH^{l-2}; \alpha)
+$$
+
+! Gradient Estimators
+
+High variance
+
+* REINFORCE (Williams 1992)
+* NVIL (Mnih et al. 2014)
+* MuProp (Gu et al. 2016)
+
+Biased
+
+* Straight through (Bengio et al. 2013)
+* $$\frac12$$ estimator (Gregor et al. 2013)
+* Concrete/Gumbel-Softmax
+
+! Improvements?
+
+* Use natural gradient to control arch steps
+* Use a surrogate model to estimate arch
+** [[graph network|https://arxiv.org/abs/1803.03324]]?
+* combine sampling and amortized methods to predict the speed and performance
+* use MAML + droppath to train good init for net instances

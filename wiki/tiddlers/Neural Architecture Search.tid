@@ -1,6 +1,6 @@
 created: 20180524073534350
-modified: 20180906085310164
-tags: Meta-Learning
+modified: 20190506062124519
+tags: AutoML Meta-Learning
 title: Neural Architecture Search
 type: text/vnd.tiddlywiki
 
@@ -49,8 +49,14 @@ type: text/vnd.tiddlywiki
 *** How OpenAI Five inheritance weights?
 *** Simple search space, optimization is not sample efficient.
 
+! Important Facts
+
+[[NAS Fact Sheet]]
+
 ! Problems
 * How to define computation
 * How to evaluate different methods
 * [[NAS Acceleration]]
 * [[NAS Weight Sharing]]
+* [[NAS Search Space]]
+* [[NAS Search Strategies]]

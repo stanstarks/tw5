@@ -1,32 +1,33 @@
 created: 20170710122148848
-modified: 20170710123619583
-tags: [[Variational Generative Models]]
+list: 
+modified: 20190225061529135
+tags: [[Reversible Generative Models]]
 title: Adversarial Variational Bayes
 type: text/vnd.tiddlywiki
 
-We want to avoid log-density computation of $\log q(z|x, w)$. From the objective:
+We want to avoid log-density computation of $$\log q(z|x, w)$$. From the objective:
 
 $$
-\begin{align}
+\begin{aligned}
 &\mathbb E_{z\sim q(z|x,w)}[\log p(x|z, \theta)]-D_{KL}(q(z|x, w)\|p(z))\\
 =&\mathbb E_{z\sim q(z|x,w)}[\log p(x|z, \theta) + \log p(z)-\log q(z|x, w)]
-\end{align}
+\end{aligned}
 $$
 
-We introduce a real-valued discriminator function $T(x, z)$ such that
+We introduce a real-valued discriminator function $$T(x, z)$$ such that
 $$
 T(x, z)\approx-\log p(z)+\log q(z|x, w)
 $$
 
-Now we optimize $T$ with a similar form of $D$ from GAN:
+Now we optimize $$T$$ with a similar form of $$D$$ from GAN:
 $$
 \max_{T\in\mathcal T}\mathbb E_{x\sim p_D}[\mathbb E_{z\sim q(z|x, w)}[\log\sigma(T(x, z))]+\mathbb E_{z\sim p(z)}[\log(1-\sigma(T(x, z)))]]
 $$
 
 And the ELBO with
 $$
-\begin{align}
+\begin{aligned}
 &\mathbb E_{z\sim q(z|x,w)}[\log p(x|z, \theta) + \log p(z)-\log q(z|x, w)]\\
 =&\mathbb E_{z\sim q(z|x,w)}[\log p(x|z, \theta) - T^*(x, z)]
-\end{align}
+\end{aligned}
 $$

@@ -1,0 +1,40 @@
+created: 20181207065131162
+modified: 20190314053748443
+tags: [[Neural Architecture Search]]
+title: NAS Search Strategies
+type: text/vnd.tiddlywiki
+
+* PPO
+** Using gradient estimates to update neural network can be cast into the unified framework of policy gradient method.
+* [[Bayesian Optimization]]
+* Evolutionary strategies
+** cheap functions of millions of samples. competitive on parallel
+** CMA-ES works for continuous space
+
+! Beyond black box optimization
+* Hyperparameter gradient descent
+** Formulation as [[bilevel optimization problem|https://arxiv.org/abs/1806.04910]]
+** Derive through the entire optimization process
+** [[Gradient-based Hyperparameter Optimization through Reversible Learning]]
+** Interleave optimization steps
+* Multi-fidelity optimization
+** Successive Halving
+** [[Hyperband|https://openreview.net/pdf?id=ry18Ww5ee]]
+** BOHB: use TPE to pick configurations and HB to allocate the budgets
+
+! For Practitioners
+* If have access to multiple fidelities:
+** BOHB: [[code|https://github.com/automl/HpBandSter]]
+* If not
+** Low-dim: GP-based BO, e.g. [[Spearmint|https://github.com/HIPS/Spearmint]]
+** High-dim, categorical, conditional: SMAC (random forest) or TPE
+** Purely continuous, budget > 10x dimensionality: CMA-ES
+
+! Single Shot methods
+
+[[One Stage NAS]]
+
+* DARTS, softmax
+* DSO
+* Gumbel
+* BinaryConnect
