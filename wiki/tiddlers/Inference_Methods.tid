@@ -1,5 +1,5 @@
 created: 20161208114834459
-modified: 20181210062247824
+modified: 20190721071602870
 tags: Bayesian [[Probabilistic Models]]
 title: Inference Methods
 type: text/vnd.tiddlywiki
@@ -10,6 +10,7 @@ Probabilistic inference is used to handle noisy and imprecise data. Exact infere
 
 * Exact methods (conjugacy, enumeration)
 * Numerical integration (Quadrature)
+* [[Invariant Risk Minimization]]
 * Generalised method of moments
 * [[Maximum Likelihood Estimation]]
 * Maximum a posteriori
@@ -31,6 +32,7 @@ Probabilistic inference is used to handle noisy and imprecise data. Exact infere
 * [[Convex Relaxation]]
 * [[Stein Variational Gradient Descent]]
 * [[Debiasing Approximate Inference]]
+* [[Combining VI and MCMC]]
 
 ! Tools
 

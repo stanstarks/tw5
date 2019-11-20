@@ -1,5 +1,5 @@
 created: 20170621062553683
-modified: 20180603105842534
+modified: 20190822065918709
 tags: [[Probabilistic Deep Learning]] Bayesian
 title: Bayesian Deep Learning
 type: text/vnd.tiddlywiki
@@ -10,6 +10,11 @@ First Bayesian NNs are training with Laplace's method. Neal uses HMC. In late 90
 Modern VI relied on a fully factorized approximation, assuming independence of each weight scalar in each layer from all other weights.
 
 Expectation propagation is recently studied, relying on various forms of Renyi's $$\alpha$$-divergence. Seems to sacrifice their estimation of the dominant modes of the posterior.
+
+! Challenges
+
+* difficulty of reasoning about choice of the prior $$P(\mathbf W)$$
+* intractability of posterior inference
 
 ! Introduction
 
@@ -28,3 +33,13 @@ Topics
 ** ICML 2015 Weight uncertainty in neural networks
 * Sampling based
 ** NIPS 2016 DISCO nets: DISsimilarity COefficient networks
+
+! Algorithms
+
+* [[Assumed Density Filtering]]
+** [[Probabilistic Backpropagation]]
+** [[Elastic Weight Consolidation]]
+
+! Code
+
+* [[Bayesian Networks|https://github.com/JavierAntoran/Bayesian-Neural-Networks]]

@@ -1,9 +1,43 @@
 created: 20170406125012856
-modified: 20170522031508077
+modified: 20190630110750911
 tags: [[Convolutional Layer]]
 title: Deformable Convolution
 type: text/vnd.tiddlywiki
 
 [[blog|https://medium.com/@phelixlau/notes-on-deformable-convolutional-networks-baaabbc11cf3]] [[paper|https://arxiv.org/abs/1703.06211]] [[mxnet|https://github.com/msracver/Deformable-ConvNets]]
 
-Deformable conv adds a new layer to learn 2D offset for each input. This can be seen as a learnable [[Dilated Convolution]]. 
+Deformable conv adds a new layer to learn 2D offset for each input. This can be seen as a learnable [[Dilated Convolution]].
+
+! Talk
+
+Handling geometric transformation
+
+* Use sufficient variated data
+* Transformation-invariatnt features
+** SIFT
+** Deformable part-based models
+* STN
+** parametrized sampling grid with affine transformation
+** bilinear integration is differentiable because of no rules
+
+Deformable ConvNet
+
+* no supervision for learning spatial transformation
+* gradient for offsets?
+* summing efficient?
+
+Modulated Deformable ConvNet
+
+* Error bounded saliency regions
+
+RCNN feature mimicking
+
+Related works
+
+* Relation Networks and Attention Modules
+* active convolution, multi-path network
+
+Open questions
+
+* Capture geometric deformation
+* How to disentagle different factors in geometric deformation

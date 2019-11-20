@@ -1,5 +1,5 @@
 created: 20170427153639938
-modified: 20180907053511603
+modified: 20190630101240606
 tags: [[Probabilistic Models]]
 title: Statistical Measures
 type: text/vnd.tiddlywiki
@@ -58,35 +58,35 @@ The scores can be used are:
 * Quadratic score, $S(P, x) = 2P(x)-\|P\|^2_2$
 * Pseudoshperical score, $S(P, x) = P(x)^{\alpha-1}/\|P\|_{\alpha}^{\alpha-1}$
 
-!! $f$-divergence
+!! $$f$$-divergence
 
 * [Ali and Silvey, 1966]
 * [[Divergence Classed GANs]]
 
-$f$-divergence is a generalization of KL divergence. Now we require knowing the distribution of both $P$ and $Q$
+$$f$$-divergence is a generalization of KL divergence. Now we require knowing the distribution of both $$P$$ and $$Q$$
 $$
 D_f(P\|Q) = \int f\left(\frac{dP(x)}{dQ(x)}\right)dQ(x)
 $$
-where $f$ is a convex function of likelihood ratio. $f: \mathbb R\rightarrow\mathbb R\cup\{+\infty\}$. Properties:
+where $f$ is a convex function of likelihood ratio. $$f: \mathbb R\rightarrow\mathbb R\cup\{+\infty\}$$. Properties:
 
-# $D_f(P\|Q)\ge 0$ and $D_f(P\|Q) = 0$ when $P=Q$;
-# $D_f(P\|Q)=D_g(P\|Q)$ for any $g(x) = f(x) + \lambda(x-1)$
-# Taking $f_0(x) := f(x)-(x-1)f'(1)$ is good. It's nonnegative, nonincreasing on $(0, 1]$ and nondecreasing on $[1, \infty)$;
-# Taking the convec restriction $f_+(x) = f(x)$ if $x\ge0$ and $\infty$ otherwise.
+# $$D_f(P\|Q)\ge 0$$ and $$D_f(P\|Q) = 0$$ when $$P=Q$$;
+# $$D_f(P\|Q)=D_g(P\|Q)$$ for any $$g(x) = f(x) + \lambda(x-1)$$
+# Taking $$f_0(x) := f(x)-(x-1)f'(1)$$ is good. It's nonnegative, nonincreasing on $$(0, 1]$$ and nondecreasing on $$[1, \infty)$$;
+# Taking the convec restriction $$f_+(x) = f(x)$$ if $$x\ge0$$ and $$\infty$$ otherwise.
 
 Examples are
 
-* [[Kullback-Leibler divergence]]: $f = x\log x$
-* Reverse KL: $f(x) = -\log x$
-* [[Jensen-Shannon divergence]]: $f(x) = -(x+1)\log\frac{x+1}{2}+x\log x$
-* Total variation: $f(x) = |x-1|$
-* Pearson $\chi^2$
+* [[Kullback-Leibler divergence]]: $$f = x\log x$$
+* Reverse KL: $$f(x) = -\log x$$
+* [[Jensen-Shannon divergence]]: $$f(x) = -(x+1)\log\frac{x+1}{2}+x\log x$$
+* Total variation: $$f(x) = |x-1|$$
+* Pearson $$\chi^2$$
 
 Direct MLE 
 $$
 \max_{\theta\in\mathbb R^d}\frac1m\sum_{i=1}^m\log P_\theta(x^i)
 $$
-is equivalent to minimizing the KL-divergence $KL(P_r\|P_\theta)$.
+is equivalent to minimizing the KL-divergence $$KL(P_r\|P_\theta)$$.
 
 ! Bibs
 * [[Parallel Multiscale Autoregresssive Density Estimation]]

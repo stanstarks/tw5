@@ -1,5 +1,5 @@
 created: 20190506062131727
-modified: 20190508112548275
+modified: 20190530044007985
 tags: [[Neural Architecture Search]]
 title: NAS Fact Sheet
 type: text/vnd.tiddlywiki
@@ -18,6 +18,7 @@ type: text/vnd.tiddlywiki
 |[[ProxylessNAS|https://arxiv.org/pdf/1812.00332.pdf]] |ImageNet |75.1 |15 |- |5.1ms on V100 |Sequential |Single path with STE/REINFORCE |
 |[[ASAP|https://arxiv.org/pdf/1904.04123.pdf]] |ImageNet |73.3 |0.2 |- |- |Normal+reduction cell |Supernet with pruning |
 |[[Uniform|https://arxiv.org/pdf/1904.00420.pdf]] |ImageNet |74.7 |12 |- |328M |Sequential |Single path with evolution |
+|[[Single-path|https://arxiv.org/pdf/1904.02877.pdf]] |ImageNet |75.0 |- |- |- |- |Single path alternative optimization|
 |[[DetNAS|https://128.84.21.199/pdf/1903.10979.pdf]] |COCO det|mAP: 40.0 vs 39.2 shufflenetv2|44 | |1.3G |Sequential |Single path with evolution |
 |[[NAS-FPN|https://arxiv.org/pdf/1904.07392.pdf]] |COCO det|mAP: 48.3 vs 43.4 FPN |333TPU (?) |166.6M |2.63T |Multi-branch |PPO with RNN controller |
 |[[DPC|https://arxiv.org/pdf/1809.04184.pdf]] |Cityscapes segm|mIoU: 82.7 vs 82.1 dlv3+|2590 |0.81M (decoder) |6.84G (decoder) |Multi-branch |Random search with Vizier |

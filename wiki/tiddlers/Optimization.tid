@@ -1,6 +1,6 @@
 created: 20161115080334482
-modified: 20180524033347137
-tags: Math
+modified: 20190917125018700
+tags: TableOfContents Math
 title: Optimization
 type: text/vnd.tiddlywiki
 
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 * [[Optimization Algorithms]]
 * [[On the universality of potential well dynamics]]
 * [[Low-Dimensional Structures]]
-* [[Allen's Theory]]
+* [[Primal-Dual Optimization]]
 * [[DE with DL]]
 
 ! Convex Optimization

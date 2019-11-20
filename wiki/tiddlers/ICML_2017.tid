@@ -1,5 +1,5 @@
 created: 20170726134522681
-modified: 20170815075820962
+modified: 20190917121652853
 tags: ICML
 title: ICML 2017
 type: text/vnd.tiddlywiki
@@ -7,8 +7,4 @@ type: text/vnd.tiddlywiki
 * [[ICML 2017 Papers]]
 
 ! Tutorials
-!! Recent Advances in Stochastic Convex and Non-Convex Optimization
-The form of master problem:
-$$
-\min_{x\in\mathbb R^d}\{\psi(x)+\frac1n\sum_{i=1}^nf_i(x)\}
-$$
+* [[Recent Advances in Stochastic Convex and Non-Convex Optimization]]

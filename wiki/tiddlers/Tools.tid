@@ -1,12 +1,12 @@
 color: #501464
 created: 20141010102453511
-modified: 20180503054159833
+modified: 20190912033654167
 tags: Programming
 title: Tools
 type: text/vnd.tiddlywiki
 
 * [[Editor Shortcuts]]
-* [[Arch Utils]]
+* [[Linux Utils]]
 * [[Org-mode]]
 * [[WikiText]]
 * [[Spacemacs]]

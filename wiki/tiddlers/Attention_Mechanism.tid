@@ -1,5 +1,5 @@
 created: 20170602025305444
-modified: 20181208070502915
+modified: 20190627100424240
 tags: [[Neural Machine Translation]] [[Conditional Language Modelling]] [[Sequential Models]]
 title: Attention Mechanism
 type: text/vnd.tiddlywiki
@@ -30,6 +30,7 @@ Other attentions
 ! Tutorials
 
 * [[Attention and Augmented Recurrent Neural Networks|https://distill.pub/2016/augmented-rnns/#attentional-interfaces]]
+* [[Attention in Deep Learning]]
 
 ! Computing
 

@@ -1,6 +1,6 @@
 created: 20161009032729712
 list: 
-modified: 20190225061529103
+modified: 20190818074911624
 tags: [[Deep Generative Models]] [[Reversible Generative Models]] [[Latent Variable Models]]
 title: Variational Autoencoder
 type: text/vnd.tiddlywiki
@@ -13,7 +13,7 @@ Some references
 * [[Stochastic Backpropagation and Approximate Inference in Deep Generative Models|https://arxiv.org/abs/1401.4082]]
 * [[Semi-Supervised Learning with Deep Generative Models|https://arxiv.org/abs/1406.5298]]
 * [[Rényi Divergence Variational Inference|https://arxiv.org/abs/1602.02311]]
-** This paper is definitely worth a read, and has a lot more to it than just deriving the bound. It proposes a practical algorithm VR-max, which uses $\alpha\rightarrow\infty$ and a smaller number of Monte Carlo samples. This method perfroms similarly to IWAE but requires fewer backpropagation iterations.
+** This paper is definitely worth a read, and has a lot more to it than just deriving the bound. It proposes a practical algorithm VR-max, which uses $$\alpha\rightarrow\infty$$ and a smaller number of Monte Carlo samples. This method perfroms similarly to IWAE but requires fewer backpropagation iterations.
 
 Nice models
 
@@ -27,7 +27,7 @@ Inference networks
 * Memory-based approach [Kulkarni et al., 2015]
 
 ! Background
-''Directed graphical models'' rely on an ''ancestral sampling procedure'', which is appealing both for its conceptual and computational simplicity. They lack, however, the conditional independence structure of undirected models, making exact and approximate posterior inference on latent variables cumbersome [[Saul et al. 1996|https://arxiv.org/abs/cs/9603102]]. Recent advances in ''stochastic variational inference'' and ''amortized inference'', allowed efficient approximate inference and learning of deep directed graphical models by maximizing a variational lower bound on the log-likelihood. In particular, VAE simultaneously learns a generative network, that maps gaussian latent variables $z$ to samples $x$, and semantically meaningful features by exploiting the reparametrization trick.
+''Directed graphical models'' rely on an ''ancestral sampling procedure'', which is appealing both for its conceptual and computational simplicity. They lack, however, the conditional independence structure of undirected models, making exact and approximate posterior inference on latent variables cumbersome [[Saul et al. 1996|https://arxiv.org/abs/cs/9603102]]. Recent advances in ''stochastic variational inference'' and ''amortized inference'', allowed efficient approximate inference and learning of deep directed graphical models by maximizing a variational lower bound on the log-likelihood. In particular, VAE simultaneously learns a generative network, that maps gaussian latent variables $$z$$ to samples $$x$$, and semantically meaningful features by exploiting the reparametrization trick.
 
 We optimize the ELBO:
 $$
@@ -42,30 +42,30 @@ VAEs are a probabilistic graphical model whose ''explicit goal'' is latent model
 The ability to set [[complex priors|https://arxiv.org/abs/1605.06197]] in the latent is also nice especially in cases where you know something should make sense or you have a desired latent distribution. You can also do distributed latents (and priors) over time, as in the [[VRNN paper|https://arxiv.org/abs/1506.02216]] or fixed latents over a sequence as in VRAE, STORN, and Generating Sentences from a Continuous Latent Space. These all learn interesting and powerful latent representations for sequences, and can be combined with many existing models for sequence modeling.
 
 ! Model
-Let $\bf x$ be a vector of $D$ observable variables, $\mathbf z\in \mathbb R^M$ a vector of stochastic latent units and let $p(\mathbf x, \mathbf z)$ be a parametric model of the joint distribution. Estimating the marginal likelihood $p(\mathbf x)$ could be intractable when the model is parametrized by a neural network. We can instead optimize the variational lower bound:
+Let $$\bf x$$ be a vector of $$D$$ observable variables, $$\mathbf z\in \mathbb R^M$$ a vector of stochastic latent units and let $$p(\mathbf x, \mathbf z)$$ be a parametric model of the joint distribution. Estimating the marginal likelihood $$p(\mathbf x)$$ could be intractable when the model is parametrized by a neural network. We can instead optimize the variational lower bound:
 $$
 \ln p(\mathbf x)\ge\mathbf E_{q(\mathbf z|\mathbf x)}[\ln p(\mathbf x|\mathbf z)]-\operatorname{KL}(q(\mathbf z|\mathbf x)\|p(\mathbf z)),
 $$
-where $p(\mathbf x|\mathbf z)$ is called a decoder and $p(\mathbf z)=\cal N(\mathbf z|\mathbf 0, \mathbf I)$ is the prior.
+where $$p(\mathbf x|\mathbf z)$$ is called a decoder and $$p(\mathbf z)=\mathcal N(\mathbf z|\mathbf 0, \mathbf I)$$ is the prior.
 
-In practice, $q(\mathbf z|\mathbf x)$ is reparametrized:
+In practice, $$q(\mathbf z|\mathbf x)$$ is reparametrized:
 $$
-q(\mathbf z|\mathbf x) = \cal N(z|\mu(x), \operatorname{diag}(\sigma^2(x)))
+q(\mathbf z|\mathbf x) = \mathcal N(z|\mu(x), \operatorname{diag}(\sigma^2(x)))
 $$
 
 ! Theory
 
-The basic idea is [[Variational Inference]]. We wish to optimize $\theta$ such that we can sample $z$ from $P(z)$ and with high probability, $f(z;\theta)$ will be like the $X$'s in the dataset.
+The basic idea is [[Variational Inference]]. We wish to optimize $\theta$ such that we can sample $$z$$ from $$P(z)$$ and with high probability, $$f(z;\theta)$$ will be like the $$X$$'s in the dataset.
 
-VAE assumes the latent factor $z$ that decides the properties of the image can be drawn from a simple distribution, i.e., $\mathcal N(0, I)$. Take this as a normalized random variable. The straightforward MC estimation $P(X)\approx\frac 1 n\sum_iP(X|z_i)$ is not feasible, because very similar samples are hard to genrate.
+VAE assumes the latent factor $$z$$ that decides the properties of the image can be drawn from a simple distribution, i.e., $$\mathcal N(0, I)$$. Take this as a normalized random variable. The straightforward MC estimation $$P(X)\approx\frac 1 n\sum_iP(X|z_i)$$ is not feasible, because very similar samples are hard to genrate.
 
-VAE attempts to sample values of $z$ from a new distribution $Q(z|X)$ that are likely to produce $X$. And compute $E_{z\sim Q}P(X|z)$. The relationship between $E_{z\sim Q}P(X|z)$ from $P(X)$ is one of the cornerstones of variational Bayesian methods. 
+VAE attempts to sample values of $$z$$ from a new distribution $$Q(z|X)$$ that are likely to produce $$X$$. And compute $$E_{z\sim Q}P(X|z)$$. The relationship between $$E_{z\sim Q}P(X|z)$$ from $$P(X)$$ is one of the cornerstones of variational Bayesian methods. 
 
 Within SGD scheme, we only have to compute the gradient of
 $$
 \log P(X|z)-\mathcal D[Q(z|X)\|P(z)]
 $$
-We assume $Q(z|X)$ is a Gaussian of $X$, $\mathcal N(\mu(X), \Sigma(X))$. 
+We assume $$Q(z|X)$$ is a Gaussian of $$X$$, $$\mathcal N(\mu(X), \Sigma(X))$$. 
 
 To derive the variational autoencoder (VAE) from here you only need two more ingredients. Following borrowed from [[here|http://www.inference.vc/variational-renyi-lower-bound/]].
 

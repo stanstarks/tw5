@@ -1,5 +1,5 @@
 created: 20161010062803919
-modified: 20171218045246550
+modified: 20190712014948898
 tags: Dropout Blog [[Bayesian DL]]
 title: Dropout as a Bayesian Approximation
 type: text/vnd.tiddlywiki
@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 ! Background: Propagating Uncertainty
 Uncertainty information can guide output and speedup RL.
 
-Neal (1996) has shown that the prior distribution over nonlinear functions implied by the Bayesian neural network falls in a class of probability distributions known as Gaussian processes. Infinitely wide single hidden layer NNs with distributions placed over their weights converge to Gaussian processes. The Bayesian way to optimize it is to integrate these parameters out. This kind of NNs have been studied as [[Bayesian neural networks]]. 
+Neal (1996) has shown that the prior distribution over nonlinear functions implied by the Bayesian neural network falls in a class of probability distributions known as Gaussian processes. Infinitely wide single hidden layer NNs with distributions placed over their weights converge to Gaussian processes. The Bayesian way to optimize it is to integrate these parameters out. This kind of NNs have been studied as [[Bayesian neural networks|Bayesian DL]]. 
 
 One of the weakness of the model is if we take the hidden layer to infinity, we have to scale down the weight in the output. No single activation function will dominate. 
 
@@ -22,7 +22,7 @@ GPs seems to be a different approach from neural networks.
 The dropout objective minimises the KL-divergence between an approximate distribution and the posterior of a deep Gaussian process.
 
 !! Deep Gaussian Process
-DGP allows us to model distributions over functions. A deep Gaussian process with $L$ layers and covariance function
+DGP allows us to model distributions over functions. A deep Gaussian process with $$L$$ layers and covariance function
 $$
 K(x, y) = \int p(w)p(b)\sigma(w^\top x+b)\sigma(w^\top y+b)dwdb
 $$
@@ -31,3 +31,6 @@ can be approximated by placing a variational distribution over each component of
 ! Dropout for Recurrent Layers
 [[link|http://arxiv.org/abs/1512.05287v5]]
 
+! Applications
+
+* [[Structured Bayesian Pruning via Log-Normal Multiplicative Noise]]

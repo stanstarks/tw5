@@ -1,6 +1,6 @@
 created: 20180606084415406
-modified: 20180723065136772
-tags: [[Neural Architecture Search]]
+modified: 20190731064149963
+tags: [[Bayesian NAS]]
 title: VENAS
 type: text/vnd.tiddlywiki
 
@@ -17,9 +17,45 @@ The goal is handle the uncertainty and ambiguity that occurs when learning from 
 ! Useful results
 * Gradient descent for a fixed number of iterations using $$x$$, $$y$$ corresponds to MAP of $$p(\phi|x, y, \theta)$$ under a Gaussian prior $$p(\phi|\theta)$$. [[ref|https://www.sciencedirect.com/science/article/pii/0024379594001146]]
 * [[SVGD|Stein Variational Gradient Descent]] reduces the distance between the approximate distribution defined by the particles and the target distribution.
+* [[Combining VI and MCMC]], 
 
+! Related work
+* [[Dropout as a Bayesian Approximation]]: The GP representation and infinite width limit seems also related to [[DL theory|http://www.offconvex.org/2019/07/10/trajectories-linear-nets/]]
+* [[BayesNAS]]
+* Single-Path NAS (as MCMC?). Search space restricted to sequential
+
+! Approach
+!! Structured Bayesian Pruning
+Given a probabilistic model $$p(y|x, \theta)$$. Approximate the posterior $$p(\theta|\mathcal D)$$ by a parametric distribution $$q_\phi(\theta)$$ by minimizing the KL divergence. Which is equivalent to maximization of the variational lower bound $$\mathcal L(\phi)$$.
+$$
+\mathcal L(\phi) = L_D(\phi)-\text{KL}(q_\phi(\theta)\|p(\theta))
+$$
+where
+$$
+L_D(\phi) = \sum_{i=1}^N\mathbb E_{q_\phi(\theta)}\log p(y_i|x_i,\theta)
+$$
+To estimate expected log-likelihood, we use the Reparametrization trick to obtain a differentiable minibatch-based MC estimator. sample from $$f(\phi, \epsilon)$$
+$$
+L_D(\phi) \simeq L_D^{SGVB}(\phi) = \frac{N}{M}\sum_{k=1}^M\log p(y_{ik}|x_{ik}, w_{ik})
+$$
 
 ! Experiments
-build upon [[PathLevel-EAS|https://github.com/han-cai/PathLevel-EAS]]
+
+* Variational Dropout [[https://github.com/HolyBayes/pytorch_ard]]
+* Structured Bayesian Pruning [[https://github.com/gaosh/Structured-Bayesian-Pruning-pytorch]]
+* Try more general bayesian networks [[https://github.com/JavierAntoran/Bayesian-Neural-Networks]]
+
+Use HNAS structure for classification
 
 ! Search space
+
+!! HR
+Searching for based on autodeeplab
+
+* check [[HRNet-FCOS|https://github.com/HRNet/HRNet-FCOS]] for detailed implementation
+
+!! CS-HR
+Look for hints from
+
+* [[MixNet|https://github.com/rwightman/pytorch-image-models.git]]
+* [[PC-DARTS|https://github.com/yuhuixu1993/PC-DARTS]]

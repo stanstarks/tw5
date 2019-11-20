@@ -1,5 +1,5 @@
 created: 20181210062306662
-modified: 20181210063159168
+modified: 20190630103125064
 tags: [[Inference Methods]]
 title: Variational Bayes
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 * [[Variational Inference]]
 
 ! Tutorials
-* [[ICML 2018 Tamara Broderick|http://www.tamarabroderick.com/tutorial_2018_icml.html]]
+* [[Variational Bayes and Beyond: Bayesian Inference for Big Data]]
 
 ! Variations
 * [[Variational Generative Models]]

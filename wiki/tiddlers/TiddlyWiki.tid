@@ -1,6 +1,6 @@
 color: #6495ED
 created: 20141010022803228
-modified: 20141010070101979
+modified: 20190915081200851
 tags: Tools Open-source
 title: TiddlyWiki
 type: text/vnd.tiddlywiki
@@ -18,3 +18,4 @@ TiddlyWiki is an unusual example of a practical quine: it is this ability to pro
 * [[MathJax Plugin]]
 * [[Highlight]]
 * [[CodeMirror]]
+* [[SlidesNStories]]

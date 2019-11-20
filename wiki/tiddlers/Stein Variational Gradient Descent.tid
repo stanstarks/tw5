@@ -1,5 +1,5 @@
 created: 20180617113734837
-modified: 20180617114204333
+modified: 20190709131422350
 tags: [[Inference Methods]]
 title: Stein Variational Gradient Descent
 type: text/vnd.tiddlywiki
@@ -8,3 +8,31 @@ type: text/vnd.tiddlywiki
 * Stein variational policy gradient
 
 Obtain $$M$$ samples from target distribution. Have to compute a PSD of weights
+
+! Stein's identity
+For sufficient regular $$\phi$$,
+$$
+\mathbb E_{x\sim p}[\mathcal A_p\phi(x)] = 0, \qquad\text{where}\qquad \mathcal A_p\phi(x) = \phi(x)\nabla_x\log p(x)^T+\nabla_x\phi(x)
+$$
+The magnitude of $$\mathbb E_{x\sim q}\mathcal A_p\phi(x)$$ is known as Stein discrepancy, by considering the "maximum violation of Stein's identity" for $$\phi$$ in some proper function set $$\mathcal F$$:
+$$
+\mathbb S(q, p) = \underset{\phi\in\mathcal F}{\max}\{[\mathbb E_{x\sim q}\text{trace}(\mathcal A_p\phi(x))]^2\}.
+$$
+The choice of $$\mathcal F$$ is critical, and decides the discriminative power and computational tractability of Stein discrepancy. Traditionally, $$\mathcal F$$ is taken to be sets of functions with bounded Lipschitz norms, which casts a challenging functional optimization problem that is computationally intractable or requires special considerations.
+
+! Kernelized Stein discrepancy
+Bypasses this difficulty by maximizing $$\phi$$ in the unit ball of a reproducing kernel Hilbert space:
+$$
+\mathbb S(q, p) = \underset{\phi\in\mathcal H^d}{\max}\{[\mathbb E_{x\sim q}\text{trace}(\mathcal A_p\phi(x))]^2, s.t. \|\phi\|_{\mathcal H^d\le1}\}
+$$
+The optimal solution has been shown to be $$\phi(x) = \phi^*_{q,p}(x)/\|\phi^*_{q,p}\|_{\mathcal H^d}$$, where
+$$
+\phi^*_{q,p}(\cdot) = \mathbb E_{x\sim p}[\mathcal A_pk(x, \cdot)],
+$$
+for which we have
+$$
+\mathbb S(q, p) = \|\phi^*_{q,p}\|^2_{\mathcal H^d}
+$$
+
+! Variational Inference Using Smooth Transforms
+variational inference 

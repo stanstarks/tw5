@@ -1,14 +1,14 @@
 created: 20170317104352496
-modified: 20180112010619768
-tags: [[Overcoming Catastrophic Forgetting]] [[Optimization Algorithms]] [[Laplace Approximation]]
-title: Elastic weight consolidation
+modified: 20190801023333254
+tags: [[Bayesian Deep Learning]] [[Overcoming Catastrophic Forgetting]] [[Laplace Approximation]]
+title: Elastic Weight Consolidation
 type: text/vnd.tiddlywiki
 
 [[link|http://www.pnas.org/content/early/2017/03/13/1611835114.abstract]]
 
-Elastic weight consolidation is best described as online sequential (diagonalised) Laplace approximation. This is similar to [[assumed density filtering|http://publications.aston.ac.uk/1444/1/NCRG_99_029.pdf]] the precursor to expectation-propagation. Laplace approximation takes a probability density $p$ and approximates it with a Gaussian. By Bernstein-von Misestype convergence theorems, the posterior will converge to the Laplace. EWC use a diagonalised Hessian for variance estimation.
+Elastic weight consolidation is best described as online sequential (diagonalised) Laplace approximation. This is similar to [[Assumed Density Filtering]] the precursor to expectation-propagation. Laplace approximation takes a probability density $$p$$ and approximates it with a Gaussian. By Bernstein-von Misestype convergence theorems, the posterior will converge to the Laplace. EWC use a diagonalised Hessian for variance estimation.
 
-For the first task, the Hessian would be the Fisher information from task $A$, $F^A$, plus the Hessian of the log prior $\log p(\theta)$.
+For the first task, the Hessian would be the Fisher information from task $$A$$, $$F^A$$, plus the Hessian of the log prior $$\log p(\theta)$$.
 
 Bayesian inference wouldn't suffer from catastrophic forgetting which haunts optimization-based methods. But the full posterior is intractable. 
 
@@ -19,6 +19,6 @@ $$
 \log p(\theta|\mathcal D_A, \mathcal D_B)\approx -\sum_i(F^A+F^B)_{i, i}(\theta_i-\theta_i^{A, B})^2
 $$
 
-The penalty around $\theta^A$ has already been taken account.
+The penalty around $$\theta^A$$ has already been taken account.
 
 EWC further required the knowledge of the task it is performing. The tasks here can be different minibatches of the same task.

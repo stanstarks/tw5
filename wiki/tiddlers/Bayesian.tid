@@ -1,5 +1,5 @@
 created: 20161102054547779
-modified: 20170908084057416
+modified: 20190801021120638
 title: Bayesian
 type: text/vnd.tiddlywiki
 
@@ -16,3 +16,12 @@ type: text/vnd.tiddlywiki
 
 ! Theory
 * [[Inference Methods]]
+* [[PAC-Bayesian]]
+
+! Topics
+
+* [[Scalable Bayesian Inference]]
+
+! Algorithms
+
+* [[Expectation Propagation for Approximate Bayesian Inference]]

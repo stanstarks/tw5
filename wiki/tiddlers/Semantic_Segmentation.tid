@@ -1,5 +1,5 @@
 created: 20161212031525021
-modified: 20180708072709713
+modified: 20190831104017450
 tags: [[Object Detection With CNNs]]
 title: Semantic Segmentation
 type: text/vnd.tiddlywiki
@@ -15,6 +15,8 @@ type: text/vnd.tiddlywiki
 ** 2016 COCO winner
 ** R-FCN for segmentation
 ** [[github|https://github.com/daijifeng001/TA-FCN]] code will come up
+* [[EMA|Expectation-Maximization Attention Networks for Semantic Segmentation]]
+** 88.2 on VOC
 
 ! Decoder Structure
 * [[Segmentation Decoder Search Space]]

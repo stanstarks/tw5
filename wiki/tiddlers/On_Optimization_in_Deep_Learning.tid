@@ -1,5 +1,5 @@
 created: 20160825062557484
-modified: 20180927102954091
+modified: 20190903054045200
 tags: Blog [[Deep Learning Theory]]
 title: On Optimization in Deep Learning
 type: text/vnd.tiddlywiki
@@ -62,6 +62,11 @@ The long-term behavior of certain neural network models are governed by the stat
 In this paper, he tries to explain the optimization paradigm with spin-glass theory.
 
 A bolder hypothesis is that deep networks are spin funnels. And as the net gets larger, the funnel gets sharper. If this is true, our major concern should be to avoid over-training rather than the convexity of the network.
+
+!! Implicit Bias in SGD
+
+* [[Chaudhari|https://arxiv.org/abs/1611.01838]] proposed a surrogate loss that explicitly biases SGD dynamics towards flat local minima. The corresponding algorithm relates closely to stochastic gradient Langevin dynamics.
+* [[SGD performs VI]]
 
 ! What does the minima look like?
 

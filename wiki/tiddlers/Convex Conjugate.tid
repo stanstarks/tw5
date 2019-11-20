@@ -1,11 +1,11 @@
 created: 20171117034959471
-modified: 20171117035429247
+modified: 20190917124033268
 tags: [[Inference Methods]]
 title: Convex Conjugate
 type: text/vnd.tiddlywiki
 
-In case your loss function involves convex functional of the densities (such as in $f$-divergences), you can transform your problem by re-expressing it in terms of the convex conjugate. The expression for $f$ in terms of its convex conjugate $f^∗$ is:
+In case your loss function involves convex functional of the densities (such as in $$f$$-divergences), you can transform your problem by re-expressing it in terms of the convex conjugate. The expression for $$f$$ in terms of its convex conjugate $$f^*$$ is:
 $$
 f(u) = \underset{v\in\text{dom}(f^*)}{\sup}\{\langle u, v\rangle-f^*(v)\}\ge\underset{\psi}{\sup}\{\langle u, v_\psi\rangle-f(v_\psi)\}
 $$
-If $u$ is a density function, then the inner product $\langle u, v_\psi\rangle$ is the expectation of $v_\psi$, which can be approximated by Monte Carlo sampling.
+If $$u$$ is a density function, then the inner product $$\langle u, v_\psi\rangle$$ is the expectation of $$v_\psi$$, which can be approximated by Monte Carlo sampling.

@@ -1,5 +1,5 @@
 created: 20160920070628746
-modified: 20190405111506771
+modified: 20190807004947878
 tags: [[Deep Learning Applications]]
 title: Vision
 type: text/vnd.tiddlywiki
@@ -16,6 +16,7 @@ In LABGAN, generate a pyramid of images, and use the components of Laplacian fil
 * [[Pose Estimation]]
 * [[Image Assessment with NIMA|https://github.com/kentsyx/Neural-IMage-Assessment]]
 * [[Instance Segmentation]]
+* [[Planar Reconstruction]]
 
 ! Repos
 

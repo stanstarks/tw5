@@ -1,6 +1,6 @@
 created: 20170306062407543
 list: 
-modified: 20190225061529087
+modified: 20190630113030792
 tags: Blog [[Reversible Generative Models]]
 title: Variational Inference for Generative Models
 type: text/vnd.tiddlywiki
@@ -31,7 +31,8 @@ The 2 major approximation methods are
 * MCMC, which forms a Markov chain whose posterior is 🐉,
 * Variational inference, which people use to call it what you do when you are waiting for your MCMC sampler to converge.
 
-So it's fast, and it's not very accurate. Anyway, how does it work? VI posit a ''variational family'' of distributions over the latent variables, $q(z;\nu)$,  🦄, and minimize the KL-divergence between 🦄 and 🐉. KL itself is intractable, we turn to the ''evidence lower bound'':
+So it's fast, and it's not very accurate. Anyway, how does it work? VI posit a ''variational family'' of distributions over the latent variables, $$q(z;\nu)$$,  🦄, and minimize the KL-divergence between 🦄 and 🐉. KL itself is intractable, we turn to the ''evidence lower bound'':
+
 $$
 g(z, \nu) = \log(🦂)−\operatorname{KL}[🦄\|🐉]=\mathbb E_🦄\log 🐨 - \mathbb E_🦄\log 🦄
 $$

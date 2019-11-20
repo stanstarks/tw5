@@ -1,5 +1,5 @@
 created: 20150629105042912
-modified: 20180102090824863
+modified: 20190627062505708
 tags: [[Optimization Algorithms]]
 title: Second Order Methods
 type: text/vnd.tiddlywiki
@@ -38,13 +38,13 @@ M(t) = M(t-1)\left(1+\frac{\phi^\top M\phi}{\delta^\top\phi}\right)\frac{\delta\
 $$
 where $\phi$ and $\delta$ are $N\times 1$ vectors:
 $$
-\begin{align}
+\begin{aligned}
 \phi &= \nabla E(w(t)) - \nabla E(w(t-1))\\
 \delta &= w(t)-w(t-1).
-\end{align}
+\end{aligned}
 $$
 
-! Gaussian-Newton and Levenberg Marquardt
+! [[Gauss-Newton]] and Levenberg Marquardt
 ''They work only for [[mean square error loss functions|Neural Net Functions]]''. They use the square Jacobi approximation for Hessian:
 $$
 \Delta w = \left(\sum_p \frac{\partial f(w,x_p)^\top}{\partial w}\frac{\partial f(w,x_p)}{\partial w}\right)^{-1}\nabla E(w)
@@ -53,7 +53,7 @@ The Leven Marquardt method has a regularization parameter $\mu$ that prevents it
 $$
 \Delta w = \left(\sum_p \frac{\partial f(w,x_p)^\top}{\partial w}\frac{\partial f(w,x_p)}{\partial w}+\mu I\right)^{-1}\nabla E(w)
 $$
-A similar procedure also works with Kullback-Leibler cost and is called Natural Gradient.
+A similar procedure also works with Kullback-Leibler cost and is called [[Natural Gradient]].
 
 [[Block-diagonal LM]] used the diagonal approximation of the Jacobi product in LM algorithm for RNN.
 

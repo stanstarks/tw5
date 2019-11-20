@@ -1,5 +1,5 @@
 created: 20170503023704453
-modified: 20181217101432783
+modified: 20191120105715582
 tags: Vision [[Recurrent Neural Networks]] [[Reinforcement Learning]]
 title: Meta-Learning
 type: text/vnd.tiddlywiki
@@ -22,6 +22,9 @@ Desire a meta-learning algorithm
 * input: meta-training set $$\mathcal D_{meta-train} = \{(D_{train}^{n}, D_{test}^n)\}_{n=1}^N$$, where $$D_{train}^{n}$$ is a set of training set. Slow learning can be done by i.e. [[REINFORCE]].
 * output: parameters $$\Theta$$ representing a training algorithm
 * objective: good performance on meta-test set $$\mathcal D_{meta-test} = \{(D_{train}^{n'}, D_{test}^{n'})\}_{n'=1}^{N'}$$
+
+! Tutorials
+* [[Meta Learning Tutorial]]
 
 ! Theories
 * [[RNN-Based Meta-Learning Methods]]

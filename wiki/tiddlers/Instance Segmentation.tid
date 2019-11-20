@@ -1,7 +1,21 @@
 created: 20190405111441212
-modified: 20190411074029134
+modified: 20190827045758410
 tags: Vision
 title: Instance Segmentation
 type: text/vnd.tiddlywiki
 
-* [[Discriminative Loss]]
+* Embedding
+** [[Discriminative Loss]]
+** [[YOLACT]]
+* [[Instance Segmentation Fact Sheet]]
+
+! Panoptic
+
+* [[UPSNet: A Unified Panoptic Segmentation Network|https://github.com/uber-research/UPSNet]]
+* [[Instance Mask Projection for High Accuracy Semantic Segmentation of Things]]
+
+! Tricks
+
+* Augmenation
+** [640, 800] uniform multiscale
+** [[InstaBoost]]

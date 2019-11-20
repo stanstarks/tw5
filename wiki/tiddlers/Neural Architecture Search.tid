@@ -1,5 +1,5 @@
 created: 20180524073534350
-modified: 20190506062124519
+modified: 20191120024129786
 tags: AutoML Meta-Learning
 title: Neural Architecture Search
 type: text/vnd.tiddlywiki
@@ -60,3 +60,6 @@ type: text/vnd.tiddlywiki
 * [[NAS Weight Sharing]]
 * [[NAS Search Space]]
 * [[NAS Search Strategies]]
+
+! Notes
+* [[Bayesian NAS]]

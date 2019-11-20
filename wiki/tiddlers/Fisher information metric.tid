@@ -1,5 +1,5 @@
 created: 20150213071121294
-modified: 20170920073019890
+modified: 20190627072551108
 tags: Analysis Statistics [[Reinforcement Learning]]
 title: Fisher information metric
 type: text/vnd.tiddlywiki
@@ -21,7 +21,19 @@ $$
 Normalized and de-correlated activation is well known for improving the conditioning of the Fisher information matrix.
 
 ! Appearances
-In reinforcement learning, the natural gradient is defined as $F^{-1}g$, where $F$ is the average Fisher information matrix
+In reinforcement learning, the natural gradient is defined as $$F^{-1}g$$, where $$F$$ is the average Fisher information matrix
 $$
-F = \mathbb E_{s, a\sim\pi}[(\nabla_\theta\log\pi_\theta(a|s))^T(\nabla_\theta\log\pi_\theta(a|s))]
+\begin{aligned}
+F &= \mathbb E_{s, a\sim\pi}[(\nabla_\theta\log\pi_\theta(a|s))^T(\nabla_\theta\log\pi_\theta(a|s))]\\
+&= \mathbb E_{s, a\sim\pi}[-\nabla^2_\theta\log\pi_\theta(a|s)]
+\end{aligned}
 $$
+If the empirical distribution over the data is equal to the model distribution $$p_\theta(y|f(x,\theta))$$, then the Fisher, empirical Fisher and the Hessian are all equal.
+
+! Connections between Fisher, GGN and Hessian
+The Fisher capstures paritla curvature information about the problem
+
+! Limitations of Empirical Fisher Approximation
+
+* [[paper|https://arxiv.org/abs/1905.12558]]
+

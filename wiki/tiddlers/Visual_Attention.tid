@@ -1,5 +1,5 @@
 created: 20161122065117181
-modified: 20181205011906834
+modified: 20190709051505130
 tags: Vision [[Attention Mechanism]]
 title: Visual Attention
 type: text/vnd.tiddlywiki
@@ -44,3 +44,4 @@ where $\kappa_h$ and $\kappa_w$ are $1$-dimensional kernels, $\otimes$ indicates
 !! Other implementations
 * [[Attention Pooling]]
 * [[Feature-wise Transformation]]
+* [[Context in Vision]]

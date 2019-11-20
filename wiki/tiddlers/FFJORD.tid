@@ -1,6 +1,6 @@
 created: 20190225051252179
 list: 
-modified: 20190225093334428
+modified: 20191108053604433
 tags: [[Reversible Generative Models]]
 title: FFJORD
 type: text/vnd.tiddlywiki
@@ -26,6 +26,11 @@ Then its derivative takes the form of another initial value problem:
 $$
 \frac{dL}{d\theta} = -\int_{t_1}^{t_0}\left(\frac{\partial L}{\partial z(t)}\right)^T\frac{\partial f(z(t),t;\theta)}{\partial \theta}dt
 $$
+
+* Gradients are computed by solving another ODE
+* Don't backpropagate through the operations of the solver
+* No need to store activations, $$O(1)$$ memory gradients
+* $$\left(\frac{\partial L}{\partial z(t)}\right)^T\frac{\partial f(z(t),t;\theta)}{\partial \theta}$$ is implicit vector-jacobian product (reverse-AD)
 
 ! Density Estimation with Unrestricted Architecture
 Estimate of the log-density with $$\mathcal O(D)$$ cost with 

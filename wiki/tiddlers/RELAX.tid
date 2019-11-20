@@ -1,5 +1,5 @@
 created: 20180423065601757
-modified: 20190508093014099
+modified: 20190509034415334
 tags: [[Variational Optimization]]
 title: RELAX
 type: text/vnd.tiddlywiki
@@ -9,6 +9,10 @@ type: text/vnd.tiddlywiki
 [[http://www.tuananhle.co.uk/notes/rebar-relax.html]]
 
 ! Gradient estimation
+
+$$
+\min_h f(h) \le \min_\alpha E_{\alpha\sim p(h|\alpha)}[f(h)]
+$$
 !! DARTS
 $$
 \nabla_\alpha E_{p_\alpha(h)}[f(h)]\approx \nabla_\alpha f(\sigma(\alpha))
@@ -30,6 +34,11 @@ $$
 
 $$
 u\sim\text{Uniform}(0, 1)
+$$
+
+!! REINFORCE
+$$
+\nabla_\alpha E_{p_\alpha(h)}[f(h)]= E_{p_\alpha(h)}[f(h)\nabla_\alpha \log p_\alpha(h)]
 $$
 
 !! Rebar

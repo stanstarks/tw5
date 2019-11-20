@@ -1,5 +1,5 @@
 created: 20161019092508242
-modified: 20190225061728272
+modified: 20190901063005777
 tags: [[Deep Learning Applications]]
 title: Deep Generative Models
 type: text/vnd.tiddlywiki
@@ -41,3 +41,5 @@ on evaluation
 * [[High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis|https://arxiv.org/abs/1611.09969]]
 ** Autoencoder with perceptual loss
 * [[Imitation Learning]]
+* [[Talking Heads]]
+* [[Faceswap]]
