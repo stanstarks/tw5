@@ -1,0 +1,26 @@
+created: 20200101054123245
+modified: 20200101055213962
+tags: [[Deep Learning Theory]]
+title: Neural Tangent Kernel
+type: text/vnd.tiddlywiki
+
+Gradient descent parameter-space training dynamics:
+
+$$
+\dot \theta_t = \frac{\partial}{\partial t}\theta_t = -\eta\nabla_\theta\mathcal L(\theta_t) = \eta\nabla_\theta f_{\theta_t}(\mathcal X)^T\nabla_f\mathcal L(f_\theta(\mathcal X))
+$$
+
+Gradient descent function-space training dynamics:
+$$
+\dot f_{\theta_t}(\mathcal X) = \frac{\partial}{\partial t}f_{\theta_t}(\mathcal X) = -\eta\nabla_\theta f_{\theta_t}(\mathcal X) \frac{\partial \theta_t}{\partial t} = \eta\nabla_\theta f_{\theta_t}(\mathcal X)\nabla_\theta f_{\theta_t}(\mathcal X)^T \mathcal L(f_\theta(\mathcal X))
+$$
+
+Neural Tangent Kernel of DNN training dynamics:
+$$
+\Theta_{\theta_t}(\mathcal X, \mathcal X) = \nabla_\theta f_{\theta_t}(\mathcal X)\nabla_\theta f_{\theta_t}(\mathcal X)^T \in \mathbb R^{nk\times nk}
+$$
+
+Neural Tangent Kernel of DNN training dynamics on a test point $$x$$:
+$$
+\Theta_{\theta_t}(x, \mathcal X) = \nabla_\theta f_{\theta_t}(x)\nabla_\theta f_{\theta_t}(\mathcal X)^T \in \mathbb R^{nk\times nk}
+$$

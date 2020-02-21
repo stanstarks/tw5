@@ -1,0 +1,23 @@
+created: 20200220004522947
+modified: 20200220045016270
+tags: [[Bayesian Diagnosis]]
+title: How good is the Bayes posterior for prediction really?
+type: text/vnd.tiddlywiki
+
+* [[paper|https://arxiv.org/abs/2002.02405]]
+* [[blog|https://statmodeling.stat.columbia.edu/2020/02/13/how-good-is-the-bayes-posterior-for-prediction-really/]]
+
+''Observation'':
+
+* By lowering the temperature, the posterior concentrates more on the MAP.
+* The underdispersion could be serving as an implicit prior for stronger regularization
+
+''Methodology'': The authors use an overdamped Langevin dynamic to sample from the posterior, except for omitting the Metropolis adjustment.
+
+''Critics'': 
+
+* The diagnosis is not exhaustive. No more powerful test such as to run a multiple chains and see if they have mixed.
+* Using bad priors but not testing priors with hyperparameters but test only fixed priors.
+* Monte Carlo error is not the sampling error
+* For complicated models such as ResNet, HMC suffers from all multimodality and non-log-convexity, would hardly mix.
+

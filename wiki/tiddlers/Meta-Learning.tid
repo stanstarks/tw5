@@ -1,5 +1,5 @@
 created: 20170503023704453
-modified: 20191120105715582
+modified: 20191121033815667
 tags: Vision [[Recurrent Neural Networks]] [[Reinforcement Learning]]
 title: Meta-Learning
 type: text/vnd.tiddlywiki
@@ -29,6 +29,7 @@ Desire a meta-learning algorithm
 ! Theories
 * [[RNN-Based Meta-Learning Methods]]
 * [[Meta-Learning Taxonomy]]
+* [[MAML Interpretation]]
 
 ! Applications
 * [[Neural Architecture Search]]

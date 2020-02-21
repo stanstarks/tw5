@@ -1,0 +1,11 @@
+created: 20200131042335387
+modified: 20200131043505274
+tags: 
+title: Stomatal Pore Detection Review
+type: text/vnd.tiddlywiki
+
+This paper directly applied Mask R-CNN for stomata detection and pore measurement. Although experiments shows sufficient accuracy against manual measurement, the reviewer believe the following points require to be justified before the authors could safely make the statement that the method is "fast", "SOTA" and, especially "transferable".
+
+* The authors should compare their Mask R-CNN results with some of the other reviewed methods, both speed-wise and accuracy-wise.
+* A validation set of merely 99 images could be too small to justify a general complicated framework such as Mask R-CNN is necessary for this task.
+* The reviewer is not sure what exactly transferable means in the abstract. Is it tranfering to other datasets or simple from training set to validation set? Either case, more experiments should be conducted to support this argument.

@@ -1,0 +1,10 @@
+created: 20200220012206277
+modified: 20200220013703098
+tags: [[Bayesian Diagnosis]]
+title: Yes, but Did It Work?: Evaluating Variational Inference
+type: text/vnd.tiddlywiki
+
+[[link|http://www.stat.columbia.edu/~gelman/research/published/Evaluating_Variational_Inference.pdf]]
+
+Without the need for a residual net, even in a linear regression I can find examples in which exact Bayesian posterior lead to worse predictive performance than ADVI (Reproducible code is available upon request). This is not a pathological edge example. The data is simulated from the correctly-specified regression model with n=100 and d=20 — and these are exactly the data one would simulate for linear regressions. The posterior is sampled using stan and is exact measured by all diagnostics. The predictive performance is evaluated using log predictive density on independent test data and the averaged over a large number of replications of both data and sampling to eliminate all other noises. But still, log predictive density from ADVI is higher than the exact posterior.
+

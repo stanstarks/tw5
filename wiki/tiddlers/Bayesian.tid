@@ -1,5 +1,5 @@
 created: 20161102054547779
-modified: 20190801021120638
+modified: 20200220013813703
 title: Bayesian
 type: text/vnd.tiddlywiki
 
@@ -17,6 +17,7 @@ type: text/vnd.tiddlywiki
 ! Theory
 * [[Inference Methods]]
 * [[PAC-Bayesian]]
+* [[Holes in Bayesian Statistics|http://www.stat.columbia.edu/~gelman/research/unpublished/bayes_holes_2.pdf]]
 
 ! Topics
 

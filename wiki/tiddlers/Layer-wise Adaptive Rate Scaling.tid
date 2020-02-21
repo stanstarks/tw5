@@ -1,0 +1,15 @@
+created: 20200221003200821
+modified: 20200221005150122
+tags: [[Optimization Algorithms]]
+title: Layer-wise Adaptive Rate Scaling
+type: text/vnd.tiddlywiki
+
+[[Link|https://arxiv.org/abs/1708.03888]]
+
+''Observation'': Linearly scaling up LR is instable with very large batch size.
+
+Separate learning rate for each layer:
+
+$$
+\gamma\lambda^l,\qquad \lambda^l = \eta\times\frac{\|w^l\|}{\|\nabla L(w^l)\|}
+$$

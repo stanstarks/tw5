@@ -1,5 +1,5 @@
 created: 20150627124407152
-modified: 20180809064223352
+modified: 20200221010122644
 tags: [[Deep Learning Basics]] Optimization
 title: Optimization Algorithms
 type: text/vnd.tiddlywiki
@@ -20,13 +20,9 @@ According to chapter 1 of [[Neural Networks: Tricks of the Trade]]
 !! Videos
 * [[Optimization for Machine Learning|https://simons.berkeley.edu/talks/elad-hazan-01-23-2017-1]]
 * [[Theory of accelerated methods]]
+
 !! Bib
-* [[Adam: A Method for Stochastic Optimization|https://arxiv.org/abs/1412.6980]]
-** When data features are sparse and bounded gradients, the adaptive method can achieve $O(\log d(\sqrt T)$, an improvement over $O(\sqrt{dT})$ for the non-adaptive method.
-* [[AdaDelta]]
-* [[A Variational Analysis of Stochastic Gradient Algorithms]]
-* [[Entropy-SGD|https://arxiv.org/abs/1611.01838]]
-** minus free energy from loss and solve with [[Stochastic Gradient Langevin Dynamics]]. 
+* [[Optimization Methods for Large-Scale Machine Learning]]
 
 !! Algorithms
 * [[Stochastic Gradient Descent]]
@@ -36,6 +32,13 @@ According to chapter 1 of [[Neural Networks: Tricks of the Trade]]
 * Frank-Wolfe
 * [[Follow-The-Regularized-Leader]]
 * AdaGrad
+* [[LARS|Layer-wise Adaptive Rate Scaling]]
+* [[Adam: A Method for Stochastic Optimization|https://arxiv.org/abs/1412.6980]]
+** When data features are sparse and bounded gradients, the adaptive method can achieve $O(\log d(\sqrt T)$, an improvement over $O(\sqrt{dT})$ for the non-adaptive method.
+* [[AdaDelta]]
+* [[A Variational Analysis of Stochastic Gradient Algorithms]]
+* [[Entropy-SGD|https://arxiv.org/abs/1611.01838]]
+** minus free energy from loss and solve with [[Stochastic Gradient Langevin Dynamics]]. 
 
 !! Remarks
 As is tested out by [[Karpathy|http://cs.stanford.edu/people/karpathy/convnetjs/demo/trainers.html]], Adagrad/Adadelta are "safer" because they don't depend so strongly on setting of learning rates (with Adadelta being slightly better), but well-tuned SGD+Momentum almost always converges faster and at better final values.

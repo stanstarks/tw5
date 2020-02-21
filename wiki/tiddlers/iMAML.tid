@@ -1,0 +1,25 @@
+created: 20191121042416257
+modified: 20191125113520505
+tags: [[Model-Agnostic Meta-Learning]]
+title: iMAML
+type: text/vnd.tiddlywiki
+
+! [[Meta-Learning with Implicit Gradients|https://arxiv.org/abs/1909.04630]]
+
+Anchor the parameter to stay in the vicinity of $$\theta_0$$ by adding quadratic regularizer $$\|\theta-\theta_0\|$$ to their loss.
+
+The gradient can be calculated in closed form. Related to the curvature, or second derivative of $$f$$ around the minimum we find:
+$$
+\frac{d\theta^\ast}{d\theta_0} = \frac{1}{1+f''(\theta^\ast)}
+$$
+
+Since it involves the inverse of the Hessian plus the identity, there is a practical approximation, using a conjugate gradient inner optimization loop.
+
+! [[Optimizing Millions of Hyperparameters by Implicit Differentiation|https://arxiv.org/abs/1911.02590]]
+
+With [[Implicit Function Theorem]] we obtained for iMAML is a special case of this where the $$\frac{\partial^2 \mathcal{L}_T}{\partial \theta \partial \theta}$$ is the identity. This is because there, the hyperparameter controls a quadratic regularizer $$\frac12\|\theta-\lambda\|^2$$, and indeed if you differentiate this with respect to both $$\lambda$$ and $$\theta$$ you are left wiht a constant times identity.
+
+The primary difficulty is approximating the inverse Hessian, or matrix-vector products. iMAML uses a conjugate gradient method. In this work, they use a Neumann series approximation, which, for a matrix $$U$$ looks as follows:
+$$
+U^{-1} = \sum_{i=0}^{\infty}(I - U)^i
+$$

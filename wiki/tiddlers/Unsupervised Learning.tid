@@ -1,7 +1,10 @@
 created: 20171115002937096
-modified: 20171115003015873
+modified: 20200221002446872
 title: Unsupervised Learning
 type: text/vnd.tiddlywiki
 
 * [[Graph-powered Machine Learning at Google|https://research.googleblog.com/2016/10/graph-powered-machine-learning-at-google.html]]
 ** learn sentiment from word embedding for smart reply
+* Pretext tasks
+* Contrastive learning
+** [[SimCLR]]

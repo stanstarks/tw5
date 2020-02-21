@@ -1,5 +1,5 @@
 created: 20170823062806969
-modified: 20181228065107130
+modified: 20200101055522171
 tags: [[Reinforcement Learning]]
 title: Policy Gradient
 type: text/vnd.tiddlywiki
@@ -69,7 +69,7 @@ Dynamic programming:
 * Classic papers
 ** Simple statistical gradient-following algorithms for connectionist reinforcement learning: introduces REINFORCE algorithm
 ** Infinite-horizon policy-gradient estimation: temporally decomposed policy gradient
-** Reinforcement learning of motor skills with policy gradients: very accessible overview of optimal baselines and natural gradient
+** Reinforcement learning of motor skills with policy gradients: very accessible overview of optimal baselines and [[natural gradient|Natural Gradient Descent]]
 * Deep RL
 ** Guided policy search: deep RL with importance sampled policy gradient
 ** Trust region policy optimization: deep RL with natural policy gradient and adaptive step size

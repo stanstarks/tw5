@@ -1,5 +1,5 @@
 created: 20170621062553683
-modified: 20190822065918709
+modified: 20200220013733486
 tags: [[Probabilistic Deep Learning]] Bayesian
 title: Bayesian Deep Learning
 type: text/vnd.tiddlywiki
@@ -43,3 +43,12 @@ Topics
 ! Code
 
 * [[Bayesian Networks|https://github.com/JavierAntoran/Bayesian-Neural-Networks]]
+
+! Resources
+
+* [[NIPS19 Bayesian Deep Learning Workshop]]
+
+! Tasks
+
+* [[Bayesian Object Detection]]
+* [[Bayesian Diagnosis]]

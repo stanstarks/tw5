@@ -1,7 +1,7 @@
 created: 20180110095509155
 list: 
-modified: 20191120105152282
-tags: [[Meta-Learning Taxonomy]]
+modified: 20191121035123693
+tags: [[MAML Interpretation]] [[Meta-Learning Taxonomy]]
 title: Model-Agnostic Meta-Learning
 type: text/vnd.tiddlywiki
 
@@ -16,3 +16,4 @@ $$
 * [[Probabilistic MAML]]
 * [[Modular MAML|https://sites.google.com/view/modular-meta-learning]]
 * [[Auto-Meta|https://arxiv.org/abs/1806.06927]]
+* [[iMAML]]

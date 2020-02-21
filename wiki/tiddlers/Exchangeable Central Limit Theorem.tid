@@ -1,0 +1,10 @@
+created: 20200101035236950
+modified: 20200101035647184
+title: Exchangeable Central Limit Theorem
+type: text/vnd.tiddlywiki
+
+For each positive integer $$n$$ let $$(X_{n, i};i=1, 2, \dots)$$ be an infintiely exhangeable process with mean zero, variance one, and finite absolute third moment. Define
+$$
+S_n = \frac{1}{\sqrt{n}}\sum_{i=1}^nX_{n, i}
+$$
+Then if the following condition hold:

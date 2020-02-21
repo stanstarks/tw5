@@ -1,0 +1,17 @@
+created: 20200101010057657
+modified: 20200101082808768
+tags: [[Bayesian Deep Learning]]
+title: NIPS19 Bayesian Deep Learning Workshop
+type: text/vnd.tiddlywiki
+
+* [[GP Behavior in Wide Deep Neural Networks]]
+* [[Natural Neural Tangent Kernel]]
+* Evaluating epistemic uncertainty
+** On mean-field Gaussian approximation for BNN regression (2+ hidden layers)
+*** (theory) can represent any mean & variance function
+*** (practice) weight-space VI + optimizaiton is to be blamed
+*** increasing depth does not seem to help to close the gap between MFVI and GP-limit reference
+* Modes of the landscapes are connected. But it is hard to sample from.
+** subspace variational sampling primarily explores a single modde due to the loss landscape geometric stucture
+** It trades off accuracy for solution diversity soboptimally
+** Combining local weight averaging and global ensembling is the best of both worlds

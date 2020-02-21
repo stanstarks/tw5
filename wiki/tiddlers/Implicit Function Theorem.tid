@@ -1,0 +1,17 @@
+created: 20191122053608056
+modified: 20191125111851198
+title: Implicit Function Theorem
+type: text/vnd.tiddlywiki
+
+Many meta-learning or hyperparameter optimization problems can be stated as nested optimization problems. If we have some hyperparameters $$\lambda$$ and some paramters $$\theta$$ we are interested in
+$$
+\operatorname{argmin}_\lambda \mathcal{L}_V (\operatorname{argmin}_\theta \mathcal{L}_T(\theta, \lambda)),
+$$
+where $$\mathcal L_T$$ is some training loss and $$\mathcal L_V$$ a validation loss. The optimal paramter to the training problem, $$\theta^\ast$$ implicitly depends on the hyperparameters $$\lambda$$:
+$$
+\theta^\ast(\lambda) = \operatorname{argmin} f(\theta, \lambda).
+$$
+If this implicit function mapping $$\lambda$$ to $$\theta^\ast$$ is differentiable, and subject to some other conditions, the implicit function theorem states that its derivative is
+$$
+\left.\frac{\partial\theta^{\ast}}{\partial\lambda}\right\vert_{\lambda_0} = \left.-\left[\frac{\partial^2 \mathcal{L}_T}{\partial \theta \partial \theta}\right]^{-1}\frac{\partial^2\mathcal{L}_T}{\partial \theta \partial \lambda}\right\vert_{\lambda_0, \theta^\ast(\lambda_0)}
+$$

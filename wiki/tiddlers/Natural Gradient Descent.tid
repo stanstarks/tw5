@@ -1,0 +1,12 @@
+created: 20200101055544403
+modified: 20200101061856843
+title: Natural Gradient Descent
+type: text/vnd.tiddlywiki
+
+Natural gradient descent has a pre-conditioned matrix multiplied to the loss derivative. This pre-condition matrix is [[Fisher information matrix|Fisher information metric]] $$F(\theta)$$:
+$$
+\hat\nabla_\theta \mathcal L(\theta) = -F(\theta)^{-1}\nabla_\theta\mathcal L(\theta)
+$$
+This allows the parameters to take gradients in the distribution space into account.
+
+* Desirable properties: faster convergence, invariance under model reparameterization

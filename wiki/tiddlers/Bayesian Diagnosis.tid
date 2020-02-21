@@ -1,0 +1,10 @@
+created: 20200220011135000
+modified: 20200220012904941
+tags: [[Bayesian Deep Learning]]
+title: Bayesian Diagnosis
+type: text/vnd.tiddlywiki
+
+Bayes procedures do not necessarily automatically improve the prediction or calibration over a point estimation such as the MAP
+
+* [[Yes, but Did It Work?: Evaluating Variational Inference]]
+* [[How good is the Bayes posterior for prediction really?]]

@@ -1,0 +1,13 @@
+created: 20191204010207191
+modified: 20191204035443393
+tags: [[Neural Architecture Search]] Blog
+title: NAS: Where Are We Now
+type: text/vnd.tiddlywiki
+
+
+<<<
+First off this ain't no diss record
+This for some of my homies that were misrepresented
+<<< Where Are They Now, Nas
+
+For the past year and a half, I have been working on the field of Neural Architecture Search (NAS). The techniques to automatically design neural networks for specific tasks are intising for both practitioners and theorists. In production, we need efficient network designs to save battery power of mobile devices, etc. In research, NAS extends the .

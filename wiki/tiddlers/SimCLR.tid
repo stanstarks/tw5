@@ -1,0 +1,15 @@
+created: 20200221001750488
+modified: 20200221005206719
+tags: [[Unsupervised Learning]]
+title: SimCLR
+type: text/vnd.tiddlywiki
+
+* Data augmentation helps contrastive learning
+* Learnable nonlinear transformation between the representation and the contrastive loss improves the quality of the learned representations
+* Normalized embeddings and adjusted temperature
+* larger batch sizes and training
+
+# Details
+
+* [[LARS|Layer-wise Adaptive Rate Scaling]] optimizer
+* 

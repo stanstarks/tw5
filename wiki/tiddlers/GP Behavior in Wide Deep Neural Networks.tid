@@ -1,0 +1,35 @@
+created: 20200101024401813
+modified: 20200101040029346
+tags: [[NIPS19 Bayesian Deep Learning Workshop]]
+title: GP Behavior in Wide Deep Neural Networks
+type: text/vnd.tiddlywiki
+
+This deal with only the initial state. Neural Tagent Kernel deals with more.
+
+Increasing width, the output of neural networks approximate normal distribution.
+
+```
+x => f(0) -> g(0) => f(1) -> g(1) => f(2)
+```
+
+There is subtleties of convergence in distribution. A serie of Rademacher random variables (-1, 1) convergences to uniform normal. But the event (sum of series) can have probability zero on the distribution.
+
+!! intuition of multiple hidden layers
+
+* for single input data: f(2) is normal because g(1) are independent
+* for multiple input data: different g(1) units will still become increasingly independent.
+* the problem is that f(1) units are only independent asymptotically.
+
+!! Preliminaries
+
+* linear envelope property: limit the nonlinearity
+* a width function $$h_d$$ specifies the number of hidden units at depth $$d$$.
+
+Proof uses [[Exchangeable Central Limit Theorem]]
+
+!! Limitations of kernel methods
+Kernel methods (including the GP posterior mean) can be written as affine transform
+$$
+\bar f^* = \beta(X, x^*)^Ty+c(X, x^*)
+$$
+This limited the form of the model.

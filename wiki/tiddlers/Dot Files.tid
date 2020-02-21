@@ -1,0 +1,7 @@
+created: 20200212034748871
+modified: 20200212034900483
+title: Dot Files
+type: text/vnd.tiddlywiki
+
+* zsh: https://github.com/denysdovhan/spaceship-prompt
+* tmux: https://github.com/gpakosz/.tmux

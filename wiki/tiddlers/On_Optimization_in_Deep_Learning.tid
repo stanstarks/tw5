@@ -1,5 +1,5 @@
 created: 20160825062557484
-modified: 20190903054045200
+modified: 20191204030339907
 tags: Blog [[Deep Learning Theory]]
 title: On Optimization in Deep Learning
 type: text/vnd.tiddlywiki
@@ -69,6 +69,8 @@ A bolder hypothesis is that deep networks are spin funnels. And as the net gets 
 * [[SGD performs VI]]
 
 ! What does the minima look like?
+
+Take for example the concept of mode connectivity ([[Garipov et al, 2018|https://arxiv.org/abs/1802.10026]]): it seems that the modes found by SGD using different random seeds are not just isolated basins, but they are connected by smooth valleys along which the training and test error are low.
 
 !! No poor local minima
 <<<
