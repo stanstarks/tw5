@@ -1,0 +1,30 @@
+caption: {{$:/core/images/format-fancy}} Show/Hide Footnotes
+created: 20161129202309520
+creator: JR
+modified: 20190915080822941
+modifier: JR
+tags: Inventar $:/tags/PageControls done
+title: Show/Hide Footnotes
+type: text/vnd.tiddlywiki
+
+<$list filter="[title[Footnotes]tag[$:/tags/BelowStory]]">
+<$button style="border-width:0px; background-color:transparent" tooltip="hide footnotes">
+{{$:/core/images/asterisk}}<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text="hide footnotes"/></span>
+</$list>
+<$list filter='[[Footnotes]]'>
+<$action-listops $tags="-$:/tags/BelowStory"/>
+</$list>
+</$button>
+</$list>
+<$list filter="[title[Footnotes]!tag[$:/tags/BelowStory]]">
+<$button style="border-width:0px; background-color:transparent" tooltip="show tags">
+{{$:/core/images/asterisk}} <$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text="show footnotes"/></span>
+</$list>
+<$list filter='[[Footnotes]]'>
+<$action-listops $tags="$:/tags/BelowStory"/>
+<$action-deletetiddler $filter="[search:title[$:/temp/stater]search[referen]]"/>
+</$list>
+</$button>
+</$list>

@@ -1,0 +1,10 @@
+created: 20190525072246194
+modified: 20190525073019310
+tags: [[Instance Segmentation]]
+title: YOLACT
+type: text/vnd.tiddlywiki
+
+links: [[paper|https://arxiv.org/abs/1904.02689]], [[code|https://github.com/dbolya/yolact]]
+
+! Training
+800k iters with batchsize 8.

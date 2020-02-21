@@ -1,0 +1,39 @@
+created: 20190915073105261
+modified: 20190917120337733
+tags: [[ICML19 Deep Learning Theory]]
+title: A Convergence Theory for Deep Learning via Over-Parametrization
+type: text/vnd.tiddlywiki
+
+Consider training $$L$$ hidden layers, given $$n$$ training samples that are non-degenerate <<ref "non-degenerate: their pairwise distance is at least $$\delta$$, norm 1 and $$\|x_i-x_j\|_2 \ge \delta$$">>. Suppose the network is overparametrized, <<ref "overparametrized: the number of neurons is polynomial in $$n$$, $$L$$ and $$\delta^{-1}$$, $$m \ge poly(n, L, \delta^{-1})$$">> Then, SGD finds training global minima in
+$$
+T=\frac{poly(n, L)}{\delta^2}\cdot\log\frac{1}{\epsilon}
+$$
+iterations for $$\ell_2$$-regression.
+
+Two key messages:
+
+* The theorem is obtained by training w.r.t. hidden layers, where previous work essentially trains only the last layer, which is a convex problem
+* Polynomial dependency on $$L$$, in contrast, previous work needs exponential time in $$L$$ [Du et al. ICML19], [Daniely, NIPS17]
+** Intrinsically the polynomial bound is possible because @@color:#859900;ReLU prevents exponential gradient explosion/vanishing, in a provable sense@@
+** Getting $$e^{O(L)}$$ is almost trivial: each hidden weight matrix $$W_\ell$$ has spectral norm 2, so overall $$2^L$$. The hard part is proving $$poly(L)$$
+* For a sufficient large neighborhood of the random initialization, the training objective is //''almost convex''//
+
+<<<
+''Main Lemma'' If loss is large, then gradient is large:<br>
+$$
+\|\nabla F(\overrightarrow{W})\|_F^2\ge F(\overrightarrow{W})\cdot(\delta/n^2)
+$$
+<<<
+
+<<<
+''Main Lemma'' Objective is semi-smooth:<br>
+$$
+F(\overrightarrow{W} | \overrightarrow{W'})=F(\overrightarrow{W})+\langle\nabla F(\overrightarrow{W}), \overrightarrow{W'}\rangle\pm poly(n, L)\cdot\|\overrightarrow{W'}\|_F
+$$
+<<<
+The objective can be sufficiently decreased if move in the gradient direction. Those two lemmas together implies SGD finds global minima in polynormial time.
+
+The authors prove that if $$m\ge poly(n, L)$$, for a sufficiently large neighborhood fo the random initialization, neural networks behave like Neural Tangent Kernel (NTK):
+
+* Gradient behaves like NTK: $$\nabla F(\overrightarrow{W}) = \left(1\pm\frac{1}{\sqrt{m}}\right)\cdot$$ feature space of NTK
+* The objective behaves like NTK: $$F(\overrightarrow{W}^*) = F^{NTK}(\overrightarrow{W}^*)\pm\frac{1}{m^{1/6}}$$

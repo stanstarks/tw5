@@ -1,0 +1,63 @@
+created: 20190619203302857
+modified: 20190627061908637
+tags: [[CVPR 2019]]
+title: CVPR Oral 2.2C
+type: text/vnd.tiddlywiki
+
+Photon-Flooded Single-Photon 3D Cameras
+
+* SPAD LiDAR with ambien light: peak is blurred
+* Extreme Filtering: reduce distortion but add noise
+* find optimal filtering: 
+
+High Flux Passive Imaging With Single-Photon Sensors
+
+* PF-SPAD: high flux level advantage
+* High dynamic range
+
+Acoustic Non-Line-Of-Sight Imaging	
+
+* measure at different locations
+
+Steady-State Non-Line-Of-Sight Imaging	
+
+A Theory of Fermat Paths for Non-Line-Of-Sight Shape Reconstruction
+
+* LiDAR
+* fermat path find the distance of the surface
+* Fermat flow: reconstruct normal
+* OCT: femtosec-scale
+
+End-To-End Projector Photometric Compensation
+
+* surface compensate with CNN image translation
+
+Bringing a Blurry Frame Alive at High Frame-Rate With an Event Camera
+
+Bringing Alive Blurred Moments
+
+Blind Visual Motif Removal From a Single Image
+
+* Blurred image generation from 2 images
+
+* And encoder decoder for watermark/image reconstruction
+
+Non-Local Meets Global: An Integrated Paradigm for Hyperspectral Denoising
+
+* Spectral HIS denoise
+
+Neural Rerendering in the Wild
+
+* 3D point to image with GAN+VGG loss
+
+GeoNet: Deep Geodesic Networks for Point Cloud Analysis
+
+* find the geodesic points
+
+MeshAdv: Adversarial Meshes for Visual Recognition
+
+* 3d adversarial with renderers
+
+Fast Spatially-Varying Indoor Lighting Estimation
+
+* 

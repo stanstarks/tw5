@@ -1,0 +1,12 @@
+created: 20190801023027724
+modified: 20190801023908486
+tags: [[Bayesian Deep Learning]]
+title: Probabilistic Backpropagation
+type: text/vnd.tiddlywiki
+
+* [[Probabilistic Backpropagation for Scalable Learning of Bayesian Neural Networks|https://arxiv.org/abs/1502.05336]]
+
+This uses [[Assumed Density Filtering]] multiple times to perform two non-trivial tasks required in a supervised Bayesian deep network: inference and learning
+
+* ''forward propagation'': In Bayesian deep learning, we maintain a distribution $$q(w)$$ over neural network weights, and each value $$w$$ defines a conditional probability $$p(y|x,w)$$. To predict the label $$y$$ from the input $$x$$, we have to average over $$q(w)$$, that is calculate $$p(y|x)=\int q(w)p(y|x,w)dw$$, which is difficult due to the nonlinearities. Probabilistic backprop uses an ADF-like algorithm to approximate this predictive distribution. Starting from the bottom of the network, it approximates the distribution of the first hidden layer's activations given the input $$x$$ with a Gaussian. The first hidden layer will have a distribution of activations because we have a distribution over the weights) It then propagates that distribution to the second layer, and approximates the result with a Gaussian. This process is repeated until the distribution of $$y$$ given $$x$$ is calculated in the last step, which can be done easily if one uses a probit activation at the last layer.
+* ''backward propagation'': Forward propagation allows us to make a prediction given an input. The second task we have to be able to perform is to incorporate evidence from a new datapoint $$(x_t,y_t)$$ by updating the distribution over weights $$q_t(w)$$ to $$p_t(w|x_t,y_t)\propto p(y_t|x_t, w)q_{t-1}(w)$$. We approximate this $$p_t(w|x_t,y_t)$$ in an inner loop, by first running probabilistic forward propagation, then a similar ADF-like sweep backwards in the network.

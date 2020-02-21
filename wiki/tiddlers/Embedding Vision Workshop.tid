@@ -1,0 +1,24 @@
+created: 20190616230959832
+modified: 20190617001356846
+tags: [[CVPR 2019]]
+title: Embedding Vision Workshop
+type: text/vnd.tiddlywiki
+
+! UltimateSLAM
+* [[paper|Ultimate SLAM? Combining Events, Images, and IMU for Robust Visual SLAM in HDR and High Speed Scenarios]]
+* Event Camera: Dinamic Vision Sensor
+** capture sensity change, like edge detection, no motion blur?
+** Paradigm Shift
+* Grayscale + DVS
+** Visual Inertial Fusion
+
+DJI
+* Framework
+** Sensors: ToF, Camera, MNU, GPS, Barometer
+** Local coorinate VIO
+** Det&Tracking
+* Chanllenges Localization
+** High altitude: GPS not stable, view changes through window
+** Accedental occasions: picture is blurred, VIO should run fast
+* Challenges Depth
+** 

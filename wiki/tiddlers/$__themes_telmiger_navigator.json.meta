@@ -1,0 +1,14 @@
+author: Thomas Elmiger
+core-version: >=5.1.18
+created: 20190302220716972
+creator: Thomas Elmiger
+description: Theme: light content, dark navigation, mobile first
+list: readme main top
+modified: 20190915124740195
+modifier: Thomas Elmiger
+name: Navigator
+plugin-type: theme
+source: https://tid.li/tw5/themes.html
+title: $:/themes/telmiger/navigator
+type: application/json
+version: 0.2.1

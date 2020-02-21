@@ -1,0 +1,11 @@
+created: 20161129200335297
+creator: JR
+modified: 20190915131728477
+modifier: JR
+tags: $:/tags/BelowStory
+title: Footnotes
+type: text/vnd.tiddlywiki
+
+<div class="tc-tiddler-frame">
+<$transclude tiddler="Annotations" mode=block>
+</div>

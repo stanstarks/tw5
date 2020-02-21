@@ -1,0 +1,5 @@
+hide-secondary-nav: yes
+colour-main-nav: rgb(200, 225, 211)
+colour-new-button: <<colour sidebar-tab-background>>
+show-new-button: yes
+show-kbd-hints: yes

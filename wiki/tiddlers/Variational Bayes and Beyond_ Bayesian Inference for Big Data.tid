@@ -1,0 +1,59 @@
+created: 20190630103041215
+modified: 20190705115010079
+tags: [[Variational Bayes]] [[ICML 2018]]
+title: Variational Bayes and Beyond: Bayesian Inference for Big Data
+type: text/vnd.tiddlywiki
+
+[[ICML 2018 Tamara Broderick|http://www.tamarabroderick.com/tutorial_2018_icml.html]]
+
+! Uncertainty
+Suppose we have a multivariate normal. Mean field approximation $$q(\theta)=\prod^J_{j=1}q_j(\theta_j)$$ underestimates the variance (sometimes severely). It makes us overly confident and makes wrong decisions. We don't get covariance estiamtes, which could leads to wrong mean estimate.
+
+!! Posterior means revisited
+
+Suppose we want to predict college GPA $$y_n$$, and collect standardized test scores (e.g., SAT, ACT) $$x_n$$. We also collect regional test scores $$r_n$$.
+
+Model:
+$$
+y_n|\beta, z,\sigma^2\overset{indep}{\sim}\mathcal N(\beta^Tx_n+z_{k(n)}r_n,\sigma^2)
+$$
+
+Priors: 
+$$
+z_k|\rho^2\overset{iid}{\sim}\mathcal N(0, \rho^2)
+$$
+$$
+\beta\sim\mathcal(0,\Sigma)
+$$
+$$
+(\sigma^2)^{-1}\sim\text{Gamma}(a_{\sigma^2}, b_{\sigma^2})
+$$
+$$
+(\rho^2)^{-1}\sim\text{Gamma}(a_{\rho^2}, b_{\rho^2})
+$$
+
+!! What we can do
+Reliable diagnostic: 
+
+* KL vs ELBO (Look into the talk: Yes, but did it work? Evaluating variational inference)
+** When we minimize KL, we are maximizing the ELBO. The value of KL is more informative, the closer to zero, the better we are estimating.
+* Richer "nice" set, alternative divergences
+* Theoretical guarantees on finite-data quality
+** data summarization
+
+! Automated, Scalable Bayesian Inference via Data Summarization
+For the classification task,
+$$
+p(\theta|y)\approx_\theta p(y|\theta)p(\theta)
+$$
+Propose a efficient approximation with error bounds for finite data.
+
+!! Bayesian Coreset
+Pre-process data to get a smaller, weighted dataset. Previous heuristics methods are data squashing, big data GPs.
+
+Subsampling the dataset will loss some important samples. We add a constraint on the log likelihood:
+$$
+\|\mathcal L(w)-\mathcal L\|\le\epsilon
+$$
+
+Using optimization algorithms finding the coreset. Seems not very intuitive.

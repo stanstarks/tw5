@@ -1,0 +1,45 @@
+created: 20190816015938559
+modified: 20190819060921042
+tags: [[Bayesian Networks]]
+title: Learning bi-objective Bayesian Network Structure from data using Particle Swarm Optimization
+type: text/vnd.tiddlywiki
+
+! Summary
+
+This paper proposes to select Bayesian networks (BN) from the pareto front of two objectives, misclassification and minimum description length (MDL) with particle swarm optimization (PSO).
+
+! Reader Interest
+
+# The topic of the paper loosely connected with model selection with regularization by introducing MDL. But the fact that the methods lacks theoretical support prevents the work from being interesting. Learning Bayesian networks structure with PSO is not new [1,2]. Authors highlight their contributions as showing
+## a bi-objective approach that exploits both the advantages of the shortest description of the original data and expected misclassification
+## graphically the discrepancy between MDL and misclassification
+## the learned models.
+However, the first lacks technicall analysis and the last two are poorly demonstrated. Misclassification is already penalized in the MDL term. Its relationship with commonly used scoring functions for Bayesian learning BIC and BDeu [5] is not discussed. 
+# Although this paper set up to deal with the trade off between simplicity and accuracy, this work does not contain in depth discussion or practical guidelines to directly answer this question. There is no clear criterior on how to evaluate the model, whether to prefer the simpler MDL objective or the more accurate one. This makes it unlikely to be used by other researchers and practitioners. Simply distributing more weight to missclassificatio does not seem to be a good suggestion because it may suffer from overfitting.
+
+To demonstrate the efficienty of the proposed MOPSO algorithm, the running time and results should be compared with other structure learning algorithms.
+
+This paper does not provide suffcient introduction to BN or PSO. To claim L2 "BNs have become a preferred tool for prediction, diagnosis, decision-making, control, and interpretation of phenomena amenable to modeling", the authors should provide more up to date work and provide comparison to other methods, for example graphical networks [4]. And there lacks justification of the choice of using PSO. L41 "The metaheuristic used in this works is based on PSO (Particle Swarm Optimization) due to its good results in multi-objective problems and its simplicity to implement." How does it compare to other evolutionary strategies in BN? What is the reason of its superiority?
+
+The author should pay more attention on the description of their approaches proposed in the paper. Section 3.3.2 does not provide a complete problem setting and the notations are not clearly explained. In section 3.3.3 terms such as hypervolume, non-dominated, particle need more accurate explaination. 
+
+The organization of figures and tables is quite messy. There are no captions or units, figure titles are confusing and there is not enough discussion for the illustrations. Not all optimal values are presented in bond fonts and to make the numbers easier to understand, the authors should add information indicating whether higher or lower is better.
+
+For non-specialists, it is very difficult to understand multi-objective PSO solely from this paper.
+There lacks detailed analysis for the evaluation results in Table 2.
+
+! Minor problems
+
+# L165 "where $a$ represents the proportion of instances of 165 the database correctly classified", $a$ should be the number of instances not propotion.
+# Vectorized figures and embedded fonts should be used in the figures.
+# Positions in PSO, $pbest$ and $gbest$ should be replaced with more formal notations for example $$p_{\text{best}}$$
+# $C_i$ in equation (3) should be $C_1$
+# Figure 5 "Graphs with the smallest values", should be optimal structures for different objectives.
+
+! References
+
+# Particle swarm optimization based method for Bayesian Network structure learning
+# A method for learning Bayesian networks by using immune binary particle swarm optimization
+# Review of Causal Discovery Methods Based on Graphical Models
+# Relational inductive biases, deep learning, and graph networks
+# A Theoretical Analysis of the BDeu Scores in Bayesian Network Structure Learning

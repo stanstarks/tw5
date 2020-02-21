@@ -1,0 +1,14 @@
+created: 20190917124821258
+modified: 20190929065722205
+tags: [[Primal-Dual Optimization]]
+title: Solvers under Primal-Dual Settings
+type: text/vnd.tiddlywiki
+
+!! [[Fenchel-Legendre Duality]]
+{{Fenchel-Legendre Duality}}
+
+!! [[Primal-Dual of the Master Problem]]
+{{Primal-Dual of the Master Problem}}
+
+!! [[Solvers of the Master Problem]]
+{{Solvers of the Master Problem}}

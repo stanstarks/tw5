@@ -1,0 +1,23 @@
+created: 20161108214651612
+creator: Thomas Elmiger
+modified: 20190915080815954
+modifier: JR
+title: Annotations
+type: text/vnd.tiddlywiki
+
+!<$list filter="[search:title[$:/temp/stater]search[referen]limit[1]]">
+<$button>
+<$action-deletetiddler $filter="[search:title[$:/temp/stater]search[referen]]"/>
+<span class="tc-dirty-indicator">
+{{Image/cleaner.png}}Close Footnotetabs in Tiddlers.
+</span>
+</$button> 
+</$list>
+<footer class="footnotes">
+<$list variable="tiddler" 
+ filter="""[list[$:/StoryList]search[<ref ]] -[[Footnotes]] -[[Annotations]]-[is[system]] -[has[draft.of]] -[[$:/AdvancedSearch]]""">
+
+!!!<$link to=<<tiddler>>><<tiddler>></$link>
+<<extract tiddler:$(tiddler)$ start:"<ref " end:">" limit:"no" rmQuotes:"y">>
+</$list>
+</footer>

@@ -1,0 +1,27 @@
+created: 20190709051410028
+modified: 20190831103844326
+tags: [[Visual Attention]]
+title: Context in Vision
+type: text/vnd.tiddlywiki
+
+! Local Context
+
+* Non-Local
+** visual self-attention
+** pixel level not needed
+$$
+\mathbf z_i = \mathbf x_i + W_z\sum_{j=1}^{N_p}\frac{f(\mathbf x_i, \mathbf x_j)}{\mathcal C(\mathbf x)}(W_v\cdot\mathbf x_j)
+$$
+where $$f$$ as Embedded Gaussian:
+$$
+\omega_{ij} = \frac{\exp(\langle W_q\mathbf x_i, W_k\mathbf x_j\rangle)}{\sum_m\exp(\langle W_q\mathbf x_i, W_k\mathbf x_m\rangle)}
+$$
+
+* CCNet
+** 
+* GCNet
+** query level attention
+
+* [[EMA|Expectation-Maximization Attention Networks for Semantic Segmentation]]
+
+! Global Context

@@ -1,0 +1,12 @@
+created: 20190616184401780
+modified: 20190616201905780
+tags: [[CVPR 2019]]
+title: Action Classification and Recognition
+type: text/vnd.tiddlywiki
+
+* Visualization for action recognition
+* Self-attention for feature bank
+** @@color:#859900;Non-local for action@@
+* SlowFast
+** visial pathways
+** two stream video sequences with conv3d

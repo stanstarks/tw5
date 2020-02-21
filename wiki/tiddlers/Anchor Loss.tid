@@ -1,0 +1,15 @@
+created: 20191001065544141
+modified: 20191001065709859
+tags: 
+title: Anchor Loss
+type: text/vnd.tiddlywiki
+
+[[link|https://arxiv.org/pdf/1909.11155v1.pdf]]
+
+$$
+\mathcal l_{CE}(p, q) = -[p\log(q) + (1-p)log(1-q)]
+$$
+
+$$
+\mathcal l_{FL}(p, q) = -[p(1-q)^\gamma\log(q) + (1-p)q^\gamma \log(1-q)]
+$$

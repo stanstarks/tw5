@@ -1,0 +1,10 @@
+created: 20190901063015968
+modified: 20190901123520403
+tags: [[Deep Generative Models]]
+title: Faceswap
+type: text/vnd.tiddlywiki
+
+* Few-shot Implementation
+** Code: [[fewshot-face-translation-GAN|https://github.com/shaoanlu/fewshot-face-translation-GAN]]
+** Using [[SPADE|https://arxiv.org/abs/1903.07291]]: normalization based on semantic supervision
+** and [[AdaIN|https://arxiv.org/abs/1905.01723]]: incorporate instance information for generation. Probably usable for few-shot instance segmentation

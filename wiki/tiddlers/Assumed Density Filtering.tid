@@ -1,0 +1,12 @@
+created: 20190801020859411
+modified: 20190801022418379
+tags: [[Bayesian Deep Learning]]
+title: Assumed Density Filtering
+type: text/vnd.tiddlywiki
+
+ADF has been independently discovered by the statistics, machine learning and control communities (see [[Expectation Propagation for Approximate Bayesian Inference]]). ADF can be explained as recursive algorithm repeating the following steps:
+
+* The starting point for the algorithm at time $$t$$ is a "temporal prior" distribution $$q_{t-1}(w)$$ over parameters $$w$$. This $$q_{t-1}(w)$$ incorporates all evidence from datapoints observed in previous timesteps, and it is assumed to approximate the posterior $$p(w|x_{1:t-1})$$ conditioned on all data oberved so far. $$q_{t-1}(w)$$ is assumed to take some simple form, like a Gaussian distribution factorized over the elements of $$w$$.
+* Then, some new observations $$x_t$$ are observed. The Bayesian way to learn from these new observations would be to update the posterior: $$p_t(w|xt)\approx p(x_t|w)q_{t-1}(w)$$
+* However, this posterior might be complicated, and may not be available in a simple form. Therefore, at this point we approximate $$p_t(w|x_t)$$ by a new simple distribution $$q_t$$, which is in the same family as $$q_{t-1}$$. This step can involve a KL divergence-based approximation, e.g. (Opper, 1998, [[Minka, 2001|Expectation Propagation for Approximate Bayesian Inference]]), or Laplace approximation e.g. ([[Kirkpatrick et al, 2017, Huszár, 2017|Elastic Weight Consolidation]]), or a more involved inner loop such as EP in MatchBox (Stern et al, 2009) or probabilistic backpropagation (Hernandez-Lobato and Adams, 2015) as in this paper.
+

@@ -1,0 +1,38 @@
+created: 20190917125106724
+modified: 20190929063507715
+tags: [[Solvers under Primal-Dual Settings]]
+title: Fenchel-Legendre Duality
+type: text/vnd.tiddlywiki
+
+Given a (proper) convex function $$g(x)$$ for $$x\in\mathbb R^d$$:
+
+<<<
+''Definition'' [Fenchel dual]<br>
+$$g^*(y):=\max_{x\in\mathbb R^d}\{y^Tx-g(x)\}$$, for $$y\in\mathbb R^d$$
+<<<
+
+!!! Examples:
+
+* $$g(x)=\frac1p\|x\|^p_p$$, $$g^*(y)=\frac1q\|y\|^q_q$$, where $$\frac1p+\frac1q=1$$ (Euclidean norm is self-dual)
+* $$g(x)=\max\{0, 1-x\}$$, $$g^*(y)=\left\{\begin{array}{lr}y, & y\in[-1, 0]\\+\infty,&otherwise\end{array}\right.$$
+* $$g(x)=\log(1+e^x)$$, $$g^*(y)=\left\{\begin{array}{lr}y\log y+(1-y)\log(1-y), & y\in[0, 1]\\+\infty,&otherwise\end{array}\right.$$
+
+<<<
+''Theorem'' [Duality]<br>
+You get the original function if you take the dual of the duality function<br>
+$$g^{**}(x):=\max_{y\in\mathbb R^d}\{x^Ty-g^*(y)\}=g(x)$$
+<<<
+
+!!! Properties
+
+* $$g^*(y)$$ is (proper) convex
+* $$g(x)$$ is $$L$$-smooth, $$g^*(y)$$ is $$\frac 1L$$-strongly convex
+
+<<<
+''Definition'' [Smooth, strongly convex]<br>
+$$f(x)$$ is $$L$$-smooth if all of the eigenvalues of the Hessian function are upperbounded by L:
+$$
+\nabla^2f(x)\preceq L\cdot I
+$$
+$$f(x)$$ is $$\sigma$$-strongly convex if $$\nabla^2f(x)\succeq \sigma\cdot I$$
+<<<

@@ -1,0 +1,75 @@
+created: 20190626121125127
+modified: 20190630102755000
+tags: [[ICML 2019]] Bayesian
+title: PAC-Bayesian
+type: text/vnd.tiddlywiki
+
+! References
+
+* Some PAC-Bayesian theorems
+* [[Tutorial|https://www.facebook.com/icml.imls/videos/318683639013879/]]
+
+! Theory
+
+In all the previous bounds, with an arbitrarily high probability and for any posterior distribution $$Q$$,
+
+$$
+R_{out}(Q) \le R_{in}(Q)+F(Q, \cdot)
+$$
+$$R_{out}$$ is the risk of a hypothesis on the test data, $$R_{in}(h)$$ is the risk on sample and $$F$$ is the complexity term. New learning algorithms can be designed to make this bound tight.
+
+Optimization problem can be solved or approximated by gradient descent-flavored methods, Monte Carlo Markov Chain, Variational Bayes.
+
+For any prior $$P$$, $$\delta\in(0, 1]$$, we have
+$$
+Pr\left(\forall Q\in\mathcal H: R_{out}(Q)\le R_{in}(Q)+\sqrt{\frac{D_{KL}(Q\|P)+\ln\frac{2\sqrt m}{\delta}}{2m}}\right) \ge 1-\delta
+$$
+where $$\mathcal H$$ is the hypothesis space, $$m$$ is the number of samples.
+
+! Examples
+
+SVM with a sigmoid loss and KL-regularized Adaboost have been reinterpreted as minizers of PAC-Bayesian bounds.
+
+For any temperature $$\lambda > 0$$, the minimizer of $$\{R_{in}(Q) + \frac{KL(Q, P)}{\lambda}\}$$ is the celebrated Gibbs posterior (exponential weights)
+$$
+Q_{\lambda}(h)\propto\exp(-\lambda R_{in}(h))P(h), \qquad \forall h\in\mathcal H
+$$
+Gibbs posterior exponentially penalizes the in sample risk.
+
+Extreme cases
+
+* $$\lambda\rightarrow 0$$: not trusting the samples, posterior goes to prior
+* $$\lambda\rightarrow \infty$$: Dirac mass on Empirical Risk Minimizers (ERMs)
+
+! Variational definition of KL-D
+
+Let $$(\mathbf A, \mathcal A)$$ be a measurable space. (i) For any probability $P$ on $$(\mathbf A, \mathcal A)$$ and any measurable function $$\phi: \mathbf A\rightarrow \mathbb R$$ such that $$\int(\exp\circ\phi)dP<\infty$$,
+$$
+\log\int(\exp\circ\phi)dP=\underset{Q\ll P}{\text{sup}} \int\phi dQ-KL(Q\|P)
+$$
+(ii) If $$\phi$$ is upper-bounded on the support of $$P$$, the supremum if reached for the Gibbs distribution $$G$$ given by
+$$
+\frac{dG}{dP}(a) = \frac{\exp\circ\phi(a)}{\int(\exp\circ\phi)dP},\qquad a\in \mathbf A
+$$
+
+! Non-iid or heavy-tailed data
+For any integer $$p$$,
+$$
+\mathcal M_p:=\int\mathbb E(|R_{in}(h)-R_{out}(h)|^p)dP(h)
+$$
+
+! Localized PAC-Bayes
+PAC-Bayesian bounds express a tradeoff between empirical accuracy and a measure of complexity
+$$
+R_{out}(Q)\le R_{in}(Q)+\sqrt{\frac{KL(Q\|P)+\ln\frac{\xi(m)}{\delta}}{2m}}
+$$
+To controll the complexity, choose prior distribution $$P$$:
+
+* use part of the data to learn the prior
+* defining the prior in terms of the data generating distribution (localized PAC-Bayes)
+
+! Stability and PAC-Bayes
+
+! PAC-Bayes analysis
+
+(30 mins to go)

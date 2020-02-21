@@ -1,0 +1,25 @@
+created: 20190929105226299
+modified: 20190929114402651
+tags: [[Optimization Algorithms]] [[Solvers of the Master Problem]]
+title: Stochastic Variance Reduction Gradient
+type: text/vnd.tiddlywiki
+
+* [[paper|https://papers.nips.cc/paper/4937-accelerating-stochastic-gradient-descent-using-predictive-variance-reduction.pdf]]
+* [[SVRG++|https://pdfs.semanticscholar.org/e8ea/05cc219f4baf10110a45dfcc75a3552bc635.pdf]]
+* [[SCSG|https://arxiv.org/abs/1609.03261]]
+
+Suppose each $$f_i(x)$$ is convex, $$L$$-smooth. First divide into epochs, where $$m \approx 2n$$, the beginning weight for each epoch $$\tilde x$$ is the "snapshot point". Compute the full gradient of the snapshot $$\tilde\nabla f(\tilde x)= \frac{\nabla f_1(\tilde x)+\cdots\nabla f_n(\tilde x)}{n}$$.
+
+For the following updates, $$\tilde\nabla f(x_k) = \nabla f(\tilde x) - \nabla f_i(\tilde x) + \nabla f_i(x_k)$$.
+
+Still unbiased, and $$\|\tilde\nabla f(x)-\nabla f(x)\|^2$$ approaches to zero. SVRG converges in rate $$\varepsilon\propto 1/T$$
+
+<<<
+''Remark'' [vs SGD]<br>
+When the objective is non-smooth, the performance is slightly worse than SGD
+<<<
+
+Epoch length $$m$$ can vary:
+
+* For non-SC objectives, one should double $$m$$ every epoch (SVRG++)
+* If $$n$$ is huge, one can choose $$m<n$$ and compute $$\nabla f(\tilde x)$$ approximately (SCSG [Lei-Jordan, 2017])

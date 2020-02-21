@@ -1,0 +1,24 @@
+created: 20190627000741027
+modified: 20190915121638222
+tags: TableOfContents ICML
+title: ICML 2019
+type: text/vnd.tiddlywiki
+
+Videos
+
+* [[Homepage|https://www.facebook.com/pg/icml.imls/videos/]]
+* Tutorials
+** [[PAC-Bayesian]]
+** [[Attention in Deep Learning]]
+** [[Meta Learning Tutorial]]
+* Workshops
+** [[Joint Workshop on On-Device Machine Learning & Compact Deep Neural Network Representations|ICML19 Compact DL]]
+
+! Oral Sessions
+
+* [[ICML19 Deep Learning Algorithms]]
+* [[ICML19 Deep Learning Theory]]
+
+! Papers
+
+* [[Combining VI and MCMC]]

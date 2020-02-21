@@ -1,0 +1,25 @@
+created: 20190905074417483
+modified: 20190905081628442
+tags: [[ICML19 Compact DL]]
+title: Mixed Precision Training & Inference
+type: text/vnd.tiddlywiki
+
+FP16 computation:
+
+* 125 TFLOPs in FP16 compared to 15.7 TFLOPs in FP32
+* Current internal accumulation occurs in FP32 ot maintain accurarcy
+* Exposed to CUDA as Warp Matrix Multiply Accumulate (WMMA)
+* Speedup
+** 8x compute throughput
+** 2x memory throughput
+** 1/2x memory cost
+** 16 bits precision
+
+More than half of the gradients in SSD training underflows in SSD.
+
+How To:
+
+* Keep stored values in FP16
+* Use FP16 computation along with specialized hardware to accelerate math
+* Scale the loss to avoid underflowing
+* Perform gradient updates in FP32 in order to maintain accuracy

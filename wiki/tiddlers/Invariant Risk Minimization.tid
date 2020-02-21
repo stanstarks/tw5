@@ -1,0 +1,29 @@
+created: 20190721071402716
+modified: 20190722073635112
+tags: [[Inference Methods]]
+title: Invariant Risk Minimization
+type: text/vnd.tiddlywiki
+
+[[paper|https://arxiv.org/abs/1907.02893]]
+
+The authors assume that we have access to data sampled from different environments $$e$$. The data distribution in these different enviroments is different, but there is an underlying causal dependence of the variable of interest $$Y$$ on some of the observed features $$X$$ that remains constant, or invariant across all environments.
+
+Usual empirical risk minimisation (ERM) approaches cannot distinguish between statistical associations that correspond to causal connections, and those that are just spurious correlations. Invariant Risk Minimization can, in certain situations. It does this by finding a representation $$\phi$$ of features, such that the optimal predictor is simultaneously Bayes optimal in all environments.
+
+The loss function that tries to capture this property:
+$$
+\min_\phi \sum_e \mathcal{R}^e(\Phi) + \lambda \|\nabla_{w\vert w=1}\mathcal{R}^e(w \cdot \Phi)\|^2_2
+$$
+The first term is the usuasl ERM: we're trying to minimize average risk across all environments, using a single predictor $$\phi$$. The second term looks at whether $$\phi$$ is locally optimal, whether it can be improved locally by scaling by a constant $$w$$.
+
+! Information theoretic explanation
+The authors treat the environment index $$e$$ as something outside of the structural equation model. $$E$$ can also be treated as a part of the generative process: an observable random variable. This will help to derive IRM through the lens of conditional dependence relationships.
+
+[img[https://www.inference.vc/content/images/2019/07/IRM_graphical_model.png]]
+
+observable variables:
+
+* $$E$$, the environment index
+* $$X$$, the features describing the datapoint
+* $$Y$$, the label we wish to predict
+

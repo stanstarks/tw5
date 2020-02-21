@@ -1,0 +1,7 @@
+created: 20190627063725041
+modified: 20190627064058990
+tags: [[Second Order Methods]]
+title: Natural Gradient
+type: text/vnd.tiddlywiki
+
+The steepest depends on a notion of distance and the gradient is defined w.r.t. the Euclidean distance. The natural graident is a concept from information geometry and applies whe teh gradient is taken w.r.t. the parameters $$\theta$$ of a probability distribution $$p_\theta$$. We use KL divergence to measure the distance. The resulting steepest descent direction is the negative gradient preconditioned with the Hessian of the KL divergence, with is exactly the [[Fisher information matrix|Fisher information metric]] of $$p_\theta$$.

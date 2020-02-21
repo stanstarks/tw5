@@ -1,0 +1,30 @@
+created: 20190710070544382
+modified: 20190710073024304
+tags: [[ICML 2019]] [[Inference Methods]]
+title: Combining VI and MCMC
+type: text/vnd.tiddlywiki
+
+[[paper|https://arxiv.org/abs/1905.04062]]
+
+View the transition kernel of MCMC $$\Pi$$ as an improvement operator. Improvement is 0 only when $$\Pi q=q$$ which only holds for the true posterior.
+
+To measure the improvements, first we compare the KL divergence
+$$
+\mathcal{L}_1(\theta) = \operatorname{KL}\left[q_\theta\middle\|p\right] - \operatorname{KL}\left[\Pi^tq_\theta\middle\|p\right]
+$$
+
+Second measure the amount of change. This objective function merely tries to identify fixed points of the improvement operator:
+$$
+\mathcal{L}_2(\theta) = \operatorname{KL}\left[\Pi^tq_\theta\middle\|q_\theta\right]
+$$
+
+By summing these two terms, the most problematic terms to compute, $$\Pi^tq_\theta$$ cancel out:
+$$
+\mathcal{L}_1(\theta) + \mathcal{L}_2(\theta) = \mathbb{E}_{z\sim \Pi^t q_\theta} f_\theta(z) -  \mathbb{E}_{z\sim q_\theta} f_\theta(z),
+$$
+where
+$$
+f_\theta(z) = \log p(z,x) - \log q_\theta(z)
+$$
+
+There is one more technical hurdle to overcome, which is to calculate or estimate the derivative of this objective with respect to $$\theta$$. The authors propose a REINFORCE-like score function gradient estimator in Eqn. (12), which is somewhat worrying as it is known to have very high variance. The authors propose overcoming this using a control variate. For more details, please refer to the paper.

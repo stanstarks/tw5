@@ -1,0 +1,147 @@
+created: 20161031172702184
+creator: Thomas Elmiger
+modified: 20190915080812401
+modifier: JR
+tags: $:/tags/Macro MyMacros
+title: $:/_telmiger/extract
+type: text/vnd.tiddlywiki
+
+\define extract(tiddler,start:"""ç-noStart-ç""",end:"""ç-noEnd-ç""",prefix:"""""",suffix:"""""",
+limit:"yes",class:"", rmQuotes:'no' mode:"block")
+<$vars start="""$start$""" end="""$end$""" prefix="""$prefix$""" suffix="""$suffix$""" startorend="""$start$""">
+<$set name="tid" filter="[field:title[$tiddler$]]" value="""$tiddler$""" emptyValue=<<currentTiddler>>>
+<$list variable="fulltext" filter="""[<tid>get[text]regexp<startorend>addprefix[ç-noStart-ç]addsuffix[ç-noEnd-ç]]""" emptyValue="ç-noStart-ç $start$ error: no text field $end$ ç-noEnd-ç">
+<$list variable="beforeStart" emptyMessage="filter error" 
+   filter="""[<fulltext>splitbefore<start>]""">
+   <$list variable="firstRest" filter="[<fulltext>removeprefix<beforeStart>]">
+<span class="te-summary $class$">
+<$macrocall $name="extractSnippet" rest=<<firstRest>> start=<<start>> end=<<end>> prefix=<<prefix>> suffix=<<suffix>> limit="$limit$" rmQuotes='$rmQuotes$' mode="$mode$"/>
+</span>
+   </$list>
+</$list>
+</$list>
+</$set>
+</$vars>
+\end
+
+\define extractSnippet(rest,start,end,prefix,suffix,limit,rmQuotes,mode)
+<$vars text="""$rest$""" start="""$start$""" end="""$end$""" prefix="""$prefix$""" suffix="""$suffix$""" startorend="""$start$""" linkstart="""$linkstart$""" linkend="""$linkend$""">
+<$list variable="snippet" filter="""[<text>splitbefore<end>removesuffix<end>]""" emptyValue="summary empty">
+<$set name="mymode" filter="""[[$mode$]removeprefix[block]]""" value="blockOutput" emptyValue="inlineOutput">
+<$set name="snipify" filter="""[[$mode$]removeprefix[link]]""" value="linkedOutput" emptyValue=<<mymode>>>
+<$set name="extracted" filter="""[[$rmQuotes$]removeprefix[no]]""" value=<<noQuotes>> emptyValue=<<removeQuotes>>>
+   <$macrocall $name=<<snipify>>/>
+</$set>
+</$set>
+</$set>
+   <$list variable="newRest" filter="""[<text>removeprefix<snippet>removeprefix<end>]"""
+   emptyValue="never empty">
+   <$set name="unlimited" filter="""[[$limit$]removeprefix[y]]""" emptyValue="checkRest">
+   <$macrocall $name=<<unlimited>> rest=<<newRest>> start=<<start>> end=<<end>> prefix=<<prefix>> suffix=<<suffix>> limit="$limit$" rmQuotes='$rmQuotes$' mode="$mode$"/>
+   </$set>
+</$list> 
+</$list>
+</$vars>
+\end
+
+\define linkedOutput()
+$(prefix)$[[$(extracted)$]]$(suffix)$
+\end
+\define inlineOutput()
+$(prefix)$$(extracted)$$(suffix)$
+\end
+\define blockOutput()
+<span>
+
+$(prefix)$$(extracted)$$(suffix)$
+
+</span>
+\end
+
+\define checkRest(rest,start,end,prefix,suffix,limit,rmQuotes,mode,linkstart,linkend)
+<$set name="text" value="""$rest$""">
+<$list variable="beforeStart" filter="""[<text>splitbefore[$start$]]""">
+   <$set name="proceed" filter="""[<beforeStart>removesuffix[$start$]] +[addsuffix[ç-TestPassed-ç]]""" 
+emptyValue="es">
+   <$set name="proceedto" filter="""[<proceed>removesuffix[ç-TestPassed-ç]regexp[es]]""" emptyValue="extractSnippet">
+   <$list variable="newRest" filter="""[<text>removeprefix<beforeStart>]""">
+      <$macrocall $name=<<proceedto>> rest=<<newRest>> start="""$start$""" end="""$end$""" prefix="""$prefix$""" suffix="""$suffix$""" limit="$limit$" rmQuotes='$rmQuotes$' mode="$mode$" linkstart=<<linkstart>> linkend=<<linkend>>/>
+   </$list> 
+   </$set>
+   </$set>
+</$list>
+</$set>
+\end
+
+\define es()
+<span class='summaryend'></span>
+\end
+
+\define removeQuotes()
+<$vars output=$(snippet)$>
+<<output>>
+</$vars>
+\end
+
+\define noQuotes()
+$(snippet)$
+\end
+
+<!-- !! Extract Macro Documentation
+* Version: 0.9.2
+* parameters
+** tiddler – if not provided, the current tiddler is used
+** start and end – text-identifiers that sourround the snippet you want to extract
+** prefix and suffix – text to attach to the result 
+** limit – defaults to "yes" and produces one result, collects all matches if set to "no"
+** class – CSS class(es) to append to the surrounding span
+** rmQuotes – defaults to 'no', removes surrounding quotes (") when set to "yes"
+** mode – defaults to "block", set to "inline" to omit surrounding tags, set to "link" to get links in inline mode
+
+!!! Advantages
+* find content to extract based on common markup or comments
+* handle wiki syntax where start and end are the same, e.g. `''` or `//`
+* ''start or end can be omitted when extracting the beginning or to the end of the text''
+* to collect several snippets from the same tiddler set limit to "no"
+
+-->
+
+<!-- !!! FAQ
+; The output is something like " end:" – what can I do?
+: This happens, when you try to extract from the tiddler, where the extract macro is called: the macro call contains the start marker. Solutions:
+* if you are using a filter, exclude the calling tiddler using ![tiddler]
+* transclude the macrocall from somewhere else, e.g. from a field in the tiddler
+
+; The list widget produces results only for tiddlers without spaces in the title?
+: Lists need to be constructed carefully according to the examples below. Macro calls from lists with the parameter `tiddler=<<tiddler>>` and similar work only for titles without spaces.
+* see: http://tid.li/tw5/hacks.html#Tweeting for a working example
+* or: http://tid.li/tw5/numbers.html
+
+; Can I use start or end markers containing " (quotes)? 
+: This will not work – but you can remove surrounding quotes by setting rmQuotes to "yes".
+
+-->
+
+<!-- !!! Procedure – How it Works
+* get the text field of the tiddler
+** cut off everything before the first start tag, including start tag
+* extract a snippet from the rest 
+** ''put texts in variables to avoid problems with square brackets''
+** cut after end tag, remove end tag
+** prepend prefix, output snippet, append the suffix
+* check, if limit is "no", else exit via es()
+** es() prints an empty span which can be used for design purposes
+* check the rest
+** cut off everything before start tag, including start tag and save in //beforeStart// (contains all text if no start tag is found)
+** try to remove start tag from beforeStart, if found, add a confirmation suffix
+*** no start tag? => exit via es()
+** if a start tag exists, proceed with extracting
+
+!!! Missing – Ideas for Improvement
+* allow users to specify an empty-message
+* support for some kinds of transclusion (e.g. from a tiddler’s own fields)
+* Possible optimisations (low priority)
+** limit to a defined number of loops
+** limit to a defined number of chars (possible with length param from 5.1.14?) – this might not be useful as tags could get cut in pieces.
+
+-->

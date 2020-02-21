@@ -1,0 +1,36 @@
+created: 20190601063632681
+modified: 20190601092724375
+tags: [[Paper Reviews]]
+title: ICCV19 Review 5866
+type: text/vnd.tiddlywiki
+
+''Summary'': This paper proposes an interesting system to train image dense prediction tasks using only web queried data and their keyword labels. Segmentation mask is estimated with DSRG [1]. To reduce the impact of noisy samples, the authors gradually add in the more difficult examples during training in a curriculum strategy based on CurriculumNet [2].
+
+The authors addressed two kinds of difficulties in web datasets, the unreliable annocations and complex images. To rank reliability of the annications, a method similar to [2] is used. To rank complexity of images, the IoU of saliency detector and Web-DSRG results are compared.
+
+The results shows that the model trained with this scheme is generalizable even without the use of examples on target dataset (VOC+sbd).
+
+''Strengths'': 
+
+1. The idea of training segmentation model without any human intervention is very intriguing.
+2. AFAIK, this is the first to introduce curriculum learning to webly supervised segmentation.
+3. The performance is good.
+
+''Weaknesses'': The authors stressed that web images are often noisy. Although intuitive, it will be helpful to 
+1. quantify these kinds of noises. For example, what is the portion of difficult/crowded/unexpected images in each class
+2. and their effect to the segmention quality.
+3. In my opinion, Table 2 cannot prove that the training scheme is robust to the noises. It is possible that the data noise does not effect the final performance. To better support the assumptions in L568, "These images may have a negative impact on semantic drift..." and conclusion in 4.4.2, it is better to also provide the results trained w/o this curriculum training scheme.
+
+Furthermore, it is not very clear whether the proposed training scheme is good at
+"identifying noisy samples from hard training samples with one-sided understanding of web noises". 
+There lacks ablation studies/''qualitative'' and ''quantatative'' results comparing the effectiveness of curriculum learning on each of these hard or noisy cases. More specifically:
+1. How good can the classification model select more reliable images.
+2. Performance of the clustering also needs more detailed justification.
+3. How good can the mask complexity measure segmentation complexity
+
+''Rating'': Borderline
+
+Not confident. I am not familiar with curriculum learning.
+
+[1] Huang et al. Weakly-Supervised Semantic Segmentation Network with Deep Seeded Region Growing
+[2] Guo et al. CurriculumNet: Weakly Supervised Learning from Large-Scale Web Images

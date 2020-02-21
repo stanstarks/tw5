@@ -1,0 +1,251 @@
+{
+    "tiddlers": {
+        "$:/plugins/telmiger/MyStory/icon": {
+            "created": "20190106092402457",
+            "creator": "Thomas Elmiger",
+            "text": "<svg class=\"tc-image tc-image-button tc-image-my-story-icon\"  width=\"22pt\" height=\"22pt\" viewBox=\"0 0 22 22\">\n<path d=\"M5 0v16h17V0H5zm14 13H8V5h11v8zm-2 8v-3H3V5H0v16h17z\" fill-rule=\"nonzero\"/>\n</svg>",
+            "type": "",
+            "title": "$:/plugins/telmiger/MyStory/icon",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190106092523193",
+            "tags": "",
+            "caption": "MyStory icon",
+            "e-name": "MyStory Icon"
+        },
+        "$:/plugins/telmiger/MyStory/readme": {
+            "text": "!! My Story\n\nA story list on steroids. Adds bookmarking and alternative labels for story-elements in sidebar tabs: \n\n* The [[MyMarks|$:/plugins/telmiger/MyStory/bookmarks/tab]] tab shows links to bookmarked elements.\n* The [[MyStory|$:/plugins/telmiger/MyStory/tab]] tab can replace the //Open// tab: The listing shows the title of a tiddler, if there is no caption field, the caption, if there is no other field as defined below.\n\n<label>Default field name: <$edit-text tiddler=\"$:/plugins/telmiger/MyStory/settings\" index=\"default-label\" size=\"20\" tag=\"input\"/></label> – `title` might be a good fallback :)\n\n!!! [[Usage settings|$:/plugins/telmiger/MyStory/settings]]\n\nControl active sidebar tabs: <br>\n<$checkbox tiddler=\"$:/plugins/telmiger/MyStory/tab\" tag=\"$:/tags/SideBar\"> <$text text={{$:/plugins/telmiger/MyStory/tab!!caption}}/></$checkbox> &nbsp; \n<$checkbox tiddler=\"$:/plugins/telmiger/MyStory/bookmarks/tab\" tag=\"$:/tags/SideBar\"> <$text text={{$:/plugins/telmiger/MyStory/bookmarks/tab!!caption}}/></$checkbox> &nbsp; \n<$checkbox tiddler=\"$:/core/ui/SideBar/Open\" tag=\"$:/tags/SideBar\"> {{$:/core/ui/SideBar/Open!!caption}}</$checkbox><br>\n<$checkbox tiddler=\"$:/core/ui/SideBar/Recent\" tag=\"$:/tags/SideBar\"> {{$:/core/ui/SideBar/Recent!!caption}}</$checkbox> &nbsp; <$checkbox tiddler=\"$:/core/ui/SideBar/Tools\" tag=\"$:/tags/SideBar\"> {{$:/core/ui/SideBar/Tools!!caption}}</$checkbox> &nbsp; <$checkbox tiddler=\"$:/core/ui/SideBar/More\" tag=\"$:/tags/SideBar\"> {{$:/core/ui/SideBar/More!!caption}}</$checkbox>\n\nShow small buttons for every list entry:<br>\n<$checkbox tiddler=\"$:/plugins/telmiger/MyStory/settings\" index=\"show-edit-button\" checked=\"yes\" unchecked=\"no\"> edit button </$checkbox><br>\n<$checkbox tiddler=\"$:/plugins/telmiger/MyStory/settings\" index=\"show-clone-button\" checked=\"yes\" unchecked=\"no\"> clone button </$checkbox>\n\n{{$:/core/ui/ControlPanel/Settings/DefaultSidebarTab}}\n\nClick the tag and arrange tabs via drag and drop:<br>\n<<tag \"$:/tags/SideBar\">>\n\n!! In-Story Controls\n\nElements tagged <<tag $:/tags/InStoryControls>> can be added below every element (tiddler) in the story.<br>\n<$checkbox tiddler=\"$:/plugins/telmiger/MyStory/settings\" index=\"in-story-controls\" checked=\"show\" unchecked=\"hide\"> show in-story controls</$checkbox>",
+            "title": "$:/plugins/telmiger/MyStory/readme",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128221647365",
+            "creator": "Thomas Elmiger",
+            "created": "20190105223039966",
+            "caption": "MyStory Readme"
+        },
+        "$:/plugins/telmiger/MyStory/settings": {
+            "text": "{\n    \"default-label\": \"e-name\",\n    \"show-edit-button\": \"no\",\n    \"last-closed\": \" $:/ControlPanel\",\n    \"show-clone-button\": \"no\"\n}",
+            "type": "application/json",
+            "title": "$:/plugins/telmiger/MyStory/settings",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128225758316",
+            "creator": "Thomas Elmiger",
+            "created": "20190105223523663"
+        },
+        "$:/plugins/telmiger/MyStory/styles.css": {
+            "text": ".te-nav-list {\n   list-style: none;\n   padding-left: 0;\n}\n\n\n/* icons */\n\n.te-nav-list svg {\n   height: 1rem;\n   width: 1rem;\n}\n\n.te-nav-list .tc-dirty-indicator svg {\n   margin: 0 0.25rem -0.25rem 1rem;\n}\n\n\n/* buttons */\n\n.te-nav-list button.tc-btn-mini {\n   margin-right: 0.5rem;\n}\n\n.my-story-footer .my-story-close-all-btn {\n   margin-right: 1em;\n}\n\n.te-nav-list .my-story-btn {\n   margin-left: 0.25rem;\n}\n\n/* bookmark icon */\n\n.my-bookmark-icon {\n   margin-right: 0.33em;\n}\n\n\n/* bookmarks tiddler marker */\n\n.my-story-bkmrk {\n   position: absolute;\n   right: -0.1em;\n   font-size: 2.1rem;\n}\n\n.my-story-bkmrk svg {\n   height: 1.75em;\n   max-width: 1.75em;\n}\n\n\n/* bookmarks buttons */\n\n.te-btn-inactive, .te-btn-active {\n   cursor: pointer;\n}\n\n.te-nav-list .te-btn-inactive,\n.te-nav-list .te-btn-active {\n   margin-right: .25rem;\n}\n\n.tc-tiddler-view-frame .te-btn-inactive {\n   display: none;\n}\n\n.tc-tiddler-view-frame:hover .te-btn-inactive {\n   display: initial;\n}\n\n.te-btn-active svg.my-bookmark {\n   color: <<colour primary>>\n}\n\n.te-btn-active svg.my-bookmark:hover {\n   color: rgba(123,123,123,0.3);\n   fill: <<colour foreground>>\n}\n\n.te-btn-active svg.my-bookmark:hover path.vertical-line {\n   fill: transparent;\n}\n\n.te-btn-inactive svg.my-bookmark:hover {\n   fill: <<colour foreground>>\n}\n\n.te-btn-inactive svg.my-bookmark:hover path{\n   color: <<colour foreground>>\n}\n\n.te-btn-inactive input,\n.te-btn-active input {\n   position: absolute;\n   left: -100vw;\n}\n\n.my-bkmrks .te-btn-active {\n   position: relative;\n   top: -0.125rem;\n}\n\n/* InStory Controls*/\n\n.te-footerbar {\n   text-align: right;\n   border-bottom: 1px solid <<colour primary>>;\n   padding: 0.25rem 0;\n}\n\n.te-footerbar button {\n   font-size: 1.5rem;\n   margin-left: 0.5rem;\n}",
+            "title": "$:/plugins/telmiger/MyStory/styles.css",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128220445598",
+            "creator": "Thomas Elmiger",
+            "created": "20190105221436571",
+            "caption": "MyStory Styles"
+        },
+        "$:/plugins/telmiger/MyStory/tab": {
+            "created": "20190101145705620",
+            "creator": "Thomas Elmiger",
+            "text": "\\whitespace trim\n\n\\define lingo-base() $:/language/CloseAll/\n\n\\define editmode-icon() \n<span class=\"tc-dirty-indicator\" title=\"in edit mode\">{{$:/core/images/edit-button}}</span>\n\\end\n\n\\define my-close-btn() \n<$list filter=\"[all[current]!has[draft.of]]\" variable=\"title\" emptyMessage=<<editmode-icon>>>\n<$button tooltip={{$:/language/Buttons/Close/Hint}} aria-label={{$:/language/Buttons/Close/Caption}} class=\"tc-btn-invisible tc-btn-mini\">\n<$action-listops $tiddler=\"$:/plugins/telmiger/MyStory/settings\" $index=\"last-closed\" $subfilter=\"+[[]] [<title>]\"/>\n<$action-sendmessage $message=\"tm-close-tiddler\"/>&times;</$button></$list>\n\\end\n\n\\define openMyTiddlers(filter)\n<$list filter=<<__filter__>> >\n<$action-navigate $to=<<currentTiddler>>/>\n</$list>\n\\end\n\n\\define reopenBtn()\n<$list filter=\"[{$:/plugins/telmiger/MyStory/settings##last-closed}minlength[1]]\">\n<$set name=\"tt\" value=\"reopen last closed element(s)\">\n<$button tooltip=<<tt>> class=\"tc-btn-invisible my-story-reopen-btn\">\n<$set name=\"qualstate\" value=\"$:/config/Navigation/openLinkFromOutsideRiver\">\n<$reveal type=\"match\" state=<<qualstate>> text=\"bottom\">\n<<openMyTiddlers \"[enlist{$:/plugins/telmiger/MyStory/settings##last-closed}]\">>\n</$reveal>\n<$reveal type=\"nomatch\" state=<<qualstate>> text=\"bottom\">\n<<openMyTiddlers \"[enlist{$:/plugins/telmiger/MyStory/settings##last-closed}reverse[]]\">>\n</$reveal>\n</$set>\n{{$:/plugins/telmiger/MyStory/left-arrow}}\n</$button>\n</$set>\n</$list>\n\\end\n\n\\define closeAllBtn()\n<$button class=\"tc-btn-invisible my-story-close-all-btn\">\n<$set name=\"myStory\" filter=\"[list[$:/StoryList]]\" >\n<$action-setfield $tiddler=\"$:/plugins/telmiger/MyStory/settings\" $index=\"last-closed\" $value=<<myStory>>/>\n</$set>\n<$action-sendmessage $message=\"tm-close-all-tiddlers\"/>\n<<lingo Button>>\n</$button>\n\\end\n\n\\define edit-btn()\n<$list filter=\"[[$:/plugins/telmiger/MyStory/settings]getindex[show-edit-button]removeprefix[no]] ~[all[current]!has[draft.of]]\">\n<$list filter=[all[current]minlength[1]]>\n<span class=\"my-story-btn\">\n<$button message=\"tm-edit-tiddler\" tooltip={{$:/language/Buttons/Edit/Hint}} aria-label={{$:/language/Buttons/Edit/Caption}} class=<<tv-config-toolbar-class>>>\n{{$:/core/images/edit-button}}\n</$button>\n</span>\n</$list>\n</$list>\n\\end\n\n\\define clone-btn()\n<$list filter=\"[[$:/plugins/telmiger/MyStory/settings]getindex[show-clone-button]removeprefix[no]] ~[all[current]!has[draft.of]]\">\n<$list filter=[all[current]minlength[1]]>\n<span class=\"my-story-btn\">\n<$button message=\"tm-new-tiddler\" param=<<currentTiddler>> tooltip={{$:/language/Buttons/Clone/Hint}} aria-label={{$:/language/Buttons/Clone/Caption}} class=<<tv-config-toolbar-class>>>\n{{$:/core/images/clone-button}}\n</$button>\n</span>\n</$list>\n</$list>\n\\end\n\n\\define drop-actions()\n<$action-listops $tiddler=\"$:/StoryList\" $subfilter=\"+[insertbefore:currentTiddler<actionTiddler>]\"/>\n\\end\n\n<ul class=\"my-story te-nav-list\">\n<$list filter=\"[list[$:/StoryList]]\" history=\"$:/HistoryList\" storyview=\"pop\">\n<li><div style=\"position: relative;\">\n<$droppable actions=<<drop-actions>>>\n<div class=\"tc-droppable-placeholder\">\n&nbsp;\n</div>\n<div>\n<<my-close-btn>><<bookmark-icon>><<my-link>><<edit-btn>> <<clone-btn>>\n</div>\n</$droppable>\n</div>\n</li>\n</$list>\n</ul>\n<$tiddler tiddler=\"\">\n<$droppable actions=<<drop-actions>>>\n<div class=\"tc-droppable-placeholder\">\n&nbsp;\n</div>\n<footer class=\"my-story-footer\">\n<<closeAllBtn>>\n<<reopenBtn>>\n</footer>\n</$droppable>\n</$tiddler>",
+            "title": "$:/plugins/telmiger/MyStory/tab",
+            "tags": "$:/tags/SideBar",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190118224023717",
+            "e-name": "MyStory Tab",
+            "caption": "MyStory"
+        },
+        "$:/plugins/telmiger/MyStory/left-arrow": {
+            "created": "20190106110559867",
+            "creator": "Thomas Elmiger",
+            "text": "<svg class=\"tc-image tc-image-button tc-image-my-story-icon\"  width=\"22pt\" height=\"22pt\" viewBox=\"0 0 22 22\">\n<circle cx=\"11\" cy=\"11\" r=\"10\" fill-opacity=\".2\"/><path d=\"M9 12.4l1.7 1.5a1.4 1.4 0 1 1-2 2l-3.9-4c-.5-.5-.5-1.4 0-1.9l4-3.9a1.4 1.4 0 1 1 1.9 2L9 9.6h7.1c.8 0 1.4.6 1.4 1.4 0 .7-.6 1.4-1.4 1.4H9z\"/>\n</svg>",
+            "type": "",
+            "title": "$:/plugins/telmiger/MyStory/left-arrow",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190106111510030",
+            "tags": "",
+            "caption": "left arrow in circle",
+            "e-name": "left arrow in circle"
+        },
+        "$:/plugins/telmiger/MyStory/macros": {
+            "created": "20190118063746061",
+            "creator": "Thomas Elmiger",
+            "text": "\\define my-link-text()\n<$transclude field={{$:/plugins/telmiger/MyStory/settings##default-label}}><$transclude field=\"caption\"><$view field=\"title\"/></$transclude></$transclude>&#8202;\n\\end\n\n\\define my-link()\n<$link to=<<currentTiddler>> tooltip=<<currentTiddler>>><$set name=\"tv-wikilinks\" value=\"no\"><<my-link-text>></$set></$link>\n\\end\n\n\\define bookmark-icon()\n<$list filter=\"[all[current]tag[MyMark]]\"><span class=\"my-bookmark-icon\">{{$:/plugins/telmiger/MyStory/bookmarks/icon}}</span></$list>\n\\end\n\n\\define MyStoryBkmrkBtn()\n<$list filter=\"[all[current]!tag[MyMark]]\">\n<$checkbox tag=\"MyMark\" class=\"te-btn-inactive\">{{$:/plugins/telmiger/MyStory/bookmarks/icon-off}}</$checkbox>\n</$list>\n<$list filter=\"[all[current]tag[MyMark]]\">\n<$checkbox tag=\"MyMark\" class=\"te-btn-active\">{{$:/plugins/telmiger/MyStory/bookmarks/icon}}</$checkbox>\n</$list>\n\\end",
+            "caption": "MyStory Macros",
+            "e-name": "MyStory Macro Collection",
+            "modified": "20190119085246849",
+            "modifier": "Thomas Elmiger",
+            "title": "$:/plugins/telmiger/MyStory/macros",
+            "tags": "$:/tags/Macro"
+        },
+        "$:/plugins/telmiger/MyStory/bookmarks/ViewTemplate": {
+            "created": "20190118064731266",
+            "creator": "Thomas Elmiger",
+            "text": "<span class=\"my-story-bkmrk\"><<MyStoryBkmrkBtn>></span>",
+            "caption": "MyStory Bookmarks ViewTemplate",
+            "e-name": "MyStory Bookmarks ViewTemplate",
+            "modified": "20190118170928931",
+            "modifier": "Thomas Elmiger",
+            "title": "$:/plugins/telmiger/MyStory/bookmarks/ViewTemplate",
+            "tags": "$:/tags/ViewTemplate",
+            "list-before": "$:/core/ui/ViewTemplate/body"
+        },
+        "$:/plugins/telmiger/MyStory/bookmarks/tab": {
+            "text": "\\define drop-actions()\n<$action-listops $tiddler=\"MyMark\" $subfilter=\"+[insertbefore:currentTiddler<actionTiddler>]\"/>\n\\end\n<ul class=\"my-story te-nav-list\">\n<$list filter=\"[tag[MyMark]!has[draft.of]]\" history=\"$:/HistoryList\" storyview=\"pop\">\n<li class=\"my-bkmrks\"><div style=\"position: relative;\">\n<$droppable actions=<<drop-actions>>>\n<div class=\"tc-droppable-placeholder\">\n&nbsp;\n</div>\n<div><<MyStoryBkmrkBtn>><<my-link>></div>\n</$droppable>\n</div>\n</li>\n</$list>\n</ul>\n<$tiddler tiddler=\"\">\n<$droppable actions=<<drop-actions>>>\n<div class=\"tc-droppable-placeholder\">\n&nbsp;\n</div>\n</$droppable>\n</$tiddler>",
+            "title": "$:/plugins/telmiger/MyStory/bookmarks/tab",
+            "tags": "$:/tags/SideBar",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190121200116793",
+            "e-name": "MyMarks Tab",
+            "creator": "Thomas Elmiger",
+            "created": "20190121194507035",
+            "caption": "MyMarks"
+        },
+        "$:/plugins/telmiger/MyStory/bookmarks/icon-off": {
+            "created": "20190118211823363",
+            "creator": "Thomas Elmiger",
+            "text": "<svg class=\"em-icon my-bookmark\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"rgba(0,0,0,0.3)\" viewBox=\"0 0 22 22\" width=\"1em\" height=\"1em\" role=\"img\" aria-labelledby=\"title desc\"><title id=\"title\">{{$:/language/Bookmarks/Add-title }}</title><desc id=\"desc\">{{$:/language/Bookmarks/Add-desc}}</desc><path d=\"M22 2v18H9A9 9 0 0 1 9 2h13z\"fill=\"rgba(123,123,123,0.3)\"/><path d=\"M9.6 9.6H6.2c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4h3.4v3.4c0 .8.6 1.4 1.4 1.4.8 0 1.4-.6 1.4-1.4v-3.4h3.4c.8 0 1.4-.6 1.4-1.4 0-.8-.6-1.4-1.4-1.4h-3.4V6.2c0-.8-.6-1.4-1.4-1.4-.8 0-1.4.6-1.4 1.4v3.4z\"/></svg>",
+            "title": "$:/plugins/telmiger/MyStory/bookmarks/icon-off",
+            "tags": "$:/tags/Image",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190120214728468"
+        },
+        "$:/plugins/telmiger/MyStory/bookmarks/icon": {
+            "created": "20190115223227712",
+            "creator": "Thomas Elmiger",
+            "text": "<svg class=\"em-icon my-bookmark\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"#eee\" viewBox=\"0 0 22 22\" width=\"1em\" height=\"1em\" role=\"img\" aria-labelledby=\"title desc\"><title id=\"title\">{{$:/language/Bookmarks/Remove-title}}</title><desc id=\"desc\">{{$:/language/Bookmarks/Remove-desc}}</desc>\n<path d=\"M22 2v18H9A9 9 0 0 1 9 2h13z\" fill=\"currentColor\"/><path class=\"vertical-line\" d=\"M9.6 6.2v9.6c0 .8.6 1.4 1.4 1.4.8 0 1.4-.6 1.4-1.4V6.2c0-.8-.6-1.4-1.4-1.4-.8 0-1.4.6-1.4 1.4z\"/><path d=\"M15.8 9.6H6.2c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4h9.6c.8 0 1.4-.6 1.4-1.4 0-.8-.6-1.4-1.4-1.4z\"/></svg>",
+            "title": "$:/plugins/telmiger/MyStory/bookmarks/icon",
+            "tags": "$:/tags/Image",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190120214437666"
+        },
+        "$:/language/Bookmarks/Add-desc": {
+            "created": "20190120214508103",
+            "text": "Click to come back later.",
+            "title": "$:/language/Bookmarks/Add-desc",
+            "tags": "",
+            "modified": "20190120214529736"
+        },
+        "$:/language/Bookmarks/Add-title": {
+            "created": "20190120214627892",
+            "text": "Bookmark",
+            "title": "$:/language/Bookmarks/Add-title",
+            "tags": "",
+            "modified": "20190120214645088"
+        },
+        "$:/language/Bookmarks/Remove-desc": {
+            "created": "20190120214335196",
+            "text": "Click to remove mark",
+            "title": "$:/language/Bookmarks/Remove-desc",
+            "tags": "",
+            "modified": "20190120214401890"
+        },
+        "$:/language/Bookmarks/Remove-title": {
+            "created": "20190120214125135",
+            "text": "Remove bookmark",
+            "title": "$:/language/Bookmarks/Remove-title",
+            "tags": "",
+            "modified": "20190120214330881"
+        },
+        "$:/plugins/telmiger/MyStory/support": {
+            "text": "{{$:/plugins/telmiger/support}}",
+            "title": "$:/plugins/telmiger/MyStory/support",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190121200345037",
+            "creator": "Thomas Elmiger",
+            "created": "20190121200320320"
+        },
+        "$:/plugins/telmiger/support": {
+            "created": "20181103150753927",
+            "text": "!! Support the Author\n\n''Hi!'' I’m Thomas, the author of [[tid.li/tw5/plugins.html|https://tid.li/tw5/plugins.html]]. Feedback is always welcome, as well as funding for maintenance, support and new projects :)\n\n---\n\n!!! One Time Support\n\nIf using my plugins just makes you happy, consider a one time payment via ~PayPal to reward the effort:\n\nhttps://www.paypal.me/telmiger\n\n---\n\n!!! Permanent Support\n\nIf my tools make you more productive or save you time in your job or your everyday life, you can support me as a Patron: \n\nhttps://www.patreon.com/telmiger\n\n---\n\n!!! Thank You\n\nSubstantial parts of my availabe time go to the deveopment of useful plugins for [[TiddlyWiki|https://tiddlywiki.com/]]. – Many others do the same and I would like to thank them all, especially [[Jeremy Ruston|https://tiddlywiki.com/#JeremyRuston]] and all the active members of the community!\n\n//Hereby I promise to share future revenues (if any) with other developers who’s works I use or who inspired me.//\n\nIf you like my work, I would be very happy to hear from you.\n\n''Thank you very much for your support!''<br>\n//Thomas//\n\nhttps://thomas-elmiger.ch",
+            "title": "$:/plugins/telmiger/support",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20181104091650389",
+            "creator": "Thomas Elmiger"
+        },
+        "$:/plugins/telmiger/MyStory/Buttons/InsertAbove": {
+            "created": "20190128201124494",
+            "creator": "Thomas Elmiger",
+            "text": "\\whitespace trim\n<span class=\"my-story-btn\">\n<$button tooltip={{$:/language/Buttons/InsertAbove/Hint}} aria-label={{$:/language/Buttons/InsertAbove/Caption}} class=<<tv-config-toolbar-class>>>\n<$action-createtiddler $basetitle={{$:/language/DefaultNewTiddlerTitle}} $savetitle=\"$:/temp/new-tiddler-above\"/>\n<$action-listops $tiddler=\"$:/StoryList\" $subfilter=\"+[insertbefore:currentTiddler{$:/temp/new-tiddler-above}]\"/>\n<$action-sendmessage $message=\"tm-edit-tiddler\" $param={{$:/temp/new-tiddler-above}}/>\n{{$:/plugins/telmiger/MyStory/ui/icons/insert-above}}\n</$button>\n</span>",
+            "title": "$:/plugins/telmiger/MyStory/Buttons/InsertAbove",
+            "tags": "$:/tags/InStoryControls",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128225530290",
+            "description": "{{$:/language/Buttons/InsertAbove/Hint}}",
+            "caption": "{{$:/language/Buttons/InsertAbove/Caption}}"
+        },
+        "$:/plugins/telmiger/MyStory/Buttons/InsertBelow": {
+            "created": "20190128171145652",
+            "creator": "Thomas Elmiger",
+            "text": "\\whitespace trim\n<span class=\"my-story-btn\">\n<$button tooltip={{$:/language/Buttons/InsertBelow/Hint}} aria-label={{$:/language/Buttons/InsertBelow/Caption}} class=<<tv-config-toolbar-class>>>\n<$action-createtiddler $basetitle={{$:/language/DefaultNewTiddlerTitle}} $savetitle=\"$:/temp/new-tiddler-below\"/>\n<$action-listops $tiddler=\"$:/StoryList\" $subfilter=\"[{$:/temp/new-tiddler-below}] +[putafter<currentTiddler>]\"/>\n<$action-sendmessage $message=\"tm-edit-tiddler\" $param={{$:/temp/new-tiddler-below}}/>\n{{$:/plugins/telmiger/MyStory/ui/icons/insert-below}}\n</$button>\n</span>",
+            "title": "$:/plugins/telmiger/MyStory/Buttons/InsertBelow",
+            "tags": "$:/tags/InStoryControls",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128225513527",
+            "description": "{{$:/language/Buttons/InsertBelow/Hint}}",
+            "caption": "{{$:/language/Buttons/InsertBelow/Caption}}"
+        },
+        "$:/plugins/telmiger/MyStory/InStoryControls/ViewTemplate": {
+            "created": "20190128212533801",
+            "creator": "Thomas Elmiger",
+            "text": "\\define config-title()\n$:/config/InStoryControls/Visibility/$(listItem)$\n\\end\n<$set name=\"setting\" filter=\"[[$:/plugins/telmiger/MyStory/settings]getindex[in-story-controls]removeprefix[hide]]\" value=\"hide\" emptyValue=\"show\">\n<$reveal type=\"match\" text=\"show\" default=<<setting>>>\n<div class=\"te-footerbar\">\n<$list filter=\"[all[shadows+tiddlers]tag[$:/tags/InStoryControls]!has[draft.of]]\" variable=\"listItem\"><$reveal type=\"nomatch\" state=<<config-title>> text=\"hide\"><$set name=\"tv-config-toolbar-class\" filter=\"[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]\"><$transclude tiddler=<<listItem>>/></$set></$reveal></$list>\n</div>\n</$reveal>\n</$set>",
+            "title": "$:/plugins/telmiger/MyStory/InStoryControls/ViewTemplate",
+            "tags": "$:/tags/ViewTemplate",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128224439850"
+        },
+        "$:/plugins/telmiger/MyStory/ui/icons/insert-above": {
+            "created": "20190128170540016",
+            "creator": "Thomas Elmiger",
+            "text": "<svg class=\"em-icon insert-above\" viewBox=\"0 0 22 22\" width=\"1em\" height=\"1em\" role=\"img\" aria-labelledby=\"title desc\" xmlns=\"http://www.w3.org/2000/svg\" style=\"fill-rule:evenodd;\"><title id=\"title\">{{$:/language/Buttons/InsertAbove/Caption}}</title><desc id=\"desc\">{{$:/language/Buttons/InsertAbove/Hint}}</desc>\n<path d=\"M16.09 2.1c1.758 1.131 4.391 2.749 4.394 4.559l.016 10.096c.004 2.33-1.894 4.226-4.237 4.23L5.768 21c-2.343.004-4.248-1.885-4.252-4.215L1.5 6.691c.065-1.928 2.717-3.495 4.396-4.57.799-.512 2.84-2.093 5.089-2.12 2.25-.028 4.383 1.635 5.105 2.1z\" fill-opacity=\".792\"/><path d=\"M9.625 9.624H6.188c-.755 0-1.375.621-1.375 1.375s.62 1.375 1.375 1.375h3.437v3.438c0 .755.621 1.376 1.375 1.376s1.375-.621 1.375-1.375v-3.439h3.438c.754 0 1.375-.62 1.375-1.375 0-.754-.621-1.375-1.375-1.375h-3.438V6.188c0-.755-.621-1.375-1.375-1.375s-1.375.62-1.375 1.375v3.438z\" fill=\"#fff\" fill-rule=\"nonzero\"/></svg>\n",
+            "title": "$:/plugins/telmiger/MyStory/ui/icons/insert-above",
+            "tags": "$:/tags/Image",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190129070853381"
+        },
+        "$:/plugins/telmiger/MyStory/ui/icons/insert-below": {
+            "created": "20190128165452603",
+            "creator": "Thomas Elmiger",
+            "text": "<svg class=\"em-icon insert-below\" viewBox=\"0 0 22 22\" width=\"1em\" height=\"1em\" role=\"img\" aria-labelledby=\"title desc\" xmlns=\"http://www.w3.org/2000/svg\" style=\"fill-rule:evenodd;\"><title id=\"title\">{{$:/language/Buttons/InsertBelow/Caption}}</title><desc id=\"desc\">{{$:/language/Buttons/InsertBelow/Hint}}</desc>\n<path d=\"M5.91 19.9c-1.758-1.131-4.391-2.748-4.394-4.559L1.5 5.246c-.004-2.331 1.894-4.227 4.237-4.23L16.232.998c2.343-.004 4.248 1.885 4.252 4.215L20.5 15.31c-.065 1.927-2.717 3.494-4.396 4.569-.799.512-2.84 2.093-5.089 2.12-2.25.029-4.383-1.634-5.105-2.1z\" fill-opacity=\".792\"/><path d=\"M9.625 9.624H6.188c-.755 0-1.375.621-1.375 1.375s.62 1.375 1.375 1.375h3.437v3.438c0 .755.621 1.376 1.375 1.376s1.375-.621 1.375-1.375v-3.439h3.438c.754 0 1.375-.62 1.375-1.375 0-.754-.621-1.375-1.375-1.375h-3.438V6.188c0-.755-.621-1.375-1.375-1.375s-1.375.62-1.375 1.375v3.438z\" fill=\"#fff\" fill-rule=\"nonzero\"/></svg>",
+            "title": "$:/plugins/telmiger/MyStory/ui/icons/insert-below",
+            "tags": "$:/tags/Image",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190129071007186"
+        },
+        "$:/language/Buttons/InsertAbove/Caption": {
+            "text": "Insert above",
+            "title": "$:/language/Buttons/InsertAbove/Caption",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128184500677",
+            "creator": "Thomas Elmiger",
+            "created": "20190128184442283"
+        },
+        "$:/language/Buttons/InsertAbove/Hint": {
+            "text": "Insert a new tiddler above this one",
+            "title": "$:/language/Buttons/InsertAbove/Hint",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128184429562",
+            "creator": "Thomas Elmiger",
+            "created": "20190128184412226"
+        },
+        "$:/language/Buttons/InsertBelow/Hint": {
+            "text": "Insert a new tiddler below this one",
+            "title": "$:/language/Buttons/InsertBelow/Hint",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128184406495",
+            "creator": "Thomas Elmiger",
+            "created": "20190128184343201"
+        },
+        "$:/language/Buttons/InsertBelow/Caption": {
+            "text": "Insert below",
+            "title": "$:/language/Buttons/InsertBelow/Caption",
+            "tags": "",
+            "modifier": "Thomas Elmiger",
+            "modified": "20190128184336335",
+            "creator": "Thomas Elmiger",
+            "created": "20190128184309875"
+        }
+    }
+}

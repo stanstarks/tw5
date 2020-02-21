@@ -1,0 +1,27 @@
+created: 20190927053641160
+modified: 20190929070511141
+tags: [[Solvers under Primal-Dual Settings]]
+title: Primal-Dual of the Master Problem
+type: text/vnd.tiddlywiki
+
+* ''Primal'': $$\min_{x\in\mathbb R^d}\{\psi(x)+\frac1n\sum_{i=1}^nf_i(a_i^Tx)\}$$
+* substidue with $$f^{**}$$: $$\min_{x\in\mathbb R^d}\max_{y\in\mathbb R^n}\{\psi(x)+\frac1n\sum_{i=1}^n(y_i\cdot a_i^Tx - f^*_i(y_i)\}$$
+* ''Primal-dual'': represent with data matrix: $$\min_{x\in\mathbb R^d}\max_{y\in\mathbb R^n}\{\psi(x)-\frac1n\sum_{i=1}^nf^*_i(y_i) + \frac1n y^TAx\}$$
+* swap min and max: $$-\min_{y\in\mathbb R^n}\max_{x\in\mathbb R^d}\{-\psi(x) + \frac1n\sum_{i=1}^nf^*_i(y_i) - \frac1n y^TAx\}$$
+* ''Dual'': remove maximization with the definition of the dual of the regularizer $$\psi$$: $$-\min_{y\in\mathbb R^n}\{\psi^*(-\frac1n A^Ty) + \frac1n\sum_{i=1}^nf^*_i(y_i)\}$$
+
+if $$\psi(\cdot)$$ is $$\sigma$$-SC, $$\psi^*(\cdot)$$ is $$\frac1\sigma$$-smooth; if $$f_i(\cdot)$$ is $$L$$-smooth, $$f^*_i(\cdot)$$ is $$\frac1L$$-SC
+
+There are four classes for the master problems:
+
+# $$\sigma>0$$, $$L<+\infty$$ (SC and smooth)
+# $$\sigma>0$$, $$L=+\infty$$ (SC and non-smooth)
+# $$\sigma=0$$, $$L<+\infty$$ (non-SC and smooth)
+# $$\sigma=0$$, $$L=+\infty$$ (SC and non-smooth)
+
+|!Problem|!$$\psi(x)$$|!$$f_i(a^T_ix)$$|!$$\sigma$$|!$$L$$|
+| ridge regression | $$\frac\sigma2\|x\|^2$$| $$\frac12(a_i^Tx-b_i)^2$$ | $$\sigma$$ | $$\|a_i\|^2$$|
+| Lasso regression | $$\lambda\|x\|_1$$| $$\frac12(a_i^Tx-b_i)^2$$ | $$0$$ | $$\|a_i\|^2$$|
+| Logistic regression | $$\lambda\|x\|_1$$ | $$\log(1+e^{-b_i\cdot a_i^Tx})$$ | $$0$$ | $$\frac14\|a_i\|^2$$ |
+| SVM |$$\frac\sigma2\|x\|^2$$ | $$\max\{0, 1-b_i\cdot a_i^Tx\}$$ |$$\sigma$$ | $$\infty$$ |
+| L1-SVM | $$\lambda\|x\|_1$$ | $$\max\{0, 1-b_i\cdot a_i^Tx\}$$ |$$0$$ | $$\infty$$ |

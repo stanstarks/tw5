@@ -1,0 +1,31 @@
+created: 20190919053141528
+modified: 20190919060525871
+tags: SLAM
+title: SLAM Tutorial
+type: text/vnd.tiddlywiki
+
+SLAM does these two tasks simutanously
+
+* Localization
+** Estimate the robot's poses given landmarks
+* Mapping
+
+! Definition
+
+Given
+
+* the robot's control
+** $$u_{1:T}=\{u_1, \dots, u_T\}$$
+* Observations
+** $$z_{1:T}=\{z_1, \dots, z_T\}$$
+
+Wanted
+
+* Map of the environment: $$m$$
+* Path of the robot: $$x_{1:T}=\{x_1, \dots, x_T\}$$
+
+!! Three Main Paradigms
+
+* Kalman filter
+* Particle filter
+* [[Graphical Model]]: HMM with a map.

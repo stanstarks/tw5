@@ -1,0 +1,10 @@
+created: 20190827045806479
+modified: 20190831103743882
+tags: [[Instance Segmentation]]
+title: InstaBoost
+type: text/vnd.tiddlywiki
+
+* [[paper|https://arxiv.org/abs/1908.07801]]
+* [[code|https://github.com/GothicAi/Instaboost]]
+
+Crop & paste based on local similarity
