@@ -1,0 +1,12 @@
+created: 20190708105607438
+modified: 20190710070654535
+tags: [[ICML 2019]] Meta-Learning
+title: Meta Learning Tutorial
+type: text/vnd.tiddlywiki
+
+! Bayesian Meta-Learning
+
+* references
+** [[Stein Variational Gradient Descent]]
+** [[Conditional Neural Processes]]
+** [[Amortized Bayesian Meta-Learning]]

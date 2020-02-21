@@ -1,0 +1,7 @@
+created: 20190831103857325
+modified: 20190831104034692
+tags: [[Semantic Segmentation]] [[Context in Vision]]
+title: Expectation-Maximization Attention Networks for Semantic Segmentation
+type: text/vnd.tiddlywiki
+
+Use EM to find attention bases

@@ -1,0 +1,39 @@
+created: 20190627100442174
+modified: 20190627103745368
+tags: [[ICML 2019]] [[Attention Mechanism]]
+title: Attention in Deep Learning
+type: text/vnd.tiddlywiki
+
+[[video|https://www.facebook.com/icml.imls/videos/382464939283864/]]
+
+! 55 years old regression algorithm
+
+$$
+y = \sum_{i=1}^m\alpha(x, x_i)y_i
+$$
+
+$$
+f(x) = \sum_{i=1}^m y_i\frac{k(x_i, x)}{\sum_jk(x_j, x)}
+$$
+
+* consistency: given enough data, this converges
+* simplicity: no free parameters
+
+! Pooling
+
+Deep Sets
+
+* permutation invariance
+* all functions are of the form $$f(X) = \rho(\sum_{x\in X}\phi(x))$$
+* Outliers in set: learn function $$f(X)$$ such that $$f(\{x\}\cup X)\ge f(\{x'\}\cup X) + \Delta(x, x')$$
+
+Deep Sets with Attention (Multi-Instance Learning)
+
+* $$f(X) = \rho(\sum_{x\in X}\alpha(w, x)\phi(x))$$
+* Attention function e.g. $$\alpha(w, x)\propto \exp(w^T\tanh Vx)$$
+
+Other applications
+
+* Hierarchical attention for sentence classification
+* Squeeze Excitation Networks
+* Graph Attention Networks

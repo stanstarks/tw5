@@ -1,0 +1,9 @@
+created: 20190929072950611
+modified: 20190929111431620
+tags: [[Solvers of the Master Problem]]
+title: SGD for the Master Problem
+type: text/vnd.tiddlywiki
+
+For simplicity, let's suppose $$\psi(x)=0$$. use $$\tilde\nabla f(x):=\nabla f_i(x)$$ SGD converges in rate $$\varepsilon\propto 1/\sqrt T$$
+
+SGD converges slowly because the variance is large, $$\|\tilde\nabla f(x)-\nabla f(x)\|$$ can be "large"

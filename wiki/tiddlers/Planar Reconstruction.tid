@@ -1,0 +1,12 @@
+created: 20190807004955080
+modified: 20190807005250620
+tags: [[CVPR 2019]]
+title: Planar Reconstruction
+type: text/vnd.tiddlywiki
+
+As Instance Segmentation
+
+* Single-Image Piece-wise Planar 3D Reconstruction via Associative Embedding
+** [[code|https://github.com/svip-lab/PlanarReconstruction]]
+* PlaneRCNN: 3D Plane Detection and Reconstruction from a Single Image
+** [[code|https://github.com/NVlabs/planercnn]]

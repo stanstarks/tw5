@@ -1,0 +1,31 @@
+created: 20190903112534593
+modified: 20190905072007397
+tags: [[ICML19 Compact DL]]
+title: Structured Matrix for Efficient Deep Learning
+type: text/vnd.tiddlywiki
+
+Pixel's Now Playing only works on Pixel because it works fully on device.
+
+! Circulant matrix
+O(d) storage/ O(dlogd) time
+
+! Low displacement rank matrices
+Original matrix $$M$$ is not low rank but its displaced version $$L$$ is
+$$
+L = \nabla_{A, B}[M] = AM-MB = GH^T
+$$
+
+* A & B: fixed $$d\times d$$ operator matrices
+* G & H: $$m\times r$$ and $$n\times r$$ matrices of rank $$r$$
+
+$$f$$-circular operator
+
+! Kronecker product
+$$
+R = A_1 \otimes\cdots\otimes A_j \otimes\cdots\otimes A_M
+$$
+O(logd) storage/ O(dlogd) time
+
+* Learned via sequential minimization of bilinear forms: O(dlogd) [ICCV15]
+* Similar performance as that of unstructured weights
+** Tensor train [Novikov et al., NIPS15]

@@ -1,0 +1,71 @@
+created: 20190618163346166
+modified: 20190619051449824
+tags: [[CVPR 2019]]
+title: CVPR Oral 1.2
+type: text/vnd.tiddlywiki
+
+Gradient Matching Generative Networks for Zero-Shot Learning
+
+* image embdding: bias towards seen classes
+* use additional classifiers
+* GAN: match the gradient of classes
+* is there labels for unseen classes on the classification task?
+* not zero-shot actually
+
+Doodle to Search: Practical Zero-Shot Sketch-Based Image Retrieval
+
+* It this zero-shot? (class wise)
+
+Zero-Shot Task Transfer	
+
+* pairwise correlation of all tasks
+
+C-MIL: Continuation Multiple Instance Learning for Weakly Supervised Object Detection	
+
+* select most confident subset
+* What does it have to do with convex optim
+
+Weakly Supervised Learning of Instance Segmentation With Inter-Pixel Relations	
+
+* boundry to instance
+* Trained with Mask-RCNN
+
+Attention-Based Dropout Layer for Weakly Supervised Object Localization	
+
+Domain Generalization by Solving Jigsaw Puzzles
+
+* auxiliary task of solving jigsaw
+
+Transferrable Prototypical Networks for Unsupervised Domain Adaptation	
+
+* domain-invariant
+* prototypical networks
+
+Blending-Target Domain Adaptation by Adversarial Meta-Adaptation Networks	
+
+ELASTIC: Improving CNNs With Dynamic Scaling Policies	
+
+* feature pyramid
+* dynamic routing?
+
+ScratchDet: Training Single-Shot Object Detectors From Scratch	
+
+SFNet: Learning Object-Aware Semantic Correspondence
+
+* global similarity matrix
+* trained with cycle
+
+Deep Metric Learning Beyond Binary Supervision
+
+* continuous similarity
+* can it be used for retrival?
+
+Learning to Cluster Faces on an Affinity Graph
+
+* clustering as detection and segmentation
+* what is the bbox? on non-euclidean space
+* the clustering results seems to be not well tuned
+
+C2AE: Class Conditioned Auto-Encoder for Open-Set Recognition
+
+* conditional ae

@@ -1,0 +1,32 @@
+created: 20190616202641556
+modified: 20190616214637339
+tags: [[CVPR 2019]]
+title: CVPR19 Theory Tutorial
+type: text/vnd.tiddlywiki
+
+! Fake Media Abuse
+Problem: Photo-realistic CG stunt
+
+Intro:
+
+* Dense person part prediction
+* 3D people to Explicit Models
+** Expression/pose embedding
+** Landmark align?
+* Fake media detection?
+
+Other entries
+
+* Instance Mask Projection for High Accuracy Semantic Segmentation of Things
+* Global sum pooling for patch trained counting
+* Style transfer for domain adaptation
+* Domain randomization to improve generalization
+* Single image depth estimation + segmentatin
+* SANE: stochastically activated network ensembles
+** This work is not mathematically sound
+* Image translation without paired images
+** Training mage translation networks in absence of the paired data
+* Automaic labeling of data for transfer learning
+** 
+
+Go to Low Latency and On Device workshops on Monday

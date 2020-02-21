@@ -1,0 +1,20 @@
+created: 20190908115732289
+modified: 20190915125112935
+tags: [[ICML 2019]]
+title: ICML19 Deep Learning Theory
+type: text/vnd.tiddlywiki
+
+[[videos|https://www.facebook.com/icml.imls/videos/606052416553010/]]
+
+* Why do larger models generalize better? A theoretical perspective via the XOR problem
+** larger models generalize better because more candidates in initialization
+** PAC bound for XOR detection: $$p=0.98$$, to get $$0.5\%$$ test error with probability $$\ge0.95$$, large network needs 2 samples and small network needs $$\ge 129$$ samples.
+* On the Spetral Bias of Neural Networks
+** Neural networks can learn arbitary labels, but learn simple functions first
+** To quantify simplicity, use (Fourier) Spectrum
+** learning gets easier with increasing manifold complexity
+* Recursive Sketches for Modular Deep Learning
+** moduluar networks looks like Bayesian nets
+* Zero-Shot Knowledge Distillation in Deep Learning
+** Data Impression: Use Dirichlet distribution to generate continuous embeddings
+* [[A Convergence Theory for Deep Learning via Over-Parametrization]]

@@ -1,0 +1,22 @@
+created: 20190525070249426
+modified: 20190929071106130
+tags: [[Instance Segmentation]]
+title: Instance Segmentation Fact Sheet
+type: text/vnd.tiddlywiki
+
+|!Method                                                    |!Backbone |!COCO            |!Cityscapes test           |
+| Two Stage                                              |<|<|<|
+|[[MaskRCNN|https://arxiv.org/abs/1703.06870]]              |R50-FPN   |33.6 val         |26.2 (fine) 32.0 (+coarse) |
+|[[MaskRCNN|https://arxiv.org/abs/1703.06870]]              |R101-FPN  |35.7             |                           |
+|MaskLab                                                    |R101      |35.4             |                           |
+|MaskLab (scale augmentation)                               |R101      |37.3             |                           |
+|[[MS RCNN|https://arxiv.org/abs/1903.00241]]           |R101-FPN  |38.3             |                           |
+| Single Stage                                              |<|<|<|
+|[[DeepMask|https://arxiv.org/abs/1811.10870]]              |R101      |12.6 (224 AR@10) |                           |
+|[[InstanceFCN|https://arxiv.org/pdf/1603.08678.pdf]]       |VGG16     |16.6 (224 AR@10) |                           |
+|[[FCIS|https://arxiv.org/abs/1611.07709]]              |R101      |29.2 (600)       |                           |
+|[[YOLACT]]                                                 |R101-FPN  |29.8 (550)       |                           |
+|[[Discriminative Loss|https://arxiv.org/abs/1708.02551]]   |R38       |                 |17.5 (fine)                |
+|[[Watershed|https://arxiv.org/abs/1611.08303]]             |VGG16     |                 |19.4 (fine)                |
+|[[Affinity|https://arxiv.org/abs/1811.10870]]              |R101      |                 |27.3 (fine)                |
+|[[Pixel Offsets|https://arxiv.org/abs/1906.11109]]         |ERFNet    |                 |27.6 (fine)                |

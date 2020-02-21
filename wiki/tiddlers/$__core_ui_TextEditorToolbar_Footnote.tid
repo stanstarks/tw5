@@ -1,0 +1,22 @@
+caption: Fußnote
+condition: [all[current]!is[image]]
+created: 20161215001633738
+creator: JR
+description: Auswahl in umwandeln Fußnote
+icon: $:/core/images/asterisk
+list-after: $:/core/ui/TextEditorToolbar/indent
+modified: 20190915080835561
+modifier: JR
+prefix: <<ref "
+shortcuts: ((transclude))
+suffix: ">>
+tags: $:/tags/EditorToolbar task footnote urgent done
+title: $:/core/ui/TextEditorToolbar/Footnote
+type: text/vnd.tiddlywiki
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix={{$:/core/ui/TextEditorToolbar/Footnote!!prefix}}
+	suffix={{$:/core/ui/TextEditorToolbar/Footnote!!suffix}}
+/>

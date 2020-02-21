@@ -1,0 +1,17 @@
+created: 20190929114520168
+modified: 20190929122651644
+tags: [[Solvers of the Master Problem]]
+title: Difference between SGD and CD
+type: text/vnd.tiddlywiki
+
+For SGDs:
+
+* We assume the objective is the finite average, $$f(x):=\frac1n\sum_{i=1}^nf_i(x)$$
+* We move by estimating the gradient with a subset of data $$x_{k+1} = x_k-\eta\nabla f_i(x_k)$$
+
+For CD:
+
+* We don't have assumptions on $$f(x)$$
+* We only change in one direction $$x_{k+1} = x_k-\eta\nabla_if(x_k)$$
+
+There is different stability. For CD, there always exists a step length which we can decrease the objective. It is usually easier to design and analyse CD algorithms.

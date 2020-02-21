@@ -1,0 +1,16 @@
+created: 20190905131442306
+modified: 20190907114322393
+title: Co-Teaching
+type: text/vnd.tiddlywiki
+
+* Regard small-loss instances as correct instances
+* Drawbacks
+** @@color:red;accumulated error caused by sample-selection bias@@
+* Solutions
+** utilize memorization
+** attenuate the error from noisy data by utilizing two networks
+
+[img[https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/e061d23b68e7d4aac5aece4794c044c80e638dca/2-Figure1-1.png]]
+
+* Each network samples its small-loss instances based on memorization of neural networks
+* Each network teaches such useful instances ot its peer network (cross-update)

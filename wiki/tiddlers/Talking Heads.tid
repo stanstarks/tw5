@@ -1,0 +1,10 @@
+created: 20190616205916115
+modified: 20190616210028456
+tags: [[Deep Generative Models]]
+title: Talking Heads
+type: text/vnd.tiddlywiki
+
+!! Few-Shot Adversarial Learning of Realistic Neural Talking Head Models
+
+* [[paper|https://arxiv.org/pdf/1905.08233v1.pdf]]
+* [[3rd party code|https://github.com/grey-eye/talking-heads]]

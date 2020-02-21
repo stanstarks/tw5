@@ -1,0 +1,14 @@
+author: Thomas Elmiger
+core-version: >=5.1.18
+created: 20190106095323590
+creator: Thomas Elmiger
+description: MyStory – replacement sidebar tab for Open
+list: readme support
+modified: 20190915125310552
+modifier: Thomas Elmiger
+name: MyStory
+plugin-type: plugin
+source: https://tid.li/tw5/plugins.html
+title: $:/plugins/telmiger/MyStory
+type: application/json
+version: 0.1.4

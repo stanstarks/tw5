@@ -1,0 +1,37 @@
+created: 20190927020339854
+modified: 20190927025957229
+tags: 
+title: Geometric Optimization in ML
+type: text/vnd.tiddlywiki
+
+Oblate Spheroidal Earth: The radius from 45 latitude is shorter than 45 to 90
+$$
+a = z + e\sin^2\theta
+$$
+
+related to RANSAC, estimate between all samples and discard unlikely ones.
+
+* 3D pose estimation
+** with DL
+* orb-SLAM
+
+! Consensus maximization NP-Hard
+
+* tractable robust model estimation
+
+
+If LKOS can be solved efficiently, MAXCON can be solved
+
+Maxcon is APX-hard (what about the amorized complexity?)
+
+! Chebyshev problem
+
+LkOS with $$k$$ equals to N
+
+Combinatorial dimension = d+1 = number of basis
+
+Repeatedly solve Chebyshev problem on subset of size $$d$$:
+
+$$O(N^{d+1}poly(N, d))$$
+
+A^* search on the tree structure (level-d tree is the chebyshev problem with d points exculded)

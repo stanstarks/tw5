@@ -1,0 +1,18 @@
+created: 20190905120946811
+modified: 20190907114341105
+tags: [[Semi-Supervised Learning]]
+title: Noisy Labels
+type: text/vnd.tiddlywiki
+
+* Learning with noise transition
+** Forward Correction
+** S-adaptation
+** Masking
+* Learning with selected samples
+** MentorNet: regard small-loss instances as correct instances, 
+** Learning to Reweight Examples
+** [[Co-Teaching]]
+* Learning with implicit regularization
+** Virtual Adversarial Training
+** Mean Teachers
+** Temporal Ensembling

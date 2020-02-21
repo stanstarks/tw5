@@ -1,0 +1,27 @@
+created: 20190917121659864
+modified: 20190929064405716
+tags: [[Primal-Dual Optimization]] [[ICML 2017]]
+title: Recent Advances in Stochastic Convex and Non-Convex Optimization
+type: text/vnd.tiddlywiki
+
+The form of master problem:
+$$
+\min_{x\in\mathbb R^d}\{\psi(x)+\frac1n\sum_{i=1}^nf_i(x)\}
+$$
+where $$\psi(x)$$ is a convex regularizer, such as $$\ell_1$$-, and a loss of a finite average over a convex loss function $$f_i(x)$$
+
+This covers alot of ML algorithms, such as
+
+* SVM: $$\frac\sigma 2\|x\|^2+\frac 1n\sum_{i=1}^n\max\{0, 1-b_i\cdot a_i^Tx\}$$, (+Hinge loss), where $$a_i$$ is the data sample and $$b_i\in\{\pm1\}$$
+* ridge regression: $$\frac\sigma 2\|x\|^2+\frac{1}{2n}\sum_{i=1}^n(a_i^Tx-b_i)^2$$
+* Lasso regression: $$\lambda\|x\|_1+\frac{1}{2n}\sum_{i=1}^n(a_i^Tx-b_i)^2$$
+* Logistic regression: $$\lambda\|x\|_1+\frac{1}{n}\sum_{i=1}^n\log(1+e^{-b_i\cdot a_i^Tx})$$
+* MAXCON: $$-\frac\sigma 2\|x\|^2-\frac 1n\sum_{i=1}^n\max\{0, \|a_i^Tx\|-1\}$$
+
+Since these all includes a inner product between the weight and sample:
+$$
+\min_{x\in\mathbb R^d}\{\psi(x)+\frac1n\sum_{i=1}^nf_i(a_i^Tx)\}
+$$
+
+! [[Solvers under Primal-Dual Settings]]
+{{Solvers under Primal-Dual Settings}}

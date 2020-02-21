@@ -1,0 +1,16 @@
+created: 20190627061918651
+modified: 20190627073445324
+tags: [[Second Order Methods]]
+title: Gauss-Newton
+type: text/vnd.tiddlywiki
+
+The original Gauss-Newton algorithm is an approximation to Newton's method for ''nonlinear least squares problems'', $$\mathcal L(\theta)=\frac12\sum_n(f(x_n, \theta)-y_n)^2$$. By the chain rule, the Hessian can be written as
+$$
+\nabla^2\mathcal L(\theta) = \underbrace{\sum_n\nabla_\theta f(x_n,,\theta)\nabla_\theta f(x_n, \theta)^T}_{:=G(\theta)}+\underbrace{\sum_nr_n\nabla^2_\theta f(x_n, \theta)}_{:=R(\theta)}
+$$
+where $$r_n=f(x_n, \theta)-y_n$$ are the residuals. The first part $$G(\theta)$$, is the Gauss-Newton matrix.
+
+The objective can be generalized to the form $$\mathcal L(\theta) = \sum_na_n(b_n(\theta))$$. The genrealized Gauss-Newton matrix (GGN) is defined as the part of the Hessian that ignores the second-order information of $$b_n$$,
+$$
+G(\theta):=\sum_n[J_\theta b_n(\theta)]^T\nabla^2_ba_n(b_n(\theta))[J_\theta b_n(\theta)]
+$$
