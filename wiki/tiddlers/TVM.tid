@@ -1,0 +1,13 @@
+created: 20200221041042119
+modified: 20200221054032044
+tags: 
+title: TVM
+type: text/vnd.tiddlywiki
+
+TVM backend lowers PyTorch IR to [[Relay|Relay IR]], and is able to transparently improve PyTorch performance with little user improvement.
+
+[[Community Highlights 2019]]
+
+VTA: 
+
+TSIM: Support for future hardware

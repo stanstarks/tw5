@@ -1,11 +1,12 @@
 created: 20181106063411015
-modified: 20181106063455089
+modified: 20200224020133162
 tags: [[Sequential Models]]
 title: Transformer
 type: text/vnd.tiddlywiki
 
 ! Language modeling
 * [[Transformer XL]]
+* [[Compressed Transformer]]
 
 ! Reinforcement learning
 * [[Iterated Amplification]]

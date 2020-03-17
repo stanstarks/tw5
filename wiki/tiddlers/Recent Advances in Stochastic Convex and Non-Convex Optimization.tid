@@ -1,8 +1,10 @@
 created: 20190917121659864
-modified: 20190929064405716
-tags: [[Primal-Dual Optimization]] [[ICML 2017]]
+modified: 20200221035536045
+tags: Summary [[Primal-Dual Optimization]] [[ICML 2017]]
 title: Recent Advances in Stochastic Convex and Non-Convex Optimization
 type: text/vnd.tiddlywiki
+
+[[Video|https://www.youtube.com/watch?v=jPjhiaeYruQ&feature=youtu.be]]
 
 The form of master problem:
 $$

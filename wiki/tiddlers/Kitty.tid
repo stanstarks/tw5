@@ -1,5 +1,11 @@
 created: 20200214060211161
-modified: 20200214060213806
+modified: 20200226045021292
 tags: Tools
 title: Kitty
 type: text/vnd.tiddlywiki
+
+|!command         |!operations |
+|ctrl+shift+enter |new_window |
+|ctrl+shift+w     |close_window |
+|ctrl+shift+]     |next_window |
+|ctrl+shift+[     |previous_window |

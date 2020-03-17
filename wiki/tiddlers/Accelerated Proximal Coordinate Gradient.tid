@@ -1,0 +1,49 @@
+created: 20200221034624525
+modified: 20200224011010402
+tags: [[Solvers of the Master Problem]]
+title: Accelerated Proximal Coordinate Gradient
+type: text/vnd.tiddlywiki
+
+Papers:
+
+* [[ACDM [Nesterov 2012]|https://pdfs.semanticscholar.org/0059/cfac9c5b7811866f0729d0917b7478148fc5.pdf]]
+* [[APCG [Lin-Lu-Xiao 2014]|https://papers.nips.cc/paper/5356-an-accelerated-proximal-coordinate-gradient-method.pdf]]
+
+APCG does momentum acceleration on top of [[SDCA|Stochastic Dual Coordinate Ascent]].
+
+!! Full Gradient Setting
+If $$f$$ is convex and $$L$$-smooth:
+
+* GD in rate $$\varepsilon\propto L/T$$
+* Accelerated (with momentum) GD in rate $$\varepsilon\propto L/T^2$$
+
+The mathematics behind accelerated method are:
+
+* potential function proof [Nesterov 2005]
+* differen equation proof [Su-Boyd-Candes 2014][Wibisono-Wilson-Jordan 2016]
+* geometric proof (ellipsoid method) for a special case [Bubeck-Lee-Singh 2014]
+* linear coupling proof [AllenZhu-Orecchia 2014]
+** momentum is a linear combination of gradient descent and mirror descent
+
+!! General theory of APCG
+Given $$g(y)$$ to be $$L$$ coordinate-smooth and $$\sigma$$-SC:
+
+* [[SDCA|Stochastic Dual Coordinate Ascent]] convergenes in $$T=O(\frac{nL}{\sigma}\log\frac1\epsilon)$$
+* APCG in $$T=O(\frac{n\sqrt L}{\sqrt\sigma}\log\frac1\epsilon)$$
+
+Plug it in to the primal form of the master problem: 
+
+{{primal_dual_of_master_problem}}
+
+if $$\psi(\cdot)$$ is $$\sigma$$-SC, $$\psi^*(\cdot)$$ is $$\frac1\sigma$$-smooth; if $$f_i(\cdot)$$ is $$L$$-smooth, $$f^*_i(\cdot)$$ is $$\frac1L$$-SC
+
+$$
+g(y) = \psi^*(-\frac1n A^Ty) + \frac1n\sum_{i=1}^nf^*_i(y_i)
+$$
+$$g(\cdot)$$ is $$\frac{1}{\sigma n^2}+\frac{1}{nL}$$ coordinate-smooth and $$\frac{1}{nL}$$-SC
+
+Plugin to the convergence rate:
+
+$$
+T=O\left(\frac{n\times \sqrt{ \left(\frac{1}{\sigma n^2}+\frac{1}{nL}\right)} }{\sqrt{\frac{1}{nL}}}\log\frac1\varepsilon\right) = O\left(\left(n+\frac{\sqrt{nL}} {\sqrt\sigma}\right)\log\frac1\varepsilon\right)
+$$

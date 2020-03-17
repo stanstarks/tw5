@@ -1,0 +1,38 @@
+created: 20200221011853832
+modified: 20200224005927802
+tags: [[Solvers of the Master Problem]]
+title: Stochastic Dual Coordinate Ascent
+type: text/vnd.tiddlywiki
+
+[[paper|http://www.jmlr.org/papers/volume14/shalev-shwartz13a/shalev-shwartz13a.pdf]]
+
+Master Problem:
+
+{{primal_dual_of_master_problem}}
+
+!! General theory for coordinate descent
+[Coordinate Smoothness]: Assume each coordinate of $$g(y)$$ is $$L$$-smooth, i.e. $$\nabla_{ii}^2g(y)\in[0, L]$$, diagonal element of the Hessian is upperbounded by $$L$$.
+
+[Algorithm]: $$y_{k+1} = y_k -\frac1L\nabla_ig(y_k)$$
+
+[#Iters to converge]: 
+
+* $$T=O(\frac{dL}{\epsilon})$$, where $$d$$ is the number of parameters
+* or $$T=O(\frac{dL}{\sigma}\log\frac1\epsilon)$$, if $$g(y)$$ is $$\sigma$$-SC, i.e. $$\nabla^2g(y)\succcurlyeq\sigma\cdot I$$ (Case 1)
+
+Compute the smoothness and strong convexity:
+
+if $$\psi(\cdot)$$ is $$\sigma$$-SC, $$\psi^*(\cdot)$$ is $$\frac1\sigma$$-smooth; if $$f_i(\cdot)$$ is $$L$$-smooth, $$f^*_i(\cdot)$$ is $$\frac1L$$-SC
+
+$$
+g(y) = \psi^*(-\frac1n A^Ty) + \frac1n\sum_{i=1}^nf^*_i(y_i)
+$$
+$$g(\cdot)$$ is $$\frac{1}{\sigma n^2}+\frac{1}{nL}$$ coordinate-smooth and $$\frac{1}{nL}$$-SC
+
+Plugin to the convergence rate:
+
+$$
+T=O\left(\frac{n\times\left(\frac{1}{\sigma n^2}+\frac{1}{nL}\right)}{\frac{1}{nL}}\log\frac1\varepsilon\right) = O\left(\left(n+\frac L\sigma\right)\log\frac1\varepsilon\right)
+$$
+
+This matches ''Case 1 SVRG'': Computation of $$\nabla_ig(y)$$ is of the same complexity as computation of $$\nabla f_i(a_i^T x)$$ (Same constance factor).

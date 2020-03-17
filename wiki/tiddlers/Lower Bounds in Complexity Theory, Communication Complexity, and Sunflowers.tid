@@ -1,0 +1,16 @@
+created: 20200303045817764
+modified: 20200303052957264
+tags: [[Theoretical Computer Science]]
+title: Lower Bounds in Complexity Theory, Communication Complexity, and Sunflowers
+type: text/vnd.tiddlywiki
+
+[[link|https://www.youtube.com/watch?v=w3kq7vTta7c]]
+
+<<<
+''Problem'' [$$C$$-CLIQUE$$_n$$]<br>
+Given graph $$g$$ on $$n$$ vertices, accept iff $$g$$ contains a clique of size $$\ge C$$.
+<<<
+
+The reason we care about $$C$$-CLIQUE$$_n$$ is that 3-SAT$$_n$$ reduced to $$C$$-CLIQUE$$_n$$. If we can find sufficient small sized circuits, we can solve $$C$$-CLIQUE efficiently.
+
+For any size $$S$$ boolean circuit, $$s>n$$ can be described by $$\sim O(s\log s)$$ bits. #Boolean functions computed by size $$s$$ circuit is $$\exp(s\log s)$$. #Boolean functions of $$n$$ bits $$\exp(2^n)$$

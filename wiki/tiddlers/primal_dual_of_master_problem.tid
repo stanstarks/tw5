@@ -1,0 +1,8 @@
+created: 20200224004614296
+modified: 20200224005433689
+tags: 
+title: primal_dual_of_master_problem
+type: text/vnd.tiddlywiki
+
+* ''Primal'': $$\min_{x\in\mathbb R^d}\{\psi(x)+\frac1n\sum_{i=1}^nf_i(a_i^Tx)\}$$
+* ''Dual'': $$-\min_{y\in\mathbb R^n}\{\psi^*(-\frac1n A^Ty) + \frac1n\sum_{i=1}^nf^*_i(y_i)\}$$

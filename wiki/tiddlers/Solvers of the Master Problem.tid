@@ -1,5 +1,5 @@
 created: 20190929065732719
-modified: 20190929114558195
+modified: 20200224013545195
 tags: [[Solvers under Primal-Dual Settings]]
 title: Solvers of the Master Problem
 type: text/vnd.tiddlywiki
@@ -20,9 +20,12 @@ We can do accelerations,
 | !Primal-dual |<|<|
 |  | |@@color:red;acceleration (momentum)@@: <ul><li>SPDC [Zhang-Xiao, 2015]</li><li>RPDG [Lan-Zhou, 2015]</li></ul> |
 | !Dual |<|<|
-|  |@@color:red;[[(randomized) coordinate descent|Difference between SGD and CD]]@@: <ul><li>SDCA [ShalevShwartz-Zhang, 2012]</li><li>RCDM [Nesterov, 2012]</li></ul>  |@@color:red;acceleration (momentum)@@: <ul><li>AccSDCA [ShalevShwartz-Zhang, 2014</li><li>APCG [Lin-Lu-Xiao, 2014]</li><li>ACDM [Lee-Sidford, 2013]</li><li>NUACDM [AllenZhu-Qu-Richarik-Yuan, 2016]</li></ul> |
+|  |@@color:red;[[(randomized) coordinate descent|Difference between SGD and CD]]@@: <ul><li>[[SDCA|Stochastic Dual Coordinate Ascent]] [ShalevShwartz-Zhang, 2012]</li><li>RCDM [Nesterov, 2012]</li></ul>  |@@color:red;acceleration (momentum)@@: <ul><li>AccSDCA [ShalevShwartz-Zhang, 2014</li><li>[[APCG|Accelerated Proximal Coordinate Gradient]] [Lin-Lu-Xiao, 2014]</li><li>ACDM [Lee-Sidford, 2013]</li><li>NUACDM [AllenZhu-Qu-Richarik-Yuan, 2016]</li></ul> |
+
+$$\tilde O$$ notion hides log factors:
 
 |!|!Case 1|!Case 2|!Case 3|!Case 4|
-|SGD| $$T=O(\frac{L^2}{\sigma\varepsilon})$$ | $$T=O(\frac{G}{\sigma\varepsilon})$$ | $$T=O(\frac{L^2}{\varepsilon^2})$$ | $$T=O(\frac{G}{\varepsilon^2})$$<<ref "$$\|\nabla f_i(x)\|^2\le G$$">>|
-|SVRG| $$T=O((n+\frac L \sigma)\log\frac1\varepsilon)$$<<ref "$$\varepsilon\propto e^{-T}$$, linear convergence rate">> |slightly worse than SGD | $$T=O(n\log\frac1\varepsilon + \frac L \varepsilon)$$<<ref "SVRG++ [AllenZhu-Yuan 2015], [Mahdavi-Zhang-Jin 2013]">> |slightly worse than SGD |
+|SGD| $$O(\frac{L^2}{\sigma\varepsilon})$$ | $$O(\frac{G}{\sigma\varepsilon})$$ | $$O(\frac{L^2}{\varepsilon^2})$$ | $$O(\frac{G}{\varepsilon^2})$$<<ref "$$\|\nabla f_i(x)\|^2\le G$$">> |
+|SVRG/[[SDCA|Stochastic Dual Coordinate Ascent]]| $$O((n+\frac L \sigma)\log\frac1\varepsilon)$$<<ref "$$\varepsilon\propto e^{-T}$$, linear convergence rate">> | $$\tilde O(n+\frac{G}{\sigma\varepsilon})$$ | $$O(n\log\frac1\varepsilon + \frac L \varepsilon)$$<<ref "SVRG++ [AllenZhu-Yuan 2015], [Mahdavi-Zhang-Jin 2013]">> | $$\tilde O(n+\frac{G}{\varepsilon^2})$$ |
+|[[APCG|Accelerated Proximal Coordinate Gradient]] | $$O\left(\left(n+\frac{\sqrt{nL}} {\sqrt\sigma}\right)\log\frac1\varepsilon\right)$$ | $$\tilde O\left(n+\frac{\sqrt{nG}} {\sqrt{\sigma\varepsilon}}\right)$$| $$\tilde O\left(n+\frac{\sqrt{nL}} {\sqrt{\varepsilon}}\right)$$ |$$\tilde O\left(n+\frac{\sqrt{nG}} {\varepsilon}\right)$$|
 | =="Optimal" reductions [AllenZhu-Hazan 2016]==> |<|<|<|<|

@@ -1,5 +1,5 @@
 created: 20141010095317608
-modified: 20150115121119481
+modified: 20200221013444240
 tags: LaTeX
 title: LaTeX Snippets
 type: text/vnd.tiddlywiki
@@ -17,13 +17,13 @@ equation array
 
 ```
 \varphi_\pi(x) = \left\{ \begin{array}{ll}
-	1 & \mbox{if } m_\pi(x)>kf(x|\theta_1),\\
-    0 & \mbox{otherwise}.
+	1 & \text{if } m_\pi(x)>kf(x|\theta_1),\\
+    0 & \text{otherwise}.
 \end{array}\right.
 ```
 $$
 \varphi_\pi(x) = \left\{ \begin{array}{ll}
-	1 & \mbox{if } m_\pi(x)>kf(x|\theta_1),\\
-    0 & \mbox{otherwise}.
+	1 & \text{if } m_\pi(x)>kf(x|\theta_1),\\
+    0 & \text{otherwise}.
 \end{array}\right.
 $$

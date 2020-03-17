@@ -1,0 +1,13 @@
+created: 20200221041744204
+modified: 20200221051625173
+tags: TVM
+title: Relay IR
+type: text/vnd.tiddlywiki
+
+Relay generalizes NNVM. Expressivenss + Performance
+
+Low-cost abstraction enabled by:
+
+* Tensor shape inference and specialization (Type system)
+* High-level operator fusion
+* Whole-program partial evaluation

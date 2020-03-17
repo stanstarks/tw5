@@ -1,11 +1,13 @@
 color: #8b8b00
 created: 20141010021349422
-modified: 20170720132450374
+modified: 20200221013855752
 tags: Languages Tools
 title: LaTeX
 type: text/vnd.tiddlywiki
 
-[[LaTeX Snippets]]
+! Refs
+* [[LaTeX Snippets]]
+* [[LaTeX Symbols]]
 
 ! Tools
 * [[Detexify|http://detexify.kirelabs.org/classify.html]]

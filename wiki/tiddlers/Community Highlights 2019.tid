@@ -1,0 +1,21 @@
+created: 20200221050947310
+modified: 20200221052931974
+tags: TVM
+title: Community Highlights 2019
+type: text/vnd.tiddlywiki
+
+* Need for more dynamism
+** programs with loops and recursions
+** sequence, trees, nested data structure
+* Relay Virtual Machine (source => stack VM bytecode and runtime)
+** Dynamic shape workloads
+** More runtime objects: arrays, tuples, trees, ADTs
+** Minimum runtime for dynamic models
+* $$\mu$$TVM
+** Support bare-metal J-TAG devices, no OS is needed
+* Better core Infra
+** New integer simplification and analysis
+** Unified runtime object protocol
+* Accelerator support
+** different compute primitives
+*** ARM: vector-vector, TPU: matrix-matrix
