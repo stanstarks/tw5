@@ -1,9 +1,23 @@
 created: 20200120045714277
-modified: 20200120045746663
+modified: 20200417103247505
 tags: 
 title: Uncertainty
 type: text/vnd.tiddlywiki
 
 ! Paper reading lists
 
-https://homepages.cwi.nl/~wmkoolen/PureExploration18/
+* [[Pure Exploration|https://homepages.cwi.nl/~wmkoolen/PureExploration18/]]
+
+! Definition
+
+* Epistemic (lack of knowledge), small dataset, OOD => can be reduced by larger datasets
+* Aleatoric (inherent noise), overlapping labels
+
+! Bayesian methods
+
+* [[Bayesian Deep Learning]]
+
+! Papers
+
+* NIPS19
+** [[Modeling Uncertainty by Learning A Hierarchy of Deep Neural Connections]]

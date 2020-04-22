@@ -1,0 +1,14 @@
+caption: LaTeX large bracket equation
+created: 20200331015919824
+modified: 20200331020017019
+tags: $:/tags/TextEditor/Snippet
+title: bracket eq
+type: text/vnd.tiddlywiki
+
+$$
+  X=\left\{
+  \begin{array}{ll}
+    0, & \text{if}\ a=1 \\
+    1, & \text{otherwise}
+  \end{array}\right.
+$$

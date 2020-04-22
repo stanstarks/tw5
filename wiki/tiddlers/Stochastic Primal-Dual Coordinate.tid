@@ -1,0 +1,22 @@
+created: 20200317011145569
+modified: 20200317064032699
+tags: [[Solvers of the Master Problem]]
+title: Stochastic Primal-Dual Coordinate
+type: text/vnd.tiddlywiki
+
+[[SPDC|https://arxiv.org/abs/1409.3257]] works on the primal-dual formulation:
+
+$$
+\min_{x\in\mathbb R^d}\max_{y\in\mathbb R^n}\{\psi(x) - \frac1n\sum_{i=1}^nf_i^*(y_i)+\frac1ny^TAx\}
+$$
+
+per iteration, it keeps track of two vectors $$(x_k, y_k)$$, and performs:
+
+* coordinate descent on $$y_{k+1}$$ ($$y_{k+1} = y_k - \eta_y\cdot (Ax_k)_i$$)
+* full gradient descent on $$x_{k+1}$$ ($$x_{k+1} = x_k - \eta_x\cdot A^Ty_{k+1}$$)
+
+SPDC introduces momentum:
+
+* $$x_k + (x_k - x_{k-1})$$
+
+

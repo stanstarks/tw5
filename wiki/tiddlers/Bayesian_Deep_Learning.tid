@@ -1,6 +1,6 @@
 created: 20170621062553683
-modified: 20200220013733486
-tags: [[Probabilistic Deep Learning]] Bayesian
+modified: 20200417025735956
+tags: Uncertainty [[Probabilistic Deep Learning]] Bayesian
 title: Bayesian Deep Learning
 type: text/vnd.tiddlywiki
 
@@ -10,6 +10,8 @@ First Bayesian NNs are training with Laplace's method. Neal uses HMC. In late 90
 Modern VI relied on a fully factorized approximation, assuming independence of each weight scalar in each layer from all other weights.
 
 Expectation propagation is recently studied, relying on various forms of Renyi's $$\alpha$$-divergence. Seems to sacrifice their estimation of the dominant modes of the posterior.
+
+The posterior of modern neural networks if highly non-convex, and mini-batch approaches have largely been intractable for modern neural networks.
 
 ! Challenges
 
@@ -36,9 +38,7 @@ Topics
 
 ! Algorithms
 
-* [[Assumed Density Filtering]]
-** [[Probabilistic Backpropagation]]
-** [[Elastic Weight Consolidation]]
+{{Bayesian Deep Learning Algorithms}}
 
 ! Code
 

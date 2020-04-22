@@ -1,0 +1,14 @@
+created: 20200401062928802
+modified: 20200403031215009
+tags: [[Differential Equations]] Julia
+title: Universal Differential Equations for Scientific Machine Learning
+type: text/vnd.tiddlywiki
+
+[[talk|https://www.youtube.com/watch?v=bBH8HVEr0-A]]
+
+Encoding more structure into the model, combining neural networks with differential equations.
+
+Julia is good because it is strongly typed. Can optimize and handle weird functions at the same time.
+
+Julia keeps a generic algorithm (without specific type). @@color:#859900;When the types are specified, propagate to infer type?@@
+

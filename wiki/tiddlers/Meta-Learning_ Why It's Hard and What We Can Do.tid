@@ -1,0 +1,17 @@
+created: 20200414065613454
+modified: 20200414123654445
+tags: Meta-Learning
+title: Meta-Learning: Why It's Hard and What We Can Do
+type: text/vnd.tiddlywiki
+
+|!Task|!Base-learner |!Space of trained base-learners |! Meta-learning|
+|Multi-task Learning|$$\hat\mathbf y = f_{\theta, \psi}(x)$$ |$$S = \{f_{\theta, \psi_\theta^*}(\cdot)\vert\theta\in\Theta\},\text{where }\psi_\theta^* = \arg \min_{\psi\in\Psi}\mathcal L(f_{\theta, psi})$$|$$\min_{f\in S}\mathcal L(f) = \min_{\theta\in\Theta}\mathcal L(f_{\theta, \psi_\theta^*})$$|
+|Hyperparameter Optimization|$$\hat\mathbf y = f_{\theta, \psi}(x)$$ |$$S = \{f_{\theta, \psi_\theta^*}(\cdot)\vert\theta\in\Theta\},\text{where }\psi_\theta^* = \arg \min_{\psi\in\Psi}\mathcal L^\theta_{base}(f_{\theta, psi})$$ |$$\min_{f\in S}\mathcal L_{meta}(f) = \min_{\theta\in\Theta}\mathcal L_{meta}(f_{\theta, \psi_\theta^*})$$|
+|Automatic Model Selection|$$\hat\mathbf y = f_{g_\theta(X, Y), \psi}(x)$$ |$$S = \{f_{g_\theta(X, Y), \psi^*}(\cdot)\vert\theta\in\Theta\},\text{where }\psi^* = \arg \min_{\psi\in\Psi}\mathcal L_{base}(f_\psi)$$ |$$\min_{f\in S}\mathcal L_{meta}(f) = \min_{\theta\in\Theta}\mathcal L_{meta}(f_{g_\theta(X, Y), \psi^*})$$ |
+
+! Learning to Optimize
+
+[[link|https://openreview.net/forum?id=ry4Vrt5gl]]
+
+''Algorithm 1'' General structure of optimization algorithms
+ LG2 does not work. Counter examples can be constructed.

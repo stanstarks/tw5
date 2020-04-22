@@ -1,5 +1,5 @@
 created: 20141224063156564
-modified: 20170118030900810
+modified: 20200318104233897
 tags: Statistics
 title: Graphical Model
 type: text/vnd.tiddlywiki
@@ -31,7 +31,7 @@ Probability is the basic. There are alternatives to probability theory:
 * Disjunctive uncertainty, etc. 
 * (Fuzzy logic is about imprecision, not uncertainty.)
 
-The reason probality theory is better is de Finetti's theory:
+The reason probality theory is better is [[de Finetti's theory|De Finetti's Theorem]]:
 
 <<<
 if you fo not reasone according to [[Probability theory]], you can be made to act irrationally.

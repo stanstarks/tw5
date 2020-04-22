@@ -1,0 +1,17 @@
+created: 20200318104303231
+modified: 20200319213658756
+tags: Statistics
+title: De Finetti's Theorem
+type: text/vnd.tiddlywiki
+
+All infinitely exchangeable (i.e. permutation-invariant) sequences of random variables have distributional representations that are conditionally i.i.d. conditioned on a random probability measure.
+
+<<<
+''Definition'' [exchangeable]<br>
+An infinite sequence $$X_1, X_2\dots$$ of random variables is said to be exchangeable if for any infinite cardinal number $$n$$ and any two finite sequences $$i_1, \dots, i_n$$ and $$j_i, \dots, j_n$$ (which each of the $$i$$s/$$j$$s distinct), the two sequences
+$$X_{i_1},\dots,X_{i_n}$$ and $$X_{j_1},\dots,X_{j_n}$$ both have the same  joint probability distribution.
+<<<
+
+$$\mathbf X_{\mathbb N}$$ is exchangeable iff $$X_i|Q\overset{iid}{\sim}Q$$ for some random $$Q$$.
+
+de Finetti's theorem may fail for finite exchangeable sequences.

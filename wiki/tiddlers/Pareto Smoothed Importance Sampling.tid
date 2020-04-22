@@ -1,0 +1,31 @@
+created: 20200331015112148
+modified: 20200331054546521
+tags: [[Importance sampling]]
+title: Pareto Smoothed Importance Sampling
+type: text/vnd.tiddlywiki
+
+* Applications:
+** [[Yes, but Did It Work?: Evaluating Variational Inference]]
+
+The large variance of importance sampling comes from the summation, which is a result of the large values. PSIS stablizes importance ratios
+
+$$
+r_s \triangleq p(\theta_s, y)/q(\theta_s)
+$$
+by fitting a generalized Pareto distribution:
+
+$$
+  p(y|\mu, \sigma, k) = \left\{
+  \begin{array}{ll}
+    \frac1\sigma(1+k(\frac{y-\mu}{\sigma}))^{-\frac1k-1}, & \text{if}\ k\neq 0 \\
+    \frac1\sigma\exp(\frac{y-\mu}{\sigma}), & k=0
+  \end{array}\right.
+$$
+using the largest $$M$$ importance ratios
+
+* estimate the shape parameter $$\hat k$$
+* represent the $$M$$ largest $$r_s$$ by their expected value and truncate all weights at the raw weight maximum.
+
+!! Diagnosis
+
+$$\hat k$$ provides a diagnostic tool, it implies a Renyi divergence upper bound with order $$1/k$$.

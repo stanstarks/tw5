@@ -1,0 +1,38 @@
+created: 20200417025555575
+modified: 20200417114740219
+tags: [[Bayesian Deep Learning]]
+title: Bayesian Deep Learning Algorithms
+type: text/vnd.tiddlywiki
+
+!! [[Monte Carlo Methods]]
+was at one time a gold standard for inference with neural networks, through the [[Hamilton Monte Carlo]] work of Neal. However, HMC requires full gradients, which is computationally intractable. [[Stochastic Gradient MCMC]] extends MC methods and allows for stochastic gradients to be used in Bayesian inference.
+
+Theoretically, both SGHMC and SGLD aymptotically sample from the posterior in the limit of infinitely small step sizes. In practice, using finite learning rates introduces approximation errors, and tuning stochastic gradient MCMC methods can be quite difficult.
+
+* [[Stochastic Gradient Langevin Dynamics]]
+* SGHMC
+
+!! Variational Inference
+Reparametrization trick for training deep latent variable models. Empirically noted to be difficult to train on larger architectures such as deep residual networks. [[Blier and Ollive|NIPS18 The Description Length of Deep Learning Models]] argue that the difficulty of training is explained by variational methods providing insufficient data compression for DNNs despite being designed for data compression.
+
+* VAE
+* flow-based models
+* noisy optimization: noisy Adam; noisy KFAC
+
+!! Dropout Variational Inference
+
+* Dropout
+* Concrete dropout: optimize the dropout probability as well.
+
+!! Laplace approximation
+
+assume a Gaussian posterior, $$\mathcal N(\theta^*, \mathcal I(\theta^*)^{-1})$$, where $$\theta^*$$ is MAP estimate and $$ \mathcal I(\theta^*)^{-1}$$ is the inverse of the [[Fisher information matrix|Fisher information metric]] (expected value of the Hessian evaluated at $$\theta^*$$).
+
+* [[Assumed Density Filtering]]
+** [[Probabilistic Backpropagation]]
+** [[Elastic Weight Consolidation]]: using diagonal Laplace approximations to overcome catastrophic forgetting in deep learning.
+** proposed the use of either a diagonal or block Kronecker factord (KFAC) approximation to teh Hessian matrix for Laplace approximation.
+
+!! Stochastic Gradient Descent
+
+* [[Stochastic Gradient Descent as Approximate Bayesian Inference]]

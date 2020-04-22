@@ -1,0 +1,71 @@
+created: 20200318112112092
+modified: 20200320005829552
+tags: 
+title: Probabillistic Symmetry and Invariant Neural Networks
+type: text/vnd.tiddlywiki
+
+[[link|https://www.youtube.com/watch?v=u8Jt1HkWTn4]]
+
+!! Symemtry in Neural Networks
+
+* Encoding symmetry as invariance under a group
+$$
+y = h(g\cdot x) = h(x) \quad\forall g\in \mathcal G, x\in\mathcal X
+$$
+
+* Preserving symmetry with equivariance
+$$
+h(g\cdot x) = g\cdot h(x) \quad\forall g\in \mathcal G, x\in\mathcal X
+$$
+Then we stack an invariant function, the whole thing is invariant?
+
+!!! Permutation Invariant Networks
+
+* 3D G-CNNs [Winkels and Cohen]
+* Spherical CNNs [Cohen et al.]
+* Deep Sets [Zaheer et al.]
+* Neural Message Passing for Quantum Chemistry
+* Deep Models of Interactions Across Sets
+* Relational Pooling for Graph Representations
+
+Encoding symmetry encourages stabler training and better generalization through
+
+* reduction in dimension of parameter space through weight-tying; and
+* capturing structure at multiple scales via pooling
+
+(Deep Set): To make a FC layer equivariant:
+
+$$
+y_i = \sigma\left(\sum_{j=1}^nw_{i,j}x_j\right) \rightarrow y_i = \sigma\left(w_0x_i + w_1\sum_{j=1}^nx_j\right)
+$$
+
+Parameter being so sparse should be a problem.
+
+!! Symmetry in Probability and Statistics
+The implication of [[De Finetti's Theorem]] for Bayesian inference:
+
+* Our models for $$\mathbf X_{\mathbb N}$$ need only consist of i.i.d. distributions $$Q$$ on $$\mathcal X$$.
+
+Reason to do it statistically:
+
+* randomness softens/smoothes hard constraints
+* established tools for working with invariant distributions
+
+Distributional symmetry decomposes the problem into structure we care about + random noise
+
+The empirical measure of $$\mathbf X_n$$ is a sufficient statistic:
+
+$$
+\mathbb M_{\mathbf X_n}(\cdot):= \sum_{i=1}^n \delta_{X_i}(\cdot)
+$$
+
+$$P$$ is exchangeable iff
+
+$$
+P(\mathbf X_n\in\cdot\vert\mathbb M_{\mathbf X_n}=m) = \mathbb U_m(\cdot) = \frac{1}{n!}\sum_{\pi\in\mathbb S_n}\delta_{\pi\cdot\mathbf x(m)}(\cdot)
+$$
+where $$\mathbb U_m$$ is the uniform distribution on all sequences $$(x_1, \dots, x_n)$$ with empirical measure $$m$$.
+
+!! Permutation-Invariant Neural Networks as Exchangeable Probability Models
+
+!! Symmetry in Neural Networks as Probabilistic Symmetry

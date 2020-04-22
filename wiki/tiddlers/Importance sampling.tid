@@ -1,5 +1,5 @@
 created: 20180702062817175
-modified: 20181228070009404
+modified: 20200331015101332
 tags: [[Inference Methods]]
 title: Importance sampling
 type: text/vnd.tiddlywiki
@@ -11,3 +11,5 @@ In the event that the proposal distribution is a poor fit to the target distribu
 $$
 E_{p(x)}[f(x)] = \int p(x)f(x)dx = \int q(x)\frac{p(x)}{q(x)}f(x)dx=E_{1(x)}[\frac{p(x)}{q(x)}f(x)]
 $$
+
+The large variance of importance sampling comes from the summation, which is a result of the large values. This can be reduced by [[PSIS|Pareto Smoothed Importance Sampling]]

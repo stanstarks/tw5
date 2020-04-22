@@ -1,0 +1,11 @@
+created: 20200318035229558
+modified: 20200318092154151
+tags: [[Deep Learning]]
+title: Pure Math in DL
+type: text/vnd.tiddlywiki
+
+* Hyperbolic space (arithmetic)
+* Topology for connections in weights
+* Algebraic topology and parameter connections (representation space)
+
+Manifolds in ML (such as related params) are non simply connected spaces, which are very ugly to compute for algebraic topology. 

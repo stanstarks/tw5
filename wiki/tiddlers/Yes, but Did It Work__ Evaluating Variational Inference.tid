@@ -1,5 +1,5 @@
 created: 20200220012206277
-modified: 20200220013703098
+modified: 20200331015257627
 tags: [[Bayesian Diagnosis]]
 title: Yes, but Did It Work?: Evaluating Variational Inference
 type: text/vnd.tiddlywiki
@@ -8,3 +8,45 @@ type: text/vnd.tiddlywiki
 
 Without the need for a residual net, even in a linear regression I can find examples in which exact Bayesian posterior lead to worse predictive performance than ADVI (Reproducible code is available upon request). This is not a pathological edge example. The data is simulated from the correctly-specified regression model with n=100 and d=20 — and these are exactly the data one would simulate for linear regressions. The posterior is sampled using stan and is exact measured by all diagnostics. The predictive performance is evaluated using log predictive density on independent test data and the averaged over a large number of replications of both data and sampling to eliminate all other noises. But still, log predictive density from ADVI is higher than the exact posterior.
 
+VI can be flawed:
+
+* the slow convergence
+* inability of the approximation family to capture the true posterior
+* the asymmetry of the true distribution
+* the direction of the KL divergence under penalizes approximation wiht too-light tails
+
+To test VI:
+
+* Has the objective converged?
+** hypothesis testing: convergence tests based on the asymptotic property fo stochastic approximations. But that is too complex
+* Is that optimum $$q^*(\theta)$$ a good approximation?
+
+ELBO or predictive density is not enough
+
+* unknown multiplicative constant
+* uninterpretable scale
+
+Diagnosis tools:
+
+* [[PSIS|Pareto Smoothed Importance Sampling]] disgnosis
+** A goodness of fit measurement for joint distributions;
+** simultaneously improving the error in the estimate
+* VSBC diagnosis
+** the average performance of point estimate
+** particulary, whether the estimates are first-order unbiased
+
+!! From VI to IS to PSIS
+
+$$(\theta_1, \dots, \theta_S)$$ drawn from the variational approximation $$q(\theta)$$.
+
+$$
+\mathbb E_p[h(\theta)] = \frac{\sum_{s-1}{S} h(\theta_s)w_s}{\sum_{s=1}^\theta w_s}
+$$
+
+* When $$w_s=1$$, this is plain VI
+** small variance
+** biased to an unknown extent
+** inconsistent as $$S\rightarrow\infty$$
+* When $$w_s=p(\theta_s, y)/q(\theta_s)$$, [[importance sampling|Importance sampling]]
+** consistent and with small $$O(1/S)$$ bias
+** may have a large or infintie variance

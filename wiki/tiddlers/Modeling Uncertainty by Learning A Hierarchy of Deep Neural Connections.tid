@@ -1,0 +1,40 @@
+created: 20200416005028191
+modified: 20200417103045708
+tags: Uncertainty NIPS19
+title: Modeling Uncertainty by Learning A Hierarchy of Deep Neural Connections
+type: text/vnd.tiddlywiki
+
+[[video|https://www.youtube.com/watch?v=zygEcGcRfMQ]]
+
+
+!! Roadmap
+* Structure Learning
+** Single estimate
+** Probabilistic
+* Causal Discovery
+** RAI
+** B-RAI
+* Deep Neural Networks (discriminative)
+** B2N
+** BRAINet
+
+!! Task
+Common neural networks are not designed to model uncertainty or distinguish between the two.
+
+Learn neural connectivity pattern from unlabeled observed data.
+
+$$
+p(y^*|x^*, \mathbf x, \mathbf y) = \int p(y^*|x^*, \phi)p(\phi|\mathbf x, \mathbf y)d\phi
+$$
+A common approach is to assume a prior $$p(\phi)$$ agnostic to $$X$$.
+
+!! Approach
+
+Assume there is a confounding arch between $$phi$$ and $$\mathbf X$$
+
+B2N: feed the same information into multiple routes
+
+BRAINet
+
+* Causal diagram (RAI) -> Probability of causal relations (NIPS18)
+* Construct a deep NN structure such that sub-networks are sampled with respect to the posterior of causal relations (NIPS19)

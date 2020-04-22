@@ -1,5 +1,5 @@
 created: 20161102054547779
-modified: 20200220013813703
+modified: 20200417025214337
 title: Bayesian
 type: text/vnd.tiddlywiki
 
@@ -12,7 +12,8 @@ type: text/vnd.tiddlywiki
 * [[Bayesian Choice]]
 
 ! Applications
-[[Bayesian information criterion]]
+* [[Bayesian information criterion]]
+
 
 ! Theory
 * [[Inference Methods]]
@@ -22,6 +23,7 @@ type: text/vnd.tiddlywiki
 ! Topics
 
 * [[Scalable Bayesian Inference]]
+* [[Bayesian Deep Learning]]
 
 ! Algorithms
 
