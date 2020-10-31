@@ -1,0 +1,11 @@
+created: 20200423034423707
+modified: 20200423062446481
+tags: [[Bayesian Deep Learning]]
+title: Bayesian Deep Learning Evaluation
+type: text/vnd.tiddlywiki
+
+!! Posterior density
+
+In SWAG, the posterior density along the directions corresponding to the eigenvectors of the SWAG covariance matrix for PreResNet-164 on CIFAR-100.
+
+Random SVD is used to find these eigenvectors.

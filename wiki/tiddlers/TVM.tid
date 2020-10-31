@@ -1,8 +1,34 @@
 created: 20200221041042119
-modified: 20200221054032044
+modified: 20200911062249354
 tags: 
 title: TVM
 type: text/vnd.tiddlywiki
+
+! Intro
+
+* ML based automatic optimization
+* Python for easy customization and exploration; multiple runtime for product deployment
+
+!! Tensor Expression and Optimization Search Space
+tensor expression => program configuration. choices:
+
+* CPU (scalar/AVX vector)
+** loop transformations
+** cache locality
+** vectorization
+* GPU
+** Use of shared memory
+** thread cooperation
+* TPU (tensor)
+** tensorization
+* thread bindings
+* latency hiding
+
+Learning-based optimization:
+
+* NIPS18 Learning to Optimize Tensor Programs
+* Halide's compute/schedule separation
+
 
 TVM backend lowers PyTorch IR to [[Relay|Relay IR]], and is able to transparently improve PyTorch performance with little user improvement.
 
@@ -11,3 +37,25 @@ TVM backend lowers PyTorch IR to [[Relay|Relay IR]], and is able to transparentl
 VTA: 
 
 TSIM: Support for future hardware
+
+! Roadmap
+
+* Training
+** AutoDiff with Relay
+** Training on-device
+** Tradeoff accuracy/throughput/Joules
+* Automation
+** Auto quantization
+** Full-program optimization
+** Automated HW design
+* Hardware
+** VTA Chisel design
+** ASIC flow
+** Training on VTA
+
+! Researches
+
+* PL: New high-level differentiable programing IR
+* Architecture: New deep learning ASICs, RISC-V
+* Security: trusted enclave for private aware ML
+* ML: test bed for automatic optimization

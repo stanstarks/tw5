@@ -1,16 +1,22 @@
 created: 20200417025555575
-modified: 20200417114740219
+modified: 20200809071033585
 tags: [[Bayesian Deep Learning]]
 title: Bayesian Deep Learning Algorithms
 type: text/vnd.tiddlywiki
 
-!! [[Monte Carlo Methods]]
-was at one time a gold standard for inference with neural networks, through the [[Hamilton Monte Carlo]] work of Neal. However, HMC requires full gradients, which is computationally intractable. [[Stochastic Gradient MCMC]] extends MC methods and allows for stochastic gradients to be used in Bayesian inference.
+!! [[Deep Learning with Bayesian Principles]]
 
-Theoretically, both SGHMC and SGLD aymptotically sample from the posterior in the limit of infinitely small step sizes. In practice, using finite learning rates introduces approximation errors, and tuning stochastic gradient MCMC methods can be quite difficult.
+Bayesian learning rule: $$\lambda\leftarrow\lambda - \rho\nabla_\mu (\mathbb E_q[\mathcal l(\theta)] - \mathcal H(q))$$
 
-* [[Stochastic Gradient Langevin Dynamics]]
-* SGHMC
+Given a loss, we can recover a variety of learning algorithms by choosing an appropriate $$q$$
+
+* Classical algorithms: Least-squares, gradient descent, Newton's method, Kalman filters, Baum-Welch, Forward-backward, etc.
+* Bayesian inference: EM, Laplace's method, SVI, variational message passing
+* Deep learning: SGD, RMSprop, Adam
+* Reinforcement learning: parameter-space exploration, natural policy-search
+* Continual learning: [[Elastic Weight Consolidation]]
+* Online learning: Exponential-weight average
+* Global optimization: Natural evolutionary strategies, Gaussian homotopy, continuation method &  smoothed optimizaiton.
 
 !! Variational Inference
 Reparametrization trick for training deep latent variable models. Empirically noted to be difficult to train on larger architectures such as deep residual networks. [[Blier and Ollive|NIPS18 The Description Length of Deep Learning Models]] argue that the difficulty of training is explained by variational methods providing insufficient data compression for DNNs despite being designed for data compression.
@@ -18,11 +24,8 @@ Reparametrization trick for training deep latent variable models. Empirically no
 * VAE
 * flow-based models
 * noisy optimization: noisy Adam; noisy KFAC
-
-!! Dropout Variational Inference
-
-* Dropout
-* Concrete dropout: optimize the dropout probability as well.
+* [[NIPS11 Practical variational inference for neural networks]]
+* [[ICML15 Weight uncertainty in neural networks]]
 
 !! Laplace approximation
 
@@ -32,7 +35,26 @@ assume a Gaussian posterior, $$\mathcal N(\theta^*, \mathcal I(\theta^*)^{-1})$$
 ** [[Probabilistic Backpropagation]]
 ** [[Elastic Weight Consolidation]]: using diagonal Laplace approximations to overcome catastrophic forgetting in deep learning.
 ** proposed the use of either a diagonal or block Kronecker factord (KFAC) approximation to teh Hessian matrix for Laplace approximation.
+* [[A scalable laplace approximation for neural networks]]
 
-!! Stochastic Gradient Descent
+!! Sampling based
+
+!!! [[Monte Carlo Methods]]
+was at one time a gold standard for inference with neural networks, through the [[Hamilton Monte Carlo]] work of Neal. However, HMC requires full gradients, which is computationally intractable. [[Stochastic Gradient MCMC]] extends MC methods and allows for stochastic gradients to be used in Bayesian inference.
+
+Theoretically, both SGHMC and SGLD aymptotically sample from the posterior in the limit of infinitely small step sizes. In practice, using finite learning rates introduces approximation errors, and tuning stochastic gradient MCMC methods can be quite difficult.
+
+* [[Stochastic Gradient Langevin Dynamics]]
+* SGHMC
+
+!!! Dropout Variational Inference
+
+* [[MC-dropout|ICML16 Dropout as a Bayesian Approximation]]
+* Concrete dropout: optimize the dropout probability as well.
+
+!!! Stochastic Gradient Descent
 
 * [[Stochastic Gradient Descent as Approximate Bayesian Inference]]
+* [[SWAG|A simple baseline for Bayesian uncertainty in deep learning]]
+
+Pros: scales well to large problems; cons: not flexible

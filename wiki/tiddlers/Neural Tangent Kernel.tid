@@ -1,5 +1,5 @@
 created: 20200101054123245
-modified: 20200101055213962
+modified: 20200514042622342
 tags: [[Deep Learning Theory]]
 title: Neural Tangent Kernel
 type: text/vnd.tiddlywiki
@@ -24,3 +24,7 @@ Neural Tangent Kernel of DNN training dynamics on a test point $$x$$:
 $$
 \Theta_{\theta_t}(x, \mathcal X) = \nabla_\theta f_{\theta_t}(x)\nabla_\theta f_{\theta_t}(\mathcal X)^T \in \mathbb R^{nk\times nk}
 $$
+
+!! Library
+
+[[neural-tangent]]

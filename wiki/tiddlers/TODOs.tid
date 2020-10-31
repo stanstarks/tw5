@@ -1,42 +1,27 @@
 created: 20161018054301211
-modified: 20170727080652962
+modified: 20200615032417453
 title: TODOs
 type: text/vnd.tiddlywiki
 
-! Stream of Consciousness
-# Here is a very interesting visual attention idea
-## conventional projections scale features and lose details
-## in frequency domain we can compress information without lossing resolution of certain part of the image.
-## mult is implemented with FFT, so probably frequency domain alright?
-## scattering representation, dilated convolution, draw inspirations...
-### dilated convolution preserve resolution, which is contrary to what I am trying to do
-## differentiable attention location
-# The ensemble nature of resnet may encourage refined SGD to modulate the impacts of different paths.
-# Experiment on Cross-convolutional-layer pooling, similar idea as conv-attention
-# Currently the biggest challenge of VQA is numbering problems. Probably this is related to detecting a cluster of similar objects (e.g. character detection).
-# NLP
-## Compute word vectors from definition?
-## A writing style transfer network
-# Optimization
-## Batchsize affects saddle points? Smaller learning rate easier to escape?
-## Backpropagation, good or evil?
+! DR1Mask
 
-! Experiments
-# [[Deep generative model tryouts]]
-# Try visual attentions: Juana is doing it.
-# Object detection
-## Look for decent RFCN/Faster-RCNN/SSD implemenations, better in same framework. Google should include them in tensorflow/models later.
-## [[CTPN|Connectionist Text Proposal Network]] implementation out, add character segmentation somehow.
+!! Experiments
+* split attention
+* rank1-blendmask
+** R_50
+** remove gamma
+** no tanh
+** sum
+** rank1 attention
 
-! Side projects
-# [[Daily News for Stock Market Prediction]]
-## Data not very valuable
-# Kaggle fish
-## Wait for mxnet problem to be solved at [[Kaggle|https://www.kaggle.com/drn01z3/the-nature-conservancy-fisheries-monitoring/mxnet-xgboost-simple-solution/comments]]
+! Bayesian
 
-! Reading List
-# Videos in [[Most Cited Deep Learning Papers|https://github.com/terryum/awesome-deep-learning-papers#recurrent-neural-network-models]]
-# [[Averaging and Wavelets|Understanding Deep ConvNets (Scattering Repr)]]: Continue UBC deep learning topic lecture 3 on wavelets.
-# NIPS videos
-# [[Foundations of Machine Learning Boot Camp|https://simons.berkeley.edu/workshops/machinelearning2017-boot-camp]]
-# [[DALI 2017 GAN Workshop]], also, the data efficient reinforcement learning workshop
+!! Experiments
+
+* Rank-1 models
+* Variational (VAdam?)
+
+!! Reading
+
+* [[NIPS11 Practical variational inference for neural networks]]
+* [[ICML15 Weight uncertainty in neural networks]]

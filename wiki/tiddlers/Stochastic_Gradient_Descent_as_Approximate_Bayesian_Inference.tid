@@ -1,10 +1,30 @@
 created: 20170419062056917
-modified: 20170908085816497
+modified: 20200423065943630
 tags: [[Stochastic Gradient Descent]] [[Monte Carlo Methods]]
 title: Stochastic Gradient Descent as Approximate Bayesian Inference
 type: text/vnd.tiddlywiki
 
+Under conditions of decaying learning rates, smoothness of gradients and the existence of a full rank stationary distribution, [[martingale|Martingale]] based analysis of stochastic gradient descent show that SGD has a Gaussian limiting distribution. In the limit as the time step goes to infinity, 
+
+$$
+t^{1/2}(\theta_t - \theta^*)\rightarrow\mathcal N(0, \mathcal H(\theta)^{-1}\mathbb E(\nabla\log p(\theta)\nabla\log p(\theta)^T)\mathcal H(\theta)^{-1}),
+$$
+where $$\mathcal H(\theta)^{-1}$$ is the inverse Hessian matrix of the log-likelihood and $$\mathbb E(\nabla\log p(\theta)\nabla\log p(\theta)^T)$$ is the covariance of the gradients and $$\theta^*$$ is a stationary point or minima.
+
 * Modify SGD in the simplest way s.t. it becomes an efficient approximate Bayesian sampling algorithm
 * Construct other sampling algorithms such as preconditioning, momentum or Polyak averaging
 
-Constant SGD is a stationary stochastic process centered on the optimum and has a certain convariance structure. It is a hybrid of MC and variational algorithms.
+Constant SGD is a stationary stochastic process centered on the optimum and has a certain covariance structure. It is a hybrid of MC and variational algorithms.
+
+JMLR17 paper interpret Polyak-Ruppert averaging as a sampling procedure with convergence occurring to the true posterior under certain strong conditions.
+
+Storing full-rank covariance is prohibitively expensive for deep learning.
+
+!! Stochastic Weight Averaging
+
+* [[paper|https://arxiv.org/abs/1902.02476]]
+* [[code|https://github.com/wjmaddox/swa_gaussian]]
+
+$$q(\theta) = \mathcal N(\theta_{SWA}, \frac12(\Sigma_{diag}+\Sigma_{low-rank}))$$
+
+Similar to [[Izamailov UAI18|Averaging weights leads to wider optima and better generalization]], batch norm is updated after sampling.

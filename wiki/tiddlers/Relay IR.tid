@@ -1,10 +1,23 @@
 created: 20200221041744204
-modified: 20200221051625173
+modified: 20200911064851901
 tags: TVM
 title: Relay IR
 type: text/vnd.tiddlywiki
 
-Relay generalizes NNVM. Expressivenss + Performance
+Relay is an extensible deep learning IR, it generalizes NNVM. Expressivenss + Performance
+
+* Relay is the high level IR of the TVM stack
+* Generalize computation graphs to differentiable programs
+* Enable whole-program optimization for deep learning
+* Composed of new IR, auto-diff, optimizer, and backends
+* Uses HalideIR to represent platform independent operators
+
+!! IR
+
+* A functional IR, an ML-like (ReasonML, OCaml, SML, ...) language tailored to machine learning
+* Features, closures, reference, ADTs, and primitive operators, and tensors as teh primary value type
+* Relay can represent full-models including a generative RNN and training loop
+* The functional design enables analysis and transform of pure data-flow.
 
 Low-cost abstraction enabled by:
 

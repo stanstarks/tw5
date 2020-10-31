@@ -1,26 +1,47 @@
 created: 20141017074130201
-modified: 20150213082954924
+modified: 20200603082501029
 tags: Statistics
 title: Exponential Family
 type: text/vnd.tiddlywiki
 
 !Definition
+
+$$
+q(\theta)\propto\exp[\lambda^TT(\theta)]
+$$
+
+$$\lambda$$ is the natural parameter and $$T(\theta)$$ is the sufficient statistics. $$\mu:=\mathbb E_q[T(\theta)]$$ is the expectation parameter.
+
+In the Gaussian case:
+
+$$
+\begin{aligned}
+\mathcal N(\theta|m, S^{-1})&\propto \exp[-\frac12(\theta-m)^TS(\theta-m)]\\
+&\propto[(Sm)^T\theta + \operatorname{Tr}(-\frac{S}{2}\theta\theta^T)]
+\end{aligned}
+$$
+
+* Gaussian distribution: $$q(\theta):=\mathcal N(\theta|m, S^{-1})$$
+* Natural parameters: $$\lambda:=\{Sm, -S/2\}$$
+* Expectation parameters: $$\mu:=\mathbb E_q(\theta), \mathbb E_q(\theta\theta^T)\}$$
+
+
 !! Single-parameter
 $$
 f_X(x|\theta) = h(x) \exp \left (\eta(\theta) \cdot T(x) -A(\theta)\right )
 $$
-where $T(x)$, $h(x)$, $\eta(\theta)$, and $A(\theta)$ are known functions.
+where $$T(x)$$, $$h(x)$$, $$\eta(\theta)$$, and $$A(\theta)$$ are known functions.
 
-In the definitions above, the functions $T(x)$, $\eta(\theta)$ and $A(\eta)$ were apparently arbitrarily defined. However, these functions play a significant role in the resulting probability distribution.
+In the definitions above, the functions $$T(x)$$, $$\eta(\theta)$$ and $$A(\eta)$$ were apparently arbitrarily defined. However, these functions play a significant role in the resulting probability distribution.
 
-* $T(x)$ is a sufficient statistic of the distribution. For exponential families, the sufficient statistic is a function of the data that fully summarizes the data $x$ within the density function. This means that, for any data sets $x$ and $y$, the density value is the same if $T(x) = T(y)$. This is true even if $x$ and $y$ are quite different—that is,  $d(x,y)>0$. The dimension of $T(x)$ equals the number of parameters of $\theta$ and encompasses all of the information regarding the data related to the parameter $\theta$. The sufficient statistic of a set of independent identically distributed data observations is simply the sum of individual sufficient statistics, and encapsulates all the information needed to describe the posterior distribution of the parameters, given the data (and hence to derive any desired estimate of the parameters). This important property is further discussed below.
-* $\eta$ is called the natural parameter. The set of values of $\eta$ for which the function $f_X(x;\theta)$ is finite is called the natural parameter space. It can be shown that the natural parameter space is always convex.
-* $A(\eta)$ is called the log-partition function because it is the logarithm of a normalization factor, without which $f_X(x;\theta)$ would not be a probability distribution ("partition function" is often used in statistics as a synonym of "normalization factor"):
+* $$T(x)$$ is a sufficient statistic of the distribution. For exponential families, the sufficient statistic is a function of the data that fully summarizes the data $$x$$ within the density function. This means that, for any data sets $x$ and $y$, the density value is the same if $$T(x) = T(y)$$. This is true even if $x$ and $y$ are quite different—that is,  $d(x,y)>0$. The dimension of $$T(x)$$ equals the number of parameters of $$\theta$$ and encompasses all of the information regarding the data related to the parameter $$\theta$$. The sufficient statistic of a set of independent identically distributed data observations is simply the sum of individual sufficient statistics, and encapsulates all the information needed to describe the posterior distribution of the parameters, given the data (and hence to derive any desired estimate of the parameters). This important property is further discussed below.
+* $$\eta$$ is called the natural parameter. The set of values of $\eta$ for which the function $$f_X(x;\theta)$$ is finite is called the natural parameter space. It can be shown that the natural parameter space is always convex.
+* $$A(\eta)$$ is called the log-partition function because it is the logarithm of a normalization factor, without which $$f_X(x;\theta)$$ would not be a probability distribution ("partition function" is often used in statistics as a synonym of "normalization factor"):
 $$
 A(\eta) =  \ln\left ( \int_x h(x) \exp (\eta(\theta) \cdot T(x)) \operatorname{d}x \right )
 $$
 
-The function $A$ is important in its own right, because the mean, variance and other moments of the sufficient statistic $T(x)$ can be derived simply by differentiating $A(\eta)$. For example, because $\ln(x)$ is one of the components of the sufficient statistic of the gamma distribution, $\mathbb{E}[\ln x]$ can be easily determined for this distribution using $A(\eta)$. Technically, this is true because
+The function $$A$$ is important in its own right, because the mean, variance and other moments of the sufficient statistic $$T(x)$$ can be derived simply by differentiating $$A(\eta)$$. For example, because $$\ln(x)$$ is one of the components of the sufficient statistic of the gamma distribution, $$\mathbb{E}[\ln x]$$ can be easily determined for this distribution using $$A(\eta)$$. Technically, this is true because
 $$
 K(u|\eta) = A(\eta+u) - A(\eta),
 $$
@@ -54,13 +75,13 @@ where $s$ is the dimension of $\boldsymbol\eta$ and $\nu > 0$ and $\boldsymbol\c
 
 We can then compute the posterior as follows:
 $$
-\begin{align}
+\begin{aligned}
 p(\boldsymbol\eta|\mathbf{X},\boldsymbol\chi,\nu)& \propto p(\mathbf{X}|\boldsymbol\eta) p_\pi(\boldsymbol\eta|\boldsymbol\chi,\nu) \\
 &= \left(\prod_{i=1}^n h(x_i) \right) g(\boldsymbol\eta)^n \exp\left(\boldsymbol\eta^{\rm T} \sum_{i=1}^n \mathbf{T}(x_i)\right)
 f(\boldsymbol\chi,\nu) g(\boldsymbol\eta)^\nu \exp(\boldsymbol\eta^{\rm T} \boldsymbol\chi) \\
 &\propto g(\boldsymbol\eta)^n \exp\left(\boldsymbol\eta^{\rm T}\sum_{i=1}^n \mathbf{T}(x_i)\right) g(\boldsymbol\eta)^\nu \exp(\boldsymbol\eta^{\rm T} \boldsymbol\chi) \\
 &\propto g(\boldsymbol\eta)^{\nu + n} \exp\left(\boldsymbol\eta^{\rm T} \left(\boldsymbol\chi + \sum_{i=1}^n \mathbf{T}(x_i)\right)\right)
-\end{align}
+\end{aligned}
 $$
 
 ! Examples

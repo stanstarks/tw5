@@ -1,0 +1,80 @@
+created: 20200909030419946
+modified: 20200909030257901
+tags: SLAM
+title: Unsupervised Depth Learning for Visual SLAM
+type: text/vnd.tiddlywiki
+
+Lecturer: Jiawang Bian
+Time: 2019/8/11
+
+Four categories:
+
+# Supervised
+#* (Eigen et al, NIPS 2014) Depth map prediction from a single image using a multi-scale deep network 
+# Unsupervised on Stereo Pair
+#* (Graget al, ECCV 2016) Unsupervised CNN for Single View Depth Estimation: Geometry to Rescue–
+# Unsupervised on Monocular Video
+#* Convenient because can be trained and evaluated from the same sampled video
+#* (Zhou et al, CVPR 2017) Unsupervised Learning of Depth and Ego-Motion from Video: predict relationship within consequetive frames
+# Unsupervised on Stereo Video
+#* (Zhan et al, CVPR 18) Unsupervised Learning of Monocular Depth Estimation and Visual Odometry with Deep Feature Reconstruction: incoporated camera pose information
+
+! Unsupervised on Stereo Pair
+* depth $$D$$ is the inverse of disparity $$d$$: $$D(x) = fB/d(x)$$
+** for stereo matching, the translation is clear, corresponding features are on the same line (horizontal displacement is zero).
+* The problem with stereo matching is oclusion.
+* Graget al, ECCV 2016
+** Photometric loss by using warpped image from dense disparity
+
+! Unsupervised on Monocular Video
+* Zhou et al, CVPR 17
+** Use camera pose prediction (from 5 frames) to guide depth
+** Drawbacks
+*** Occlusion
+*** Moving object
+*** Scale ambiguity: depth are relative
+*** Scale inconsistency–Mask: each training sample is independent (depth scale independent from gt)
+**Mitigate the issue by occlusion and moving object
+
+! Unsupervised on Stereo Video
+* Zhan et al, CVPR 18
+** Based on previous two
+** Visual loss (some other pixel-level feature distance)
+
+! Using Optical flow for Occlusion and Moving Object
+
+Optical flow masks oving regions for wrong depth estimation but introduces too much overhead
+
+* (Yin et al, CVPR 2018) GeoNet: Unsupervised Learning of Dense Depth, Optical Flow and Camera Pose
+* (Zou et al, ECCV 2018) DF-Net: Unsupervised Joint Learning of Depth and Flow using Cross-Task Consistency
+** alternative joint training
+* (Ranjan et al, CVPR 2019) Competitive Collaboration: Joint Unsupervised Learning of Depth, Camera Motion, Optical Flow and Motion Segmentation
+
+! Unsupervised Scale-consistent Depth and Ego-motion Learning from Monocular Video
+* Solve the scale-inconsistent issue for visual odometry
+** consistent across frames within video
+* Mitigate the issue by ''occlusion and moving objects''
+* Simpler and more efficient than SOTA
+
+!! Moving object from self discovered mask
+* Predict masks from consecutive frames 
+** obvious depth estimation disagreements are from occluded regions and moving boundries
+
+!! Geometry consistency loss
+* enforce the same depth scale from consecutive frames
+
+! Pseudo-RGBD SLAM
+* Close loop to optmized camera pose
+* Global bundle adjustment
+* Motion model is replaced by CNN
+
+Procedure
+
+* Input
+** RGB image and predicted Depth
+** Predicted Camera Pose
+* Output
+** Refined Camera Pose and Depth
+** Dense scene reconstruction
+* Advantage
+** Deep learning for front-end and Geometry for back-end

@@ -1,0 +1,15 @@
+created: 20200911012655294
+modified: 20200911050821850
+tags: [[Point Cloud]]
+title: PV-RCNN
+type: text/vnd.tiddlywiki
+
+[[code|https://github.com/open-mmlab/OpenPCDet]]
+
+* SPConv on voxelized pointcloud
+* Voxel set abstraction module for keypoint feature
+** Unit ball aggregation of voxel features
+* Predicted keypoint weighting module
+** scale features with FG probability
+* Keypoint RoI-grid pooling
+** 

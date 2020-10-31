@@ -1,0 +1,8 @@
+created: 20200831052607469
+modified: 20200901015539399
+tags: 
+title: Self-Supervised
+type: text/vnd.tiddlywiki
+
+* blog: [[BN in BYOL|https://untitled-ai.github.io/understanding-self-supervised-contrastive-learning.html]]
+* code: https://github.com/untitled-ai/self_supervised

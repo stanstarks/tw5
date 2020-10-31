@@ -1,0 +1,9 @@
+created: 20200620023106703
+modified: 20200620060646080
+tags: [[Bayesian Deep Learning Algorithms]]
+title: NIPS11 Practical variational inference for neural networks
+type: text/vnd.tiddlywiki
+
+[[link|https://papers.nips.cc/paper/4329-practical-variational-inference-for-neural-networks]]
+
+Stochastic method for variational inference with a diagonal Gaussian posterior that can be applied to any differentiable log-loss parametric model.

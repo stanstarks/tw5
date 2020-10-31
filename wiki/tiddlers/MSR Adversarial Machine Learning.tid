@@ -1,0 +1,102 @@
+created: 20200925025016013
+modified: 20200929025750956
+tags: [[Adversarial Examples]]
+title: MSR Adversarial Machine Learning
+type: text/vnd.tiddlywiki
+
+https://www.youtube.com/watch?v=jZYPo_od-Sk
+
+!! Robust Statistics ($$\epsilon$$-corrupted)
+
+!!! Spectral signature
+
+Check of corruption: if the corruptions move the mean, they also shift the covariance matrix
+
+# If the top eigenvalue of the empirical covariance of your corrupted data is small, then the corruptions aren't too bad
+#* Can just output the empirical mea
+# If the top eigenvalue is large, then it can only be large because the bad points are too big in this direction
+
+|Given an $$\epsilon$$-corrupted set of samples that is sufficiently large from...|...we can efficiently get an estimate of the true mean to $$\ell_2$$ error|
+|a distribution wiht bounded second moment | $$O(\sqrt\epsilon)$$ [LRV16, DKKLMS16, DKKLMS17] |
+|a Gaussian (or sub-Gaussian distribution) with identity covariance | $$O(\epsilon\sqrt{\log 1/\epsilon})$$ [DKKLMS17, SCV17] |
+|a Gaussian with unknown covariance | $$O(\epsilon\log 1/\epsilon)$$ [DKKLMS16] |
+|a "nice" distribution with bounded $$t$$-th moments | $$O(\epsilon^{1-1/t})$$ [HL18, KS18] |
+
+!!! Applications
+
+Europe gene map:
+Add immigrants and learn the 2 largest principle components with the presence of noise.
+
+Outlier detection: quantum entropy scoring
+
+!! Supervised learning
+
+These problems can be phrased in the framework of stochastic optimization:
+
+Given a loss function $$\ell(X, w)$$ and a distribution $$\mathcal D$$ over $$X$$, minimize
+
+$$
+f(w) = \mathbb E_{X\sim\mathcal D}[\ell(X, w)]
+$$
+
+Challenge: Given $$\epsilon$$-corrupted samples from $$\mathcal D$$, minimize $$f$$.
+
+* ICML19 SEVER: Robust stochastic optimization
+** First try: just run SGD using robust estimates. For uncorrupted data, SGD is unbiased.
+** Find a robust estimator for the gradient.
+
+!!! NN Backdoor attack
+
+* Training time watermark
+* Testing time adversarial
+* Empirical Defenses
+** The working one: adversarial training
+* Certified Defenses
+** don't scale and perform worse
+** randomized smoothing [Lecuyer etal, Li etal, Cohen etal]
+
+!!!! Randomized smoothing
+
+<<<
+''Definition'' [smoothed classifier]<br>
+Given a soft classifier $$F:\mathbb R^d\rightarrow \mathcal P(\mathcal Y)$$, its associated ''smoothed classifier'' is given by
+
+$$
+G(x) = (F\ast\mathcal N(0, \sigma^2I))(x) = \mathbb E_{\sigma\sim\mathcal N(0, \sigma^2I)}[F(x + \sigma)]
+$$
+<<<
+
+<<<
+''Theorem'' [Cohen etal '19]<br>
+Let $$G$$ be a soft classifier, and let $$x\in\mathbb R^d$$. Let $$a, b\in \mathcal Y$$ be the most likely and second most likely class for $$x$$ under $$G$$, with probabilities $$p_a, p_b$$ respectively. Then
+
+$$
+\arg\max G(x) = \arg\max G(x + \delta)
+$$
+
+for all $$\delta$$ satisfying
+
+$$
+\|\sigma\|_2\le\frac\sigma2(\Phi^{-1}(p_A) - \Phi^{-1}(p_B))
+$$
+
+where $$\Phi^{-1}$$ is the inverse Gaussian cdf.
+<<<
+
+Training smoothed networks
+
+* [Cohen etal 19] Gaussian augmentation (sampling from very high dimension?)
+** $$\arg\max_{\|x'-x\|<\epsilon}(-\mathbb E_\sigma \log F(x' + \delta)_y)$$
+** find adversarial exampel of $$F$$ that is robust to Gaussian noise
+* [NIPS20] SmoothAdv: Directly robustify smoothed network via adversarial training on smoothed loss
+** $$\arg\max_{\|x'-x\|<\epsilon}(-\log\mathbb E_\sigma F(x' + \delta)_y)$$
+** find adversarial example of $$G$$.
+
+Given data and label $$(x, y)$$, want to find $$\hat x$$ that maximizes loss of $$G$$ in an $$\ell_2$$ ball around $$x$$ w.r.t. cross-entropy loss $$L_{CE}$$.
+
+$$
+\begin{aligned}
+\hat x &= \arg\max_{\|x'-x\|<\epsilon}L_{CE}(G(x'), y) \\
+&  = \arg\max_{\|x'-x\|<\epsilon}(-\log\mathbb E_\sigma F(x' + \delta)_y)
+\end{aligned}
+$$

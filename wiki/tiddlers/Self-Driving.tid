@@ -1,0 +1,54 @@
+created: 20200828005455746
+modified: 20200918081144773
+tags: 
+title: Self-Driving
+type: text/vnd.tiddlywiki
+
+! Perception
+!! LiDAR
+
+!!! Sensors
+* Top LiDAR
+* All LiDAR
+
+!!! Representations
+
+* Point Cloud: PointNet
+* Voxel: SPConv
+** 2D voxelization: pillar
+* Range image
+
+!! Camera
+* [[Visual Odometry]]
+
+!! Radar
+* Semantic scene understanding
+* Learned topological place recognition
+* Introspective radar odometry
+* System-level self-supervision for radar perception and navigation
+** hard to work with: high return can be reflection & noise; low return can be occluded
+
+! Prediction
+* [[Pedestrain path prediction]]
+* ICRA17 Self-Supervised segmentation of path proposals
+* Raster-based motion prediction: [[video|https://slideslive.com/38930749/rasterbased-motion-prediction-for-safe-selfdriving]]
+** Raster-based methods are unconstrained.
+
+Papers
+* CVPR20 STINet (detection+tracking+prediction)
+** Need visual features of lanes and pedestrains to predict
+* CVPR20 VectorNet
+** In addition to prediction, can do map completion
+
+! Planning
+
+! Tools
+!! Simulation platforms
+
+* [[CARLA|https://leaderboard.carla.org/]]
+
+!! Datasets
+* Perception
+** [[Waymo Open Dataset]]
+* Prediction
+** Argoverse

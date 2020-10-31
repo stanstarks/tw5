@@ -1,0 +1,35 @@
+created: 20200603060305922
+modified: 20200610065333467
+tags: [[Bayesian Deep Learning Algorithms]] Talks NIPS19
+title: Deep Learning with Bayesian Principles
+type: text/vnd.tiddlywiki
+
+[[link|https://slideslive.com/38923183/deep-learning-with-bayesian-principles]]
+
+[[Exponential Family]] approximations
+
+!! Bayes as Optimization
+
+$$
+q_*(\theta)\propto e^{-\mathcal l(\theta)}\propto p(\mathcal D|\theta)p(\theta)\propto p(\theta|\mathcal D)
+$$
+
+The optimal solution is propotional to gibbs measure. This holds for a generic loss function.
+
+!! Conjugate Bayesian Inference from Bayesian Principles
+
+The posterior can be described with the same sufficient statistics $$T(\theta)$$.
+
+$$
+\mathcal l(\theta):= -\log p(\mathcal D|\theta)p(\theta) = -\lambda_{\mathcal D}^TT(\theta)
+$$
+
+$$
+\mathbb E_q[\mathcal l(\theta)] = -\lambda_{\mathcal D}\mu
+$$
+
+$$
+\nabla_\mu\mathbb E_q[\mathcal l(\theta)] = -\lambda_{\mathcal D}
+$$
+
+Forward-backward, SVI, Variational message passing etc. are special cases of the same Bayesian principles. [[AISTATS17 Conjuagate-computation variational inference: Converting variational inference in non-conjugate models to inference in conjugate models|https://arxiv.org/abs/1703.04265]]

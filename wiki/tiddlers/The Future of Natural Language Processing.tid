@@ -1,0 +1,17 @@
+created: 20200424051256289
+modified: 20200424053336875
+tags: Talks NLP
+title: The Future of Natural Language Processing
+type: text/vnd.tiddlywiki
+
+[[HuggingFace Youtube talk|https://www.youtube.com/watch?v=G5lmya6eKtc]]
+
+* model size and computational efficiency
+** SustaiNLP 2020
+** [[Language Model Compression]]
+* out-of-domain generalization and model evaluation
+* fine tuning and sample efficiency
+* common sense and inductive biases
+
+In early 2020, the language models are getting exponentially bigger (10B params)
+

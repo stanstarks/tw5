@@ -1,5 +1,5 @@
 created: 20160425022224634
-modified: 20180130042338188
+modified: 20200424051249426
 tags: 
 title: NLP
 type: text/vnd.tiddlywiki
@@ -32,6 +32,7 @@ type: text/vnd.tiddlywiki
 * Question answering (babl): Strongly Supervised MemNN (Weston et al. 2015) 93.3%; Dynamic Memory Network 93.6%
 * Sentiment Analysis (SST): Tree-LSTMs (Tai et al. 2015); DMN 88.5%
 * Part of speech tagging (PTB-WSJ): Bi-directional LSTM-CRP (Huang et al. 2015); 
+* [[Efficient Language Models|The Future of Natural Language Processing]]
 
 The performance is always dominated by the size of high quality data.
 

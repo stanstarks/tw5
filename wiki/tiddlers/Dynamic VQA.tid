@@ -1,0 +1,33 @@
+created: 20200809071111895
+modified: 20200921065255564
+tags: 
+title: Dynamic VQA
+type: text/vnd.tiddlywiki
+
+!! Model
+
+* VisualBert (Bert pretraining?)
+** Layers to dyno
+*** BertSelfAttention: num_attn_head
+*** BertIntermediate
+
+!! Visualization
+
+* BERTology
+** Attention weights
+*** gradients magnitude
+*** distribution scatter plot
+*** attending to specific positions?
+
+!! Papers
+
+* Learning Dynamic Networks
+** Supermasks in Superposition: https://arxiv.org/abs/2006.14769
+** BatchEnsemble: An Alternative Approach to Efficient Ensemble and Lifelong Learning: https://arxiv.org/abs/2002.06715
+** DynaBERT: Dynamic BERT with Adaptive Width and Depth: https://arxiv.org/abs/2004.04037
+* Modifying Transformer Structure
+** Efficient Transformers: A Survey: https://arxiv.org/abs/2009.06732
+* BERTology
+** A Primer in BERTology: What we know about how BERT works: https://arxiv.org/abs/2002.12327
+** Are Sixteen Heads Really Better than One?: https://arxiv.org/abs/1905.10650
+** What Does BERT Look At? An Analysis of BERT’s Attention: https://arxiv.org/abs/1906.04341

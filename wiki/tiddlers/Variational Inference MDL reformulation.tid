@@ -1,0 +1,34 @@
+created: 20200620060122368
+modified: 20200620105803316
+tags: [[Variational Inference]]
+title: Variational Inference MDL reformulation
+type: text/vnd.tiddlywiki
+
+reference: Variational learning and bits-back coding: an information-theoretic view to bayesian learning
+
+Variational inference can be reformulated as the optimization of a Minimum description length loss function. One advantange of the MDL interpretation is that it leads to a clear separation between prediction accuracy and model complexity.
+
+''variational free energy'' $$\mathcal F$$ w.r.t. parameters $$\beta$$
+
+$$
+\mathcal F = -\langle\ln [\frac{Pr(\mathcal D|\mathbf w)P(\mathbf w|\mathbf \alpha)}{Q(\mathbf w|\mathbf \beta)}]\rangle_{\mathbf w\sim Q(\mathbf \beta)}
+$$
+
+Rearranging
+
+$$
+\mathcal F = \langle L^N(\mathbf w, \mathcal D)\rangle_{\mathbf w\sim Q(\mathbf \beta)}+D_{KL}(Q(\beta)\|P(\alpha))
+$$
+
+Shannon's source coding theorem tells us that the first term on the right hand side is a lower bound on the expected amount of information (measured in nats, due to the use of natural logarithms) required to transmit the targets in $$\mathcal D$$ to a receiver who knows the inputs. Error loss:
+
+$$
+L^E(\beta, \mathcal D) =  \langle L^N(\mathbf w, \mathcal D)\rangle_{\mathbf w\sim Q(\mathbf \beta)}
+$$
+
+Complexity loss:
+$$
+L^C(\alpha, \beta) = D_{KL}(Q(\beta)\|P(\alpha))
+$$
+
+Two transmission costs were ignored in the above discussion. One is the cost of transmitting the model with $$\mathbf w$$ unspecified (e.g. training algorithm). The other is the cost of transmitting the prior

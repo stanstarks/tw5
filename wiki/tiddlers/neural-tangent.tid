@@ -1,0 +1,11 @@
+created: 20200514041340262
+modified: 20200514042939319
+tags: [[Neural Tangent Kernel]]
+title: neural-tangent
+type: text/vnd.tiddlywiki
+
+[[link|https://github.com/google/neural-tangents]]
+
+!! Library usage and improvements
+
+* [[Taylorized Taylorized Training: Towards Better Approximation of Neural Network Training at Finite Width]]

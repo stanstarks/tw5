@@ -1,7 +1,7 @@
 created: 20161010062803919
-modified: 20190712014948898
-tags: Dropout Blog [[Bayesian DL]]
-title: Dropout as a Bayesian Approximation
+modified: 20200610070211563
+tags: [[ICML 2016]] Dropout Blog [[Bayesian DL]]
+title: ICML16 Dropout as a Bayesian Approximation
 type: text/vnd.tiddlywiki
 
 ! Background: Propagating Uncertainty

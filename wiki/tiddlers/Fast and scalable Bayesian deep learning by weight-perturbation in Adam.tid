@@ -1,0 +1,29 @@
+created: 20200610060909768
+modified: 20200623073236697
+tags: [[Deep Learning with Bayesian Principles]] [[ICML 2018]]
+title: Fast and scalable Bayesian deep learning by weight-perturbation in Adam
+type: text/vnd.tiddlywiki
+
+Natural-gradient VI methods exploit the Riemannian geometry of $$q(\theta)$$ by scaling the gradient iwth the inverse of its [[Fisher information matrix (FIM)|Fisher information metric]].
+
+For Gaussian mean-field VI, the method of [[Khan & Lin (2017)|https://emtiyaz.github.io/papers/van_poster.pdf]] gives the following update:
+
+NGVI:
+
+$$
+\begin{aligned}
+\mathbf \mu_{t+1} &= \mathbf \mu_t + \beta_t\mathbf\sigma_{t+1}^2\circ[\hat\nabla_\mu\mathcal L_t],\\
+\mathbf \sigma^{-2}_{t+1} &= \mathbf \sigma_t - 2\beta_t[\hat\nabla_{\sigma^2}\mathcal L_t],\\
+\end{aligned}
+$$
+
+Update components with larger variance more?? What about trust region?
+
+VON:
+
+$$
+\begin{aligned}
+\mathbf \mu_{t+1} &= \mathbf \mu_t - \beta_t(\hat{\mathbf g}(\theta_{t}) + \tilde\lambda\mathbf\mu_t)/(s_{t+1}+\tilde\lambda),,\\
+\mathbf s_{t+1} &= (1-\beta_t)\mathbf s_t + \beta_t\text{diag}[\hat\nabla_{\sigma^2}\mathcal L_t],\\
+\end{aligned}
+$$

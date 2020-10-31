@@ -1,0 +1,18 @@
+created: 20200910013258092
+modified: 20200918040701658
+tags: SLAM Self-Driving
+title: Visual Odometry
+type: text/vnd.tiddlywiki
+
+aka ego-motion estimation
+
+* ICRA18 Self-supervised distractor learning for VO
+* CVPR20 D3VO: dual camera training, mono VO
+* CVPR20 ViDAR
+** Deep SfM from Waymo dataset
+** Caliberate shutter time
+** Large scale training
+
+!! Radar
+
+* CoRL19 Masking by Moving: Learning Distraction-Free Radar Odometry from Pose Information

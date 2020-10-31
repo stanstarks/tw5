@@ -1,0 +1,13 @@
+created: 20200424053343584
+modified: 20200424114919406
+tags: NLP
+title: Language Model Compression
+type: text/vnd.tiddlywiki
+
+* Distillation
+** DistillBert: 95% of Bert performances in a model 40% smaller and 60% faster
+** TinyBERT
+* Pruning
+** Reducing heads in attention
+*** [[Analyzing multi-head self-attention|https://www.aclweb.org/anthology/P19-1580.pdf]]
+*** [[Are Sixteen Heads Really Better than One|https://arxiv.org/abs/1905.10650]]

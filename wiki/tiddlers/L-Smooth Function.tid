@@ -1,0 +1,15 @@
+created: 20200508054406960
+modified: 20200508061641020
+tags: Analysis
+title: L-Smooth Function
+type: text/vnd.tiddlywiki
+
+A function $$f(x)$$ is $$L$$-smooth if
+
+* the gradient is $$L$$-Lipschitz continuous: $$\|\nabla f(x) - \nabla f(y)\|\le L\|x-y\|$$
+* $$f$$ is bounded by quadratic function: $$|f(y)-f(x)-\langle\nabla f(x), y-x\rangle|\le\frac L 2\|y-x\|^2_2$$
+* the norm of the slope if $$\nabla f$$ (which is $$\nabla^2 f$$) is bounded above
+* the gradient of $$f$$ is monotonic with additional term $$\langle x-y, \nabla f(x)-\nabla f(y)\rangle\ge\frac1L\|\nabla f(x)-\nabla f(y)\|^2_2$$
+* if $$f$$ is twice differentiable, $$\nabla^2 f(x)\preceq L\mathbf I$$
+
+[[Proofs|https://angms.science/doc/CVX/CVX_alphabeta.pdf]]

@@ -1,0 +1,30 @@
+created: 20200508052436114
+modified: 20200512115152389
+tags: Tutorials NIPS19
+title: Statistical Learning Theory
+type: text/vnd.tiddlywiki
+
+[[link|https://www.youtube.com/watch?v=m8PLzDmW-TY]]
+
+!! First Generation SLT
+
+For one fixed (non data-dependent) $$h$$:
+
+$$
+\mathbb E[R_{in}(h)] = \mathbb E[\frac1m\sum_{i=1}^m l(h(X_i), Y_i)] = R_{out}(h)
+$$
+
+$$l(h(X_i)$$ are independent r.v.'s, (because of i.i.d. assumption)
+
+if $$0\le l(h(X_i)\le 1$$, using Hoeffing's inequality:
+$$
+\mathbf P^m[\Delta(h)>\epsilon]\le \exp(-2m\epsilon^2) = \delta
+$$
+
+$$\delta$$ is the confidence. With probability $$\ge 1-\delta$$
+
+$$
+R_{out}(h)\le\R_{in}(h) +\sqrt{\frac{1}{2m}\log(\frac{1}{\delta})}
+$$
+
+!! Finite function class

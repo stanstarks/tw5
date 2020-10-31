@@ -1,0 +1,51 @@
+created: 20200423070006769
+modified: 20200423091158461
+tags: Statistics
+title: Martingale
+type: text/vnd.tiddlywiki
+
+<<<
+''Definition'' [Martingale]<br>
+A random process, $$\{X_n: 0\le n\ge\infty\}$$, is a martingale w.r.t. the information filtration, $$\mathcal F_n$$, and probability distribution, $$P$$, if
+
+# $$E^P[|X_n|]<\infty$$ for all $$n\ge0$$
+# $$E^P[X_{n+m}|\mathcal F_n]=X_n$$ for all $$n, m\ge 0$$
+<<<
+
+$$\mathcal F_n$$ knows all the information of the model at time $$n$$. Can be simply regarded as $$\{X_1, \dots, X_n\}$$.
+
+Martingales are used to modle fair games and have a rich history in the modeling of gambling problems.
+
+We define a submartingale by replacing condition #2 with
+
+$$
+E^P[X_{n+m}|\mathcal F_n]\ge X_n,\qquad \forall n, m\ge 0.
+$$
+
+And we define a supermartingale by replacing condition #2 with
+$$
+E^P[X_{n+m}|\mathcal F_n]\le X_n,\qquad \forall n, m\ge 0.
+$$
+
+!! A martingale betting strategy
+
+Keep doubling the bet until we eventually win.
+
+Let $$W_n$$ denote total winnings after $$n$$ coin tosses assuming $$W_0 = 0$$, then $$W_n$$ is a martingale.
+
+$$W_n = 1$$ if we win for the first time at $$n$$th bet and $$W_n = -2^n+1$$ if we have not won.
+
+!! Polya's Urn
+Start with an urn with a red ball and a green ball.
+
+Let $$X_n$$ denote the number of red balls in the urn after $$n$$ draws. Then
+
+$$
+P(X_{n+1}=k+1|X_n=k) = \frac{k}{n+2}
+$$
+
+$$
+P(x_{n+1}=k|X_n=k) = \frac{n+2-k}{n+2}
+$$
+
+$$M_n=X_n/(n+2)$$ is a martingale.

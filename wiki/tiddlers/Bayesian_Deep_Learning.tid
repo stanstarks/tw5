@@ -1,5 +1,5 @@
 created: 20170621062553683
-modified: 20200417025735956
+modified: 20200610065615188
 tags: Uncertainty [[Probabilistic Deep Learning]] Bayesian
 title: Bayesian Deep Learning
 type: text/vnd.tiddlywiki
@@ -40,15 +40,22 @@ Topics
 
 {{Bayesian Deep Learning Algorithms}}
 
+! Evaluation
+
+{{Bayesian Deep Learning Evaluation}}
+
 ! Code
 
 * [[Bayesian Networks|https://github.com/JavierAntoran/Bayesian-Neural-Networks]]
+* [[SWAG|https://github.com/wjmaddox/swa_gaussian]]
 
 ! Resources
 
 * [[NIPS19 Bayesian Deep Learning Workshop]]
+* [[Deep Learning with Bayesian Principles]]
 
 ! Tasks
 
 * [[Bayesian Object Detection]]
 * [[Bayesian Diagnosis]]
+* [[Probabilistic Meta-Learning]]

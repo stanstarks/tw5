@@ -1,0 +1,17 @@
+created: 20200701055452104
+modified: 20200701071541994
+tags: 
+title: GCN object detection
+type: text/vnd.tiddlywiki
+
+! Related work
+
+* Relational Network
+* Self-attention/Graph convolution network
+** [[Dual Graph Convolutional Network for Semantic Segmentation|https://arxiv.org/pdf/1909.06121.pdf]]: 
+** [[Uncertainty-based Graph Convolutional Networks for Organ Segmentation Refinement|https://openreview.net/pdf?id=UUie86nf5B]]: dropout uncertainty added to graph node
+
+! Task
+
+* Panoptic Segmentation
+** SOGNet: Scene Overlap Graph Network for Panoptic Segmentation

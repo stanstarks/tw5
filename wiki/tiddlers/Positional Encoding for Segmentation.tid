@@ -1,0 +1,11 @@
+created: 20200703013638085
+modified: 20200703052126349
+tags: 
+title: Positional Encoding for Segmentation
+type: text/vnd.tiddlywiki
+
+BlendMask utilizes RoI to guide attention of corresponding parts. One downside of this approach is that the 
+
+For regression tasks there has been success of using high-frequency information the position encoding.
+
+For segmentation, the details can be well retained by the feature map itself. It is more important to guide the attention to focus on the target relative positions than encoding highly accurate position information. Direct positions are used for CondInst and Solo V2 instead.

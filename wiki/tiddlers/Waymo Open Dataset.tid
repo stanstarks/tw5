@@ -1,0 +1,23 @@
+created: 20200910055210074
+modified: 20200910065103236
+tags: Self-Driving
+title: Waymo Open Dataset
+type: text/vnd.tiddlywiki
+
+[[video|https://www.youtube.com/watch?v=9g9GsI33ol8]]
+
+* 1950 20s-scenes at 10Hz
+* 1 mid range lidar, 4 near range lidar
+* 5 high resolution cameras
+* 11M 2D image labels in 1000 segments
+* 12M 3D LiDAR labels in 1200 segments
+
+Horizon:
+
+* Detection
+** project box and segmentation results to point cloud
+** point cloud rotation augmentation
+** point cloud enhancement
+* Tracking
+** 3rd stage association
+** ReID

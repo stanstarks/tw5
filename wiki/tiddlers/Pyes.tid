@@ -1,0 +1,12 @@
+created: 20200519070040150
+modified: 20200519105407967
+tags: 
+title: Pyes
+type: text/vnd.tiddlywiki
+
+19/05
+
+* add Bayes Modules
+** Normal
+* Regularizer
+** NormalKLDivergence
