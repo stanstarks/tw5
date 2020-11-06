@@ -1,5 +1,5 @@
 created: 20200508052436114
-modified: 20200512115152389
+modified: 20201106030038265
 tags: Tutorials NIPS19
 title: Statistical Learning Theory
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 !! First Generation SLT
 
-For one fixed (non data-dependent) $$h$$:
+Empirical Risk: For one fixed (non data-dependent) $$h$$:
 
 $$
 \mathbb E[R_{in}(h)] = \mathbb E[\frac1m\sum_{i=1}^m l(h(X_i), Y_i)] = R_{out}(h)
@@ -21,10 +21,86 @@ $$
 \mathbf P^m[\Delta(h)>\epsilon]\le \exp(-2m\epsilon^2) = \delta
 $$
 
-$$\delta$$ is the confidence. With probability $$\ge 1-\delta$$
+$$\delta$$ is the confidence. With probability $$\ge 1-\delta$$.
+
+Theoretical Risk:
 
 $$
-R_{out}(h)\le\R_{in}(h) +\sqrt{\frac{1}{2m}\log(\frac{1}{\delta})}
+R_{out}(h)\le R_{in}(h) +\sqrt{\frac{1}{2m}\log(\frac{1}{\delta})}
 $$
 
 !! Finite function class
+
+* Structural Risk Minimization
+* VC dimension, Rademacher complexity
+
+[[IAS seminar|https://www.bilibili.com/video/BV14541187Ln]]
+
+!! PAC-Bayes framework (Generalised Bayes)
+
+* Before data, fix a distribution $$P\in M_1(\mathcal H)$$ "prior"
+* Based on data, learn a distribution $$Q\in M_1(\mathcal H)$$ "posterior"
+* Predictions:
+** draw $$h\sim Q$$ and predict with the chosen $$h$$. 
+** each prediction wiht a fresh random draw.
+
+The @@color:red;risk measures@@ $$R_{in}(h)$$ and $$R_{out}(h)$$ are @@color:red;extended by averaging@@:
+
+$$
+R(Q) \equiv \int_{\mathcal H}R(h)dQ(h)
+$$
+
+!!! PAC-Bayes vs Bayesian learning
+
+* Prior
+** PAC-Bayes: bounds hold for any distribution
+** Bayes: prior choice impacts inference
+* Posterior
+** PAC-Bayes: bounds hold for any distribution
+** Bayes: posterior uniquely defined by prior and statistical model
+* Data distribution
+** PAC-Bayes: bounds hold for any distribution
+** Bayes: randomness lies in the noise model generating the output
+
+!!! A General PAC-Bayesian Theorem
+ $$\Delta$$-function: "distance" between $$R_{in}(Q)$$ and $$R_{out}(Q)$$
+
+Convex function $$\Delta: [0,1] \times [0,1]\rightarrow \mathbb R$$
+
+For any distribution $$D$$ on $$\mathcal X\times \mathcal Y$$, for any set $$\mathcal H$$ of voters, for any distribution $$P$$ on $$\mathcal H$$, for any $$\delta\in[0, 1]$$, and for any $$\Delta$$-function, we have, with probability at least $$1-\delta$$ over the choice of $$S\sim D^m$$,
+
+$$
+\forall Q \text{ on } \mathcal H: \Delta(R_{in}(Q), R_{out}(Q))\le\frac1m[KL(Q\|P)+\ln\frac{\mathcal J_\Delta(m)}{\delta}]
+$$
+
+Proof: Change of measure inequality and Markov's inequality
+
+!! Linear classifiers
+
+* choose prior and posterior to be Gaussians
+* $$P$$ centered at the origin
+* $$Q\sim \mathcal N(\mathbf w, \mu)$$
+
+Linear classifiers performance may be bounded by:
+$$
+KL(\hat Q_S(\mathbf w, \mu)\|Q_D(\mathbf w, \mu))\le\frac1m ( KL(P\|Q(\mathbf w, \mu)) +\ln\frac{m+1}{\delta})
+$$
+
+!!! Data- or distribution-dependent priors
+
+* using part of the data to learn the prior for SVMs
+* defining the prior in terms of the data generating distribution (aka localised PAC-Bayes)
+
+$$\eta$$Prior SVM in case VC dimension does not work
+
+* @@color:green;Bounds are tight@@
+* @@color:green;Model selection from the bounds is as good as 10FCV@@
+* @@color:red;The better bounds do not appear to give better model selection@@
+
+!! Performance of deep NNs
+
+* For SVMs we can think of the margin as capturing an accuracy with which we need to estimate the weights
+* If we have a deep network solution with a wide basin of good performance we can take a similar approach using PAC-Bayes with a broad posterior around the solution
+* (Dziugaite and Roy + Neyshabur) have derived some of the tightest deep learning bounds in this way
+** by training to expand the basin of attraction
+** hence not measuring good generalisation of normal training

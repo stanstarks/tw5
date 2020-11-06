@@ -1,6 +1,6 @@
 color: #501464
 created: 20141010102453511
-modified: 20200214060205626
+modified: 20201104082459801
 tags: Programming
 title: Tools
 type: text/vnd.tiddlywiki
@@ -17,3 +17,5 @@ type: text/vnd.tiddlywiki
 * [[Magit]]
 * [[Dot Files]]
 * [[Kitty]]
+* [[Mirrors]]
+* [[Websites]]

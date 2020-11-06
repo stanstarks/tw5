@@ -1,5 +1,5 @@
 created: 20161102054547779
-modified: 20200417025214337
+modified: 20201104063335825
 title: Bayesian
 type: text/vnd.tiddlywiki
 
@@ -10,6 +10,7 @@ type: text/vnd.tiddlywiki
 !! Textbooks
 
 * [[Bayesian Choice]]
+* [[Statistical Rethinking]]
 
 ! Applications
 * [[Bayesian information criterion]]

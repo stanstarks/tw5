@@ -1,0 +1,11 @@
+created: 20201102072022959
+modified: 20201104080627011
+tags: Tools
+title: Mirrors
+type: text/vnd.tiddlywiki
+
+https://mirrors.bfsu.edu.cn/
+
+!! Pip
+
+`pip install -i https://mirrors.bfsu.edu.cn/pypi/web/simple some-package`

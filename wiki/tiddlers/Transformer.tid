@@ -1,5 +1,5 @@
 created: 20181106063411015
-modified: 20200224020133162
+modified: 20201105073443693
 tags: [[Sequential Models]]
 title: Transformer
 type: text/vnd.tiddlywiki
@@ -7,6 +7,9 @@ type: text/vnd.tiddlywiki
 ! Language modeling
 * [[Transformer XL]]
 * [[Compressed Transformer]]
+
+! Vision
+* ViT (pytorch repo: https://github.com/jeonsworld/ViT-pytorch)
 
 ! Reinforcement learning
 * [[Iterated Amplification]]
